@@ -56,7 +56,17 @@
   .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
   .view-all-link:hover { background: var(--accent); color: var(--paper); }
 
-  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; }
+  .categories-section { padding: 2rem 0; border-top: 1px solid var(--rule); }
+  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
+  .type-link { display: block; text-decoration: none; padding: 1.25rem 1.5rem; border: 1px solid var(--rule); border-radius: 4px; transition: all 0.15s; background: var(--paper); }
+  .type-link:hover { border-color: var(--accent); background: var(--accent-light); }
+  .type-link:hover .type-name { color: var(--accent); }
+  .type-link.inactive { cursor: default; }
+  .type-link.inactive:hover { border-color: var(--rule); background: var(--paper); }
+  .type-link.inactive:hover .type-name { color: var(--ink); }
+  .type-icon { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+  .type-name { font-family: var(--serif-cn); font-size: 1.05rem; font-weight: 400; color: var(--ink); margin-bottom: 0.25rem; transition: color 0.15s; }
+  .type-desc { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); }
   .about-text { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); max-width: 480px; line-height: 1.7; }
   .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); white-space: nowrap; flex-shrink: 0; }
 
@@ -158,6 +168,22 @@
     </ul>
     <div class="view-all-row">
       <a class="view-all-link" href="entries.html">查看所有资讯 →</a>
+    </div>
+  </section>
+
+  <section class="categories-section">
+    <p class="section-label">机构类型</p>
+    <div class="type-grid">
+      <a class="type-link" href="ngo.html">
+        <p class="type-icon">TYPE / 01</p>
+        <p class="type-name">公益机构</p>
+        <p class="type-desc">非营利团体、慈善组织与社区服务</p>
+      </a>
+      <div class="type-link inactive">
+        <p class="type-icon">TYPE / 02</p>
+        <p class="type-name">商业机构</p>
+        <p class="type-desc">商业服务、专业服务与生活服务</p>
+      </div>
     </div>
   </section>
 
