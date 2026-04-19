@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index 50 · 资讯整理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
+    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
+    --accent: #1A5C48; --accent-light: #E8F0ED;
+    --tag-event: #3D2B14; --tag-event-bg: #F5E6CE;
+    --tag-service: #152840; --tag-service-bg: #D9E8F5;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif-cn: 'Noto Serif SC', serif;
+    --serif-en: 'EB Garamond', serif;
+  }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .site-title-block { margin-bottom: 0; }
+  .site-index-word { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
+  .site-title { font-family: var(--serif-en); font-size: 3.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; line-height: 1; display: flex; align-items: baseline; gap: 0.15em; }
+  .site-title .num-50 { color: var(--accent); }
+  .site-tagline { font-family: var(--serif-cn); font-size: 0.8rem; font-weight: 300; color: var(--ink-muted); margin-top: 0.55rem; letter-spacing: 0.06em; border-left: 2px solid var(--accent); padding-left: 0.7rem; line-height: 1.6; }
+  .inquiry-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 4px 10px; border-radius: 2px; white-space: nowrap; margin-top: 0.4rem; flex-shrink: 0; transition: background 0.15s, color 0.15s; }
+  .inquiry-link:hover { background: var(--accent); color: var(--paper); }
+
+  .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
+
+  .latest-section { padding: 2.5rem 0 2rem; }
+  .entry-list { list-style: none; }
+
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.event { background: var(--tag-event-bg); color: var(--tag-event); }
+  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+
+  .entry-client { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.03em; }
+
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .view-all-row { padding: 1.5rem 0 2rem; border-top: 1px solid var(--paper-mid); display: flex; justify-content: flex-end; }
+  .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
+  .view-all-link:hover { background: var(--accent); color: var(--paper); }
+
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; }
+  .about-text { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); max-width: 480px; line-height: 1.7; }
+  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); white-space: nowrap; flex-shrink: 0; }
+
+  @media (max-width: 560px) {
+    .site-wrap { padding: 0 1.25rem; }
+    .type-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .site-title { font-size: 2.6rem; }
+    header { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <header>
+    <div class="site-title-block">
+      <span class="site-index-word">Index</span>
+      <h1 class="site-title"><span class="num-50">50</span>&thinsp;·&thinsp;资讯整理</h1>
+      <p class="site-tagline">在这里找到各地活动与服务资讯，有序存档，随时可查。<br>本站收入的 50%，捐助公益团体，以流浪动物救援及残障人士资助为主。</p>
+    </div>
+    <a class="inquiry-link" href="contact.html">联络我们</a>
+  </header>
+
+  <section class="latest-section">
+    <p class="section-label">最新资讯</p>
+    <ul class="entry-list">
+
+      <li>
+        <a class="entry-item" href="entry-visionhome-service.html">
+          <span class="entry-index">APR<br>19</span>
+          <div class="entry-body">
+            <div class="entry-meta">
+              <span class="entry-tag service">服务</span>
+              <span class="entry-client">Vision Home</span>
+            </div>
+            <p class="entry-title">弱势群体住宿、成长与教育照护</p>
+            <p class="entry-desc">为约30–40名儿童提供全天候食宿，关注心理健康与学业，长期接受捐助与物资支持。</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="entry-item" href="entry-newhope-service.html">
+          <span class="entry-index">APR<br>19</span>
+          <div class="entry-body">
+            <div class="entry-meta">
+              <span class="entry-tag service">服务</span>
+              <span class="entry-client">新希望儿童院</span>
+            </div>
+            <p class="entry-title">弱势儿童全方位成长与教育资助计划</p>
+            <p class="entry-desc">为孤儿、单亲家庭及极贫家庭儿童提供住宿、教育及生活照护，长期接受捐助与志愿者支持。</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="entry-item" href="entry-zhongcheng-service.html">
+          <span class="entry-index">APR<br>18</span>
+          <div class="entry-body">
+            <div class="entry-meta">
+              <span class="entry-tag service">服务</span>
+              <span class="entry-client">忠诚收留迟钝残障儿童中心</span>
+            </div>
+            <p class="entry-title">特殊人群长期居住与生活照护计划</p>
+            <p class="entry-desc">为缺乏家庭照顾的残障人士提供住宿、日常生活协助及基本能力训练，长期接受物资捐助。</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="entry-item" href="entry-index50-recruitment.html">
+          <span class="entry-index">APR<br>18</span>
+          <div class="entry-body">
+            <div class="entry-meta">
+              <span class="entry-tag event">活动</span>
+              <span class="entry-client">Index 50</span>
+            </div>
+            <p class="entry-title">诚邀公益团体加入 Index 50</p>
+            <p class="entry-desc">Index 50 正整理第一批公益机构的资讯页面，欢迎流浪动物救援、残障援助、老人关怀、贫困援助等团体联络。</p>
+          </div>
+        </a>
+      </li>
+
+      <li>
+        <a class="entry-item" href="entry-index50-service.html">
+          <span class="entry-index">APR<br>17</span>
+          <div class="entry-body">
+            <div class="entry-meta">
+              <span class="entry-tag service">服务</span>
+              <span class="entry-client">Index 50</span>
+            </div>
+            <p class="entry-title">Index 50 · 资讯整理平台</p>
+            <p class="entry-desc">在这里找到各地活动与服务资讯，有序存档，随时可查。平台收入的 50% 捐助公益团体。</p>
+          </div>
+        </a>
+      </li>
+
+    </ul>
+    <div class="view-all-row">
+      <a class="view-all-link" href="entries.html">查看所有资讯 →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="about-text">整理与发布各类资讯，使资讯更容易被查找、理解与持续存在。</p>
+    <span class="footer-mark">INDEX 50 · v1</span>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<svg width="820" height="312" viewBox="0 0 820 312" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Index 50 Facebook Cover v4</title>
+<desc>圆弧填满画面，文字缩小置于右上角</desc>
+
+<rect width="820" height="312" fill="#F6F2EB"/>
+
+<circle cx="-100" cy="180" r="320" fill="none" stroke="#D4CAB8" stroke-width="0.8" opacity="0.55"/>
+<circle cx="-100" cy="180" r="250" fill="none" stroke="#D4CAB8" stroke-width="0.6" opacity="0.45"/>
+<circle cx="-100" cy="180" r="180" fill="none" stroke="#D4CAB8" stroke-width="0.5" opacity="0.35"/>
+
+<circle cx="920" cy="380" r="420" fill="none" stroke="#D4CAB8" stroke-width="0.8" opacity="0.45"/>
+<circle cx="920" cy="380" r="320" fill="none" stroke="#D4CAB8" stroke-width="0.6" opacity="0.38"/>
+<circle cx="920" cy="380" r="220" fill="none" stroke="#D4CAB8" stroke-width="0.5" opacity="0.3"/>
+
+<circle cx="410" cy="-80" r="300" fill="none" stroke="#D4CAB8" stroke-width="0.5" opacity="0.25"/>
+<circle cx="410" cy="420" r="300" fill="none" stroke="#D4CAB8" stroke-width="0.5" opacity="0.2"/>
+
+<text x="748" y="68" font-family="Georgia, serif" font-size="9" font-weight="400" fill="#9A8E82" text-anchor="middle" letter-spacing="20">INDEX</text>
+<text x="744" y="112" font-family="Georgia, serif" font-size="56" font-weight="400" fill="#161310" text-anchor="middle" letter-spacing="-2">50</text>
+<circle cx="776" cy="98" r="4.5" fill="#1A5C48"/>
+
+</svg>

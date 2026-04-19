@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联络我们 · Index 50</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
+    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
+    --accent: #1A5C48;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif-cn: 'Noto Serif SC', serif;
+    --serif-en: 'EB Garamond', serif;
+  }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
+  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
+  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+
+  .page-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .page-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .page-title { font-family: var(--serif-en); font-size: 2.8rem; font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 0.75rem; }
+  .page-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; max-width: 520px; }
+
+  .contact-section { padding: 2.5rem 0; }
+  .contact-item { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.5rem; border: 1px solid var(--rule); border-radius: 3px; margin-bottom: 1rem; background: var(--paper); flex-wrap: wrap; }
+  .contact-item:last-child { margin-bottom: 0; }
+  .contact-info {}
+  .contact-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .contact-value { font-family: var(--mono); font-size: 0.9rem; color: var(--ink); }
+  .contact-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 7px 16px; border-radius: 2px; white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0; }
+  .contact-btn:hover { opacity: 0.85; }
+
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .footer-back:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .site-wrap { padding: 0 1.25rem; }
+    .page-title { font-size: 2.1rem; }
+    .contact-item { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <header class="site-header">
+    <div class="site-header-left">
+      <span class="site-num">INDEX 50</span>
+      <a class="site-name" href="index.html">资讯整理</a>
+    </div>
+    <a class="back-link" href="index.html">← 返回首页</a>
+  </header>
+
+  <section class="page-header">
+    <p class="page-label">联络我们</p>
+    <h1 class="page-title">Contact</h1>
+    <p class="page-desc">在这里找到各地活动与服务资讯，有序存档，随时可查。平台收入的 50% 捐助公益团体，以流浪动物救援及残障人士资助为主。</p>
+    <p class="page-desc" style="margin-top:0.75rem;">有任何疑问，欢迎通过以下方式联络。</p>
+  </section>
+
+  <section class="contact-section">
+
+    <div class="contact-item">
+      <div class="contact-info">
+        <p class="contact-label">WhatsApp</p>
+        <p class="contact-value">Index 50</p>
+      </div>
+      <a class="contact-btn" href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">WhatsApp →</a>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-info">
+        <p class="contact-label">Email</p>
+        <p class="contact-value">gpl0401@gmail.com</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <span class="footer-mark">INDEX 50 · v1</span>
+    <a class="footer-back" href="index.html">← 返回首页</a>
+  </footer>
+
+</div>
+</body>
+</html>
