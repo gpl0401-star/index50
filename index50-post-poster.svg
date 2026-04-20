@@ -1,0 +1,50 @@
+<svg width="680" height="680" viewBox="0 0 680 680" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>给正在四处发 post 做宣传的人们 · Index 50</title>
+<desc>把你手上的宣传资料交给我，整理并发布在 Index 50</desc>
+
+<rect width="680" height="680" fill="#152840"/>
+
+<!-- 圆弧装饰 -->
+<circle cx="-40" cy="340" r="320" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.15"/>
+<circle cx="-40" cy="340" r="240" fill="none" stroke="#ffffff" stroke-width="0.6" opacity="0.1"/>
+<circle cx="720" cy="680" r="380" fill="none" stroke="#ffffff" stroke-width="0.8" opacity="0.12"/>
+<circle cx="720" cy="680" r="280" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.08"/>
+
+<!-- INDEX 50 标记 左上 -->
+<text x="60" y="72" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="11" font-weight="400" fill="#ffffff" opacity="0.6" letter-spacing="16">INDEX</text>
+<text x="56" y="118" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="52" font-weight="400" fill="#ffffff" opacity="0.7" letter-spacing="-2">50</text>
+<circle cx="113" cy="103" r="5" fill="#F6F2EB" opacity="0.8"/>
+
+<!-- 分区线 1 -->
+<line x1="60" y1="148" x2="620" y2="148" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+
+<!-- 主标题 -->
+<text x="60" y="218" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="46" font-weight="400" fill="#ffffff" letter-spacing="-1">给正在四处发 post</text>
+<text x="60" y="272" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="46" font-weight="400" fill="#ffffff" letter-spacing="-1">做宣传的人们：</text>
+
+<!-- 分区线 2 -->
+<line x1="60" y1="302" x2="620" y2="302" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+
+<!-- 说明 -->
+<text x="60" y="338" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#ffffff" opacity="0.7">把你手上的宣传资料交给我，整理并发布分享在 Index 50：</text>
+
+<!-- 提供内容 -->
+<text x="60" y="372" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14" fill="#ffffff" opacity="0.9">· 1 个单位的独立资讯页面</text>
+<text x="60" y="400" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="14" fill="#ffffff" opacity="0.9">· 3 则资讯帖子</text>
+
+<!-- 分区线 3 -->
+<line x1="60" y1="428" x2="620" y2="428" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+
+<!-- Tagline + 名额 -->
+<text x="60" y="464" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#ffffff" opacity="0.7">宣传资讯发完就被刷掉？这里的资讯有序存档，随时可查。</text>
+<text x="60" y="492" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#ffffff" opacity="0.85">目前开放 30 个名额，有兴趣可联系询问更多详情。</text>
+
+<!-- 分区线 4 -->
+<line x1="60" y1="522" x2="620" y2="522" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+
+<!-- 联系 -->
+<text x="60" y="558" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="11" fill="#ffffff" opacity="0.6" letter-spacing="8">CONTACT</text>
+<text x="60" y="590" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="13" fill="#ffffff" opacity="0.85" letter-spacing="1">WhatsApp · gpl0401@gmail.com</text>
+<text x="60" y="636" font-family="'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif" font-size="18" fill="#ffffff" opacity="0.9" letter-spacing="2">index50.org</text>
+
+</svg>

@@ -48,6 +48,14 @@
   .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
 
   .entry-client { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.03em; }
+  .entry-state { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; }
+
+  /* ── Category nav ── */
+  .cat-nav { padding: 2.5rem 0 2rem; border-top: 1px solid var(--rule); }
+  .cat-nav-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.1rem; }
+  .cat-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .cat-link { font-family: var(--serif-en); font-size: 1.5rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; border: 1px solid var(--rule); padding: 0.6rem 1.4rem; border-radius: 3px; transition: border-color 0.15s, color 0.15s, background 0.15s; }
+  .cat-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
 
   .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
   .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
@@ -56,17 +64,7 @@
   .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
   .view-all-link:hover { background: var(--accent); color: var(--paper); }
 
-  .categories-section { padding: 2rem 0; border-top: 1px solid var(--rule); }
-  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
-  .type-link { display: block; text-decoration: none; padding: 1.25rem 1.5rem; border: 1px solid var(--rule); border-radius: 4px; transition: all 0.15s; background: var(--paper); }
-  .type-link:hover { border-color: var(--accent); background: var(--accent-light); }
-  .type-link:hover .type-name { color: var(--accent); }
-  .type-link.inactive { cursor: default; }
-  .type-link.inactive:hover { border-color: var(--rule); background: var(--paper); }
-  .type-link.inactive:hover .type-name { color: var(--ink); }
-  .type-icon { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.08em; margin-bottom: 0.6rem; }
-  .type-name { font-family: var(--serif-cn); font-size: 1.05rem; font-weight: 400; color: var(--ink); margin-bottom: 0.25rem; transition: color 0.15s; }
-  .type-desc { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); }
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; }
   .about-text { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); max-width: 480px; line-height: 1.7; }
   .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); white-space: nowrap; flex-shrink: 0; }
 
@@ -102,6 +100,7 @@
             <div class="entry-meta">
               <span class="entry-tag service">服务</span>
               <span class="entry-client">Vision Home</span>
+              <span class="entry-state">霹雳州</span>
             </div>
             <p class="entry-title">弱势群体住宿、成长与教育照护</p>
             <p class="entry-desc">为约30–40名儿童提供全天候食宿，关注心理健康与学业，长期接受捐助与物资支持。</p>
@@ -116,6 +115,7 @@
             <div class="entry-meta">
               <span class="entry-tag service">服务</span>
               <span class="entry-client">新希望儿童院</span>
+              <span class="entry-state">霹雳州</span>
             </div>
             <p class="entry-title">弱势儿童全方位成长与教育资助计划</p>
             <p class="entry-desc">为孤儿、单亲家庭及极贫家庭儿童提供住宿、教育及生活照护，长期接受捐助与志愿者支持。</p>
@@ -130,6 +130,7 @@
             <div class="entry-meta">
               <span class="entry-tag service">服务</span>
               <span class="entry-client">忠诚收留迟钝残障儿童中心</span>
+              <span class="entry-state">霹雳州</span>
             </div>
             <p class="entry-title">特殊人群长期居住与生活照护计划</p>
             <p class="entry-desc">为缺乏家庭照顾的残障人士提供住宿、日常生活协助及基本能力训练，长期接受物资捐助。</p>
@@ -144,6 +145,7 @@
             <div class="entry-meta">
               <span class="entry-tag event">活动</span>
               <span class="entry-client">Index 50</span>
+              <span class="entry-state">全国 · 线上</span>
             </div>
             <p class="entry-title">诚邀公益团体加入 Index 50</p>
             <p class="entry-desc">Index 50 正整理第一批公益机构的资讯页面，欢迎流浪动物救援、残障援助、老人关怀、贫困援助等团体联络。</p>
@@ -158,6 +160,7 @@
             <div class="entry-meta">
               <span class="entry-tag service">服务</span>
               <span class="entry-client">Index 50</span>
+              <span class="entry-state">全国 · 线上</span>
             </div>
             <p class="entry-title">Index 50 · 资讯整理平台</p>
             <p class="entry-desc">在这里找到各地活动与服务资讯，有序存档，随时可查。平台收入的 50% 捐助公益团体。</p>
@@ -171,21 +174,13 @@
     </div>
   </section>
 
-  <section class="categories-section">
-    <p class="section-label">机构类型</p>
-    <div class="type-grid">
-      <a class="type-link" href="ngo.html">
-        <p class="type-icon">TYPE / 01</p>
-        <p class="type-name">公益机构</p>
-        <p class="type-desc">非营利团体、慈善组织与社区服务</p>
-      </a>
-      <div class="type-link inactive">
-        <p class="type-icon">TYPE / 02</p>
-        <p class="type-name">商业机构</p>
-        <p class="type-desc">商业服务、专业服务与生活服务</p>
-      </div>
+  <nav class="cat-nav">
+    <p class="cat-nav-label">机构分类</p>
+    <div class="cat-links">
+      <a class="cat-link" href="category-ngo.html">公益机构</a>
+      <a class="cat-link" href="category-biz.html">商业机构</a>
     </div>
-  </section>
+  </nav>
 
   <footer>
     <p class="about-text">整理与发布各类资讯，使资讯更容易被查找、理解与持续存在。</p>
