@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>忠诚收留迟钝残障儿童中心 · Index 50</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
+    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
+    --accent: #1A5C48;
+    --tag-event: #3D2B14; --tag-event-bg: #F5E6CE;
+    --tag-service: #152840; --tag-service-bg: #D9E8F5;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif-cn: 'Noto Serif SC', serif;
+    --serif-en: 'EB Garamond', serif;
+  }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
+  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
+  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+  .client-profile { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .client-avatar-row { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.1rem; }
+  .client-avatar { width: 72px; height: 72px; min-width: 72px; flex-shrink: 0; border-radius: 50%; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-mid); display: flex; align-items: center; justify-content: center; }
+  .client-avatar img { width: 72px; height: 72px; object-fit: cover; display: block; }
+  .inst-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 2px 8px; border-radius: 2px; background: var(--paper-mid); color: var(--ink-secondary); display: inline-block; margin-bottom: 0.75rem; }
+  .state-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 2px 8px; border-radius: 2px; background: #E8F0ED; color: var(--accent); border: 1px solid var(--accent); display: inline-block; margin-bottom: 0.75rem; margin-left: 0.4rem; }
+  .client-name { font-family: var(--serif-cn); font-size: 1.8rem; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 0.15rem; }
+  .client-name-en { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-muted); letter-spacing: 0.03em; margin-bottom: 0.5rem; line-height: 1.5; }
+  .client-contact { font-family: var(--mono); font-size: 0.7rem; color: var(--ink-muted); letter-spacing: 0.04em; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; }
+  .client-contact a { color: var(--accent); text-decoration: none; }
+  .client-contact a:hover { text-decoration: underline; }
+  .client-bio { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; max-width: 560px; margin-bottom: 0.75rem; }
+  .client-meta { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; }
+  .entries-header { padding: 2rem 0 1.25rem; display: flex; align-items: baseline; justify-content: space-between; }
+  .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .entry-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-list { list-style: none; }
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .footer-back:hover { color: var(--accent); }
+  @media (max-width: 560px) { .site-wrap { padding: 0 1.25rem; } .client-name { font-size: 1.4rem; } }
+</style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <header class="site-header">
+    <div class="site-header-left">
+      <span class="site-num">INDEX 50</span>
+      <a class="site-name" href="index.html">资讯整理</a>
+    </div>
+    <a class="back-link" href="index.html">← 返回首页</a>
+  </header>
+
+  <section class="client-profile">
+    <div class="client-avatar-row">
+      <div class="client-avatar">
+        <img src="zhongcheng-logo.png" alt="忠诚收留迟钝残障儿童中心">
+      </div>
+      <div>
+        <span class="inst-tag">非营利机构</span><span class="state-tag">霹雳州</span>
+        <h1 class="client-name">忠诚收留迟钝残障儿童中心</h1>
+        <p class="client-name-en">Pertubuhan Jagaan Kanak-Kanak Cacat Setia Ipoh, Perak</p>
+        <div class="client-contact">
+          <span>电话：<a href="tel:0552700355">05-527 0355</a></span>
+          <span>Email：<a href="mailto:ckkpjkkcs@gmail.com">ckkpjkkcs@gmail.com</a></span>
+          <span><a href="https://www.facebook.com/PertubuhJagaanKanakKanakCacatSetia" target="_blank">Facebook →</a></span>
+        </div>
+      </div>
+    </div>
+    <p class="client-bio">
+      非营利慈善机构，为智力障碍、身体残疾及缺乏家庭照顾的儿童与成人提供长期住宿与生活照护。
+    </p>
+    <div class="client-meta">
+      <span>地址：17, Lorong Silibin, Taman Grand Silibin (Kampung Kuala Tanggong), 30100 Ipoh, Perak</span>
+      <span>ROS 注册：PPM-010-08-31102001</span>
+    </div>
+  </section>
+
+  <div class="entries-header">
+    <p class="section-label">资讯档案</p>
+    <p class="entry-count">共 1 则</p>
+  </div>
+
+  <ul class="entry-list">
+    <li>
+      <a class="entry-item" href="zhongcheng-service.html">
+        <span class="entry-index">APR<br>18</span>
+        <div class="entry-body">
+          <div class="entry-meta"><span class="entry-tag service">服务</span></div>
+          <p class="entry-title">特殊人群长期居住与生活照护计划</p>
+          <p class="entry-desc">为缺乏家庭照顾的残障人士提供住宿、日常生活协助及基本能力训练。</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    <span class="footer-mark">INDEX 50 · v1</span>
+    <a class="footer-back" href="category-ngo.html">← 返回公益机构</a>
+  </footer>
+
+</div>
+</body>
+</html>
