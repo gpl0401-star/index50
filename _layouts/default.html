@@ -1,47 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
-    <!-- Google tag (gtag.js) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTW4XBB5QZ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FTW4XBB5QZ');
 </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 这里的 {{ page.title }} 会自动读取你每个文件里设定的标题 -->
-    <title>{{ page.title }} | index50.org</title>
 
-    <!-- 【这里放你的 GA 追踪代码】 -->
-    <!-- 以后如果你想换统计工具，只需要改这里，全站都会生效 -->
-    
-    <style>
-        /* 简单加一点样式，让你的网页看起来更整齐 */
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        header { border-bottom: 1px solid #eee; margin-bottom: 20px; padding-bottom: 10px; }
-        a { color: #007bff; text-decoration: none; }
-    </style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ── Reset & CSS Variables ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
+    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
+    --accent: #1A5C48; --accent-light: #E8F0ED;
+    --tag-event: #3D2B14; --tag-event-bg: #F5E6CE;
+    --tag-service: #152840; --tag-service-bg: #D9E8F5;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif-cn: 'Noto Serif SC', serif;
+    --serif-en: 'EB Garamond', serif;
+  }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── Compact site header（除首页外所有页面共用）── */
+  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
+  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
+  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+
+  /* ── Footer 共用样式 ── */
+  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .footer-back:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .site-wrap { padding: 0 1.25rem; }
+  }
+</style>
 </head>
 <body>
+<div class="site-wrap">
 
-    <header>
-        <nav>
-            <a href="/">🏠 首页</a> | 
-            <a href="/about.html">关于我们</a>
-        </nav>
-    </header>
+{% unless page.custom_header %}
+  <header class="site-header">
+    <div class="site-header-left">
+      <span class="site-num">INDEX 50</span>
+      <a class="site-name" href="index.html">资讯整理</a>
+    </div>
+    {% if page.back_href %}
+    <a class="back-link" href="{{ page.back_href }}">← {{ page.back_text }}</a>
+    {% endif %}
+  </header>
+{% endunless %}
 
-    <main>
-        <!-- Jekyll 会把你的网页内容自动塞到下面这个 content 位置 -->
-        {{ content }}
-    </main>
+{{ content }}
 
-    <footer style="margin-top: 50px; color: #888; font-size: 0.8em;">
-        <p>© {{ "now" | date: "%Y" }} index50.org - 马来西亚社团与企业资料库</p>
-    </footer>
-
+</div>
 </body>
 </html>
