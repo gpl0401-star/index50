@@ -1,32 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>商业机构 · Index 50</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+---
+layout: default
+title: 商业机构 · Index 50
+back_href: index.html
+back_text: 返回首页
+---
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
-    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
-    --accent: #1A5C48;
-    --mono: 'IBM Plex Mono', monospace;
-    --serif-cn: 'Noto Serif SC', serif;
-    --serif-en: 'EB Garamond', serif;
-  }
-  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
-  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
-  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-
-  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
-  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
-  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
-  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .back-link:hover { color: var(--accent); }
-
   .cat-bar { display: flex; gap: 0; border-bottom: 1px solid var(--rule); }
   .cat-tab { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; padding: 0.85rem 1.25rem; text-decoration: none; color: var(--ink-muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
   .cat-tab:hover { color: var(--ink); }
@@ -43,80 +21,46 @@
   .client-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); align-self: flex-end; }
 
   .state-group { padding: 2rem 0 0.5rem; }
-  .state-group + .state-group { border-top: 1px solid var(--rule); }
   .state-heading { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
   .state-name { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
-  .state-count { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); }
   .state-rule { flex: 1; height: 1px; background: var(--paper-mid); }
 
-  .client-list { list-style: none; }
-  .client-card { display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 0 1.1rem; align-items: center; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
-  .client-card:hover { background: var(--paper-mid); }
-  .client-card:hover .client-name { color: var(--accent); }
-  .client-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-mid); flex-shrink: 0; }
-  .client-avatar svg { width: 40px; height: 40px; display: block; }
-  .client-info {}
-  .client-name { font-family: var(--serif-en); font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.4; margin-bottom: 0.1rem; transition: color 0.15s; }
-  .client-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.02em; }
-  .client-arrow { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
-
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
-  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
-  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .footer-back:hover { color: var(--accent); }
 
   @media (max-width: 560px) {
-    .site-wrap { padding: 0 1.25rem; }
-    .client-card { grid-template-columns: 3rem 1fr; }
-    .client-arrow { display: none; }
     .cat-tab { padding: 0.75rem 0.9rem; font-size: 0.6rem; }
   }
 </style>
-</head>
-<body>
-<div class="site-wrap">
 
-  <header class="site-header">
-    <div class="site-header-left">
-      <span class="site-num">INDEX 50</span>
-      <a class="site-name" href="index.html">资讯整理</a>
-    </div>
-    <a class="back-link" href="index.html">← 返回首页</a>
-  </header>
+<nav class="cat-bar">
+  <a class="cat-tab" href="category-ngo.html">公益机构</a>
+  <a class="cat-tab active" href="category-biz.html">商业机构</a>
+</nav>
 
-  <nav class="cat-bar">
-    <a class="cat-tab" href="category-ngo.html">公益机构</a>
-    <a class="cat-tab active" href="category-biz.html">商业机构</a>
-  </nav>
-
-  <div class="notice-bar">
-    <p class="notice-text">
-      本站按机构所在地划分州属，不代表其服务受限。请参考发布日期以判断信息时效。
-      <a href="contact.html">了解更多 →</a>
-    </p>
-  </div>
-
-  <div class="page-header">
-    <div>
-      <p class="page-label">分类</p>
-      <h1 class="page-title">商业机构</h1>
-    </div>
-    <span class="client-count">共 0 间</span>
-  </div>
-
-  <section class="state-group">
-    <div class="state-heading">
-      <span class="state-name">待开放</span>
-      <span class="state-rule"></span>
-    </div>
-    <p style="font-family:var(--mono);font-size:0.65rem;color:var(--ink-muted);padding:1.5rem 0 2rem;letter-spacing:0.04em;">商业机构资讯陆续整理中，敬请期待。</p>
-  </section>
-
-  <footer>
-    <span class="footer-mark">INDEX 50 · v1</span>
-    <a class="footer-back" href="index.html">← 返回首页</a>
-  </footer>
-
+<div class="notice-bar">
+  <p class="notice-text">
+    本站按机构所在地划分州属，不代表其服务受限。请参考发布日期以判断信息时效。
+    <a href="contact.html">了解更多 →</a>
+  </p>
 </div>
-</body>
-</html>
+
+<div class="page-header">
+  <div>
+    <p class="page-label">分类</p>
+    <h1 class="page-title">商业机构</h1>
+  </div>
+  <span class="client-count">共 0 间</span>
+</div>
+
+<section class="state-group">
+  <div class="state-heading">
+    <span class="state-name">待开放</span>
+    <span class="state-rule"></span>
+  </div>
+  <p style="font-family:var(--mono);font-size:0.65rem;color:var(--ink-muted);padding:1.5rem 0 2rem;letter-spacing:0.04em;">商业机构资讯陆续整理中，敬请期待。</p>
+</section>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
