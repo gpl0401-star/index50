@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>公益机构 · Index 50</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+---
+layout: default
+title: 公益机构 · Index 50
+back_href: index.html
+back_text: 返回首页
+---
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
-    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
-    --accent: #1A5C48;
-    --tag-service: #152840; --tag-service-bg: #D9E8F5;
-    --mono: 'IBM Plex Mono', monospace;
-    --serif-cn: 'Noto Serif SC', serif;
-    --serif-en: 'EB Garamond', serif;
-  }
-  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
-  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
-  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-
-  /* ── Header ── */
-  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
-  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
-  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
-  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .back-link:hover { color: var(--accent); }
-
   /* ── Category tab bar ── */
   .cat-bar { display: flex; gap: 0; border-bottom: 1px solid var(--rule); margin-top: 0; }
   .cat-tab { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; padding: 0.85rem 1.25rem; text-decoration: none; color: var(--ink-muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s, border-color 0.15s; }
@@ -37,12 +13,11 @@
 
   /* ── Page header ── */
   .page-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  .page-title-block {}
   .page-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.4rem; }
   .page-title { font-family: var(--serif-cn); font-size: 1.6rem; font-weight: 400; color: var(--ink); line-height: 1.2; }
   .client-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); align-self: flex-end; }
 
-  /* ── 分类声明 ── */
+  /* ── Notice bar ── */
   .notice-bar { background: var(--paper-mid); border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
   .notice-text { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; line-height: 1.6; }
   .notice-text a { color: var(--accent); text-decoration: none; }
@@ -63,119 +38,85 @@
   .client-card:hover .client-name { color: var(--accent); }
   .client-avatar { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; border: 1px solid var(--rule); background: var(--paper-mid); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
   .client-avatar img { width: 40px; height: 40px; object-fit: cover; display: block; }
-  .client-avatar-placeholder { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
-  .client-avatar-placeholder svg { width: 40px; height: 40px; }
-  .client-info {}
   .client-name { font-family: var(--serif-cn); font-size: 0.95rem; font-weight: 400; color: var(--ink); line-height: 1.4; margin-bottom: 0.1rem; transition: color 0.15s; }
   .client-name-en { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.02em; }
   .client-arrow { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
 
   /* ── Footer ── */
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
-  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
-  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .footer-back:hover { color: var(--accent); }
 
   @media (max-width: 560px) {
-    .site-wrap { padding: 0 1.25rem; }
     .client-card { grid-template-columns: 3rem 1fr; }
     .client-arrow { display: none; }
     .cat-tab { padding: 0.75rem 0.9rem; font-size: 0.6rem; }
   }
 </style>
-</head>
-<body>
-<div class="site-wrap">
 
-  <header class="site-header">
-    <div class="site-header-left">
-      <span class="site-num">INDEX 50</span>
-      <a class="site-name" href="index.html">资讯整理</a>
-    </div>
-    <a class="back-link" href="index.html">← 返回首页</a>
-  </header>
+<nav class="cat-bar">
+  <a class="cat-tab active" href="category-ngo.html">公益机构</a>
+  <a class="cat-tab" href="category-biz.html">商业机构</a>
+</nav>
 
-  <!-- 分类 tab bar -->
-  <nav class="cat-bar">
-    <a class="cat-tab active" href="category-ngo.html">公益机构</a>
-    <a class="cat-tab" href="category-biz.html">商业机构</a>
-  </nav>
-
-  <!-- 分类声明 -->
-  <div class="notice-bar">
-    <p class="notice-text">
-      本站按机构所在地划分州属，不代表其服务受限。请参考发布日期以判断信息时效。
-      <a href="contact.html">了解更多 →</a>
-    </p>
-  </div>
-
-  <!-- 页面标题 -->
-  <div class="page-header">
-    <div class="page-title-block">
-      <p class="page-label">分类</p>
-      <h1 class="page-title">公益机构</h1>
-    </div>
-    <span class="client-count">共 3 间</span>
-  </div>
-
-  <!-- 霹雳州 -->
-  <section class="state-group">
-    <div class="state-heading">
-      <span class="state-name">霹雳州</span>
-      <span class="state-count">3</span>
-      <span class="state-rule"></span>
-    </div>
-    <ul class="client-list">
-
-      <li>
-        <a class="client-card" href="client-newhope.html">
-          <div class="client-avatar">
-            <img src="newhope-logo.jpg" alt="新希望儿童院">
-          </div>
-          <div class="client-info">
-            <p class="client-name">新希望儿童院</p>
-            <p class="client-name-en">New Hope Children's Home · Ipoh</p>
-          </div>
-          <span class="client-arrow">→</span>
-        </a>
-      </li>
-
-      <li>
-        <a class="client-card" href="client-visionhome.html">
-          <div class="client-avatar">
-            <img src="visionhome-logo.jpeg" alt="Vision Home">
-          </div>
-          <div class="client-info">
-            <p class="client-name">Vision Home</p>
-            <p class="client-name-en">Pertubuhan Kebajikan Vision Home Ipoh · Ipoh</p>
-          </div>
-          <span class="client-arrow">→</span>
-        </a>
-      </li>
-
-      <li>
-        <a class="client-card" href="client-zhongcheng.html">
-          <div class="client-avatar">
-            <img src="zhongcheng-logo.png" alt="忠诚收留迟钝残障儿童中心">
-          </div>
-          <div class="client-info">
-            <p class="client-name">忠诚收留迟钝残障儿童中心</p>
-            <p class="client-name-en">Pertubuhan Jagaan Kanak-Kanak Cacat Setia · Ipoh</p>
-          </div>
-          <span class="client-arrow">→</span>
-        </a>
-      </li>
-
-    </ul>
-  </section>
-
-  <!-- 往后其他州属在此继续增加 state-group 区块 -->
-
-  <footer>
-    <span class="footer-mark">INDEX 50 · v1</span>
-    <a class="footer-back" href="index.html">← 返回首页</a>
-  </footer>
-
+<div class="notice-bar">
+  <p class="notice-text">
+    本站按机构所在地划分州属，不代表其服务受限。请参考发布日期以判断信息时效。
+    <a href="contact.html">了解更多 →</a>
+  </p>
 </div>
-</body>
-</html>
+
+<div class="page-header">
+  <div class="page-title-block">
+    <p class="page-label">分类</p>
+    <h1 class="page-title">公益机构</h1>
+  </div>
+  <span class="client-count">共 3 间</span>
+</div>
+
+<section class="state-group">
+  <div class="state-heading">
+    <span class="state-name">霹雳州</span>
+    <span class="state-count">3</span>
+    <span class="state-rule"></span>
+  </div>
+  <ul class="client-list">
+
+    <li>
+      <a class="client-card" href="client-newhope.html">
+        <div class="client-avatar"><img src="newhope-logo.jpg" alt="新希望儿童院"></div>
+        <div class="client-info">
+          <p class="client-name">新希望儿童院</p>
+          <p class="client-name-en">New Hope Children's Home · Ipoh</p>
+        </div>
+        <span class="client-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="client-card" href="client-visionhome.html">
+        <div class="client-avatar"><img src="visionhome-logo.jpeg" alt="Vision Home"></div>
+        <div class="client-info">
+          <p class="client-name">Vision Home</p>
+          <p class="client-name-en">Pertubuhan Kebajikan Vision Home Ipoh · Ipoh</p>
+        </div>
+        <span class="client-arrow">→</span>
+      </a>
+    </li>
+
+    <li>
+      <a class="client-card" href="client-zhongcheng.html">
+        <div class="client-avatar"><img src="zhongcheng-logo.png" alt="忠诚收留迟钝残障儿童中心"></div>
+        <div class="client-info">
+          <p class="client-name">忠诚收留迟钝残障儿童中心</p>
+          <p class="client-name-en">Pertubuhan Jagaan Kanak-Kanak Cacat Setia · Ipoh</p>
+        </div>
+        <span class="client-arrow">→</span>
+      </a>
+    </li>
+
+  </ul>
+</section>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
