@@ -1,33 +1,10 @@
-<!DOCTYPE html>
-<html lang="zh-Hans">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>给正在四处发 post 做宣传的人们 · Index 50</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+---
+layout: default
+title: 给正在四处发 post 做宣传的人们 · Index 50
+back_href: index50.html
+back_text: 返回 Index 50
+---
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
-    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
-    --accent: #1A5C48;
-    --tag-event: #3D2B14; --tag-event-bg: #F5E6CE;
-    --mono: 'IBM Plex Mono', monospace;
-    --serif-cn: 'Noto Serif SC', serif;
-    --serif-en: 'EB Garamond', serif;
-  }
-  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
-  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
-  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
-
-  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
-  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
-  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
-  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .back-link:hover { color: var(--accent); }
-
   .entry-header { padding: 2.5rem 0 1.75rem; border-bottom: 1px solid var(--rule); }
   .entry-meta-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
   .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
@@ -90,12 +67,8 @@
   .nav-sep { color: var(--rule); font-size: 0.75rem; }
 
   footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
-  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
-  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
-  .footer-back:hover { color: var(--accent); }
 
   @media (max-width: 600px) {
-    .site-wrap { padding: 0 1.25rem; }
     .entry-title { font-size: 1.35rem; }
     .entry-body { grid-template-columns: 1fr; gap: 0; }
     .info-panel { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.5rem; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
@@ -103,113 +76,96 @@
     .cta-bar { flex-direction: column; align-items: flex-start; }
   }
 </style>
-</head>
-<body>
-<div class="site-wrap">
 
-  <header class="site-header">
-    <div class="site-header-left">
-      <span class="site-num">INDEX 50</span>
-      <a class="site-name" href="index.html">资讯整理</a>
-    </div>
-    <a class="back-link" href="index50.html">← 返回 Index 50</a>
-  </header>
-
-  <section class="entry-header">
-    <div class="entry-meta-row">
-      <span class="entry-tag event">活动</span>
-      <span class="entry-date-posted">20 Apr 2026</span>
-      <span class="entry-date-posted">·</span>
-      <a class="entry-client-link" href="index50.html">Index 50</a>
-    </div>
-    <h1 class="entry-title">给正在四处发 post 做宣传的人们</h1>
-  </section>
-
-  <div class="entry-image">
-    <img src="index50-post-poster.svg" alt="给正在四处发 post 做宣传的人们 · Index 50">
+<section class="entry-header">
+  <div class="entry-meta-row">
+    <span class="entry-tag event">活动</span>
+    <span class="entry-date-posted">20 Apr 2026</span>
+    <span class="entry-date-posted">·</span>
+    <a class="entry-client-link" href="index50.html">Index 50</a>
   </div>
+  <h1 class="entry-title">给正在四处发 post 做宣传的人们</h1>
+</section>
 
-  <div class="entry-body">
-    <div class="entry-main">
-
-      <ul class="event-logistics">
-        <li class="logistics-row">
-          <span class="logistics-label">日期</span>
-          <span class="logistics-value">即日起至 30 Jun 2026</span>
-        </li>
-        <li class="logistics-row">
-          <span class="logistics-label">地点</span>
-          <span class="logistics-value">线上</span>
-        </li>
-      </ul>
-
-      <div class="entry-section">
-        <p class="entry-desc">
-          Index 50 是一个新的网站，现正需要大家的帮忙。把你手上的宣传资料交给我，我将整理并发布分享在 Index 50：
-        </p>
-        <ul class="offer-list">
-          <li>1 个单位的独立资讯页面</li>
-          <li>3 则资讯帖子</li>
-        </ul>
-      </div>
-
-      <div class="entry-section">
-        <p class="entry-desc">
-          宣传资讯发完就被刷掉？这里的资讯有序存档，随时可查。
-        </p>
-        <div class="slots-callout">
-          <span class="slots-num">30</span><span class="slots-label">个名额</span>
-          <p class="slots-note">目前开放，额满为止</p>
-        </div>
-      </div>
-
-      <div class="entry-section">
-        <p class="entry-section-label">主办单位</p>
-        <div class="organizer-block">
-          <span class="organizer-name">Index 50</span>
-          <a class="organizer-link" href="index50.html">查看资讯档案 →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <aside class="info-panel">
-
-      <div class="info-group">
-        <p class="info-label">WhatsApp</p>
-        <p class="info-value mono"><a href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">联络 Index 50</a></p>
-      </div>
-
-      <div class="info-group">
-        <p class="info-label">Email</p>
-        <p class="info-value mono">gpl0401@gmail.com</p>
-      </div>
-
-      <div class="info-group">
-        <p class="info-label">网站</p>
-        <p class="info-value mono"><a href="https://index50.org" target="_blank">index50.org</a></p>
-      </div>
-
-    </aside>
-  </div>
-
-  <div class="cta-bar">
-    <p class="cta-text"><strong>有兴趣？欢迎联络询问详情。</strong><br>WhatsApp 或 Email 皆可，目前开放 30 个名额。</p>
-    <a class="cta-btn" href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">WhatsApp →</a>
-  </div>
-
-  <nav class="entry-nav">
-    <span class="nav-label">档案</span>
-    <a class="nav-link" href="index.html">Index 50 首页</a>
-    <span class="nav-sep">·</span>
-    <a class="nav-link" href="index50.html">Index 50 · 资讯档案</a>
-  </nav>
-
-  <footer>
-    <span class="footer-mark">INDEX 50 · v1</span>
-    <a class="footer-back" href="index.html">← 返回首页</a>
-  </footer>
-
+<div class="entry-image">
+  <img src="index50-post-poster.svg" alt="给正在四处发 post 做宣传的人们 · Index 50">
 </div>
-</body>
-</html>
+
+<div class="entry-body">
+  <div class="entry-main">
+
+    <ul class="event-logistics">
+      <li class="logistics-row">
+        <span class="logistics-label">日期</span>
+        <span class="logistics-value">即日起至 30 Jun 2026</span>
+      </li>
+      <li class="logistics-row">
+        <span class="logistics-label">地点</span>
+        <span class="logistics-value">线上</span>
+      </li>
+    </ul>
+
+    <div class="entry-section">
+      <p class="entry-desc">
+        Index 50 是一个新的网站，现正需要大家的帮忙。把你手上的宣传资料交给我，我将整理并发布分享在 Index 50：
+      </p>
+      <ul class="offer-list">
+        <li>1 个单位的独立资讯页面</li>
+        <li>3 则资讯帖子</li>
+      </ul>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-desc">宣传资讯发完就被刷掉？这里的资讯有序存档，随时可查。</p>
+      <div class="slots-callout">
+        <span class="slots-num">30</span><span class="slots-label">个名额</span>
+        <p class="slots-note">目前开放，额满为止</p>
+      </div>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-section-label">主办单位</p>
+      <div class="organizer-block">
+        <span class="organizer-name">Index 50</span>
+        <a class="organizer-link" href="index50.html">查看资讯档案 →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="info-panel">
+
+    <div class="info-group">
+      <p class="info-label">WhatsApp</p>
+      <p class="info-value mono"><a href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">联络 Index 50</a></p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">Email</p>
+      <p class="info-value mono">gpl0401@gmail.com</p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">网站</p>
+      <p class="info-value mono"><a href="https://index50.org" target="_blank">index50.org</a></p>
+    </div>
+
+  </aside>
+</div>
+
+<div class="cta-bar">
+  <p class="cta-text"><strong>有兴趣？欢迎联络询问详情。</strong><br>WhatsApp 或 Email 皆可，目前开放 30 个名额。</p>
+  <a class="cta-btn" href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">WhatsApp →</a>
+</div>
+
+<nav class="entry-nav">
+  <span class="nav-label">档案</span>
+  <a class="nav-link" href="index.html">Index 50 首页</a>
+  <span class="nav-sep">·</span>
+  <a class="nav-link" href="index50.html">Index 50 · 资讯档案</a>
+</nav>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
