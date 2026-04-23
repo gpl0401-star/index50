@@ -1,0 +1,175 @@
+---
+layout: default
+title: 特殊及弱势儿童全方位照护与教育援助 · Nurul Iman 孤儿与贫困儿童之家 · Index 50
+back_href: nuruliman.html
+back_text: 返回 Nurul Iman 孤儿与贫困儿童之家
+---
+<style>
+  .entry-header { padding: 2.5rem 0 1.75rem; border-bottom: 1px solid var(--rule); }
+  .entry-meta-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.85rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-date-posted { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-client-link { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); text-decoration: none; letter-spacing: 0.03em; }
+  .entry-client-link:hover { text-decoration: underline; }
+  .entry-title { font-family: var(--serif-cn); font-size: 1.7rem; font-weight: 400; color: var(--ink); line-height: 1.3; letter-spacing: -0.01em; }
+
+  .entry-image { margin: 1.75rem 0 0; }
+  .entry-image img { width: 100%; height: auto; display: block; border-radius: 3px; border: 1px solid var(--rule); }
+
+  .entry-body { padding: 1.75rem 0 2rem; display: grid; grid-template-columns: 1fr 13.5rem; gap: 0 3rem; border-bottom: 1px solid var(--rule); }
+
+  .entry-section { margin-bottom: 1.5rem; }
+  .entry-section-label { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .entry-desc { font-family: var(--serif-cn); font-size: 0.925rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; }
+  .service-category-row { margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem; }
+  .service-category-label { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .service-category-value { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-secondary); letter-spacing: 0.06em; }
+  .organizer-block { display: flex; align-items: center; gap: 0.75rem; }
+  .organizer-name { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 400; color: var(--ink); }
+  .organizer-link { font-family: var(--mono); font-size: 0.6rem; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; }
+  .organizer-link:hover { text-decoration: underline; }
+
+  .info-panel { border-left: 1px solid var(--rule); padding-left: 1.75rem; }
+  .info-group { margin-bottom: 1.4rem; }
+  .info-group:last-child { margin-bottom: 0; }
+  .info-label { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .info-value { font-family: var(--serif-cn); font-size: 0.875rem; font-weight: 400; color: var(--ink); line-height: 1.55; }
+  .info-value.mono { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; }
+  .info-value a { color: var(--accent); text-decoration: none; }
+  .info-value a:hover { text-decoration: underline; }
+  .info-note { font-size: 0.78rem; font-weight: 300; color: var(--ink-muted); margin-top: 0.2rem; line-height: 1.5; }
+
+  .needs-list { list-style: none; margin-top: 0.3rem; }
+  .needs-list li { font-family: var(--serif-cn); font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.7; padding-left: 0.75rem; position: relative; }
+  .needs-list li::before { content: "·"; position: absolute; left: 0; color: var(--ink-muted); }
+
+  .cta-bar { margin-top: 2rem; padding: 1.25rem 1.5rem; background: var(--paper-mid); border-radius: 3px; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .cta-text { font-size: 0.85rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.8; }
+  .cta-text strong { font-weight: 500; color: var(--ink); }
+  .cta-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 2px; white-space: nowrap; transition: opacity 0.15s; }
+  .cta-btn:hover { opacity: 0.85; }
+
+  .entry-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-bottom: 1px solid var(--paper-mid); }
+  .nav-label { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.1em; }
+  .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-link:hover { color: var(--accent); }
+  .nav-sep { color: var(--rule); font-size: 0.75rem; }
+
+  footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+
+  @media (max-width: 600px) {
+    .entry-title { font-size: 1.35rem; }
+    .entry-body { grid-template-columns: 1fr; gap: 0; }
+    .info-panel { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.5rem; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
+    .info-group { margin-bottom: 0; }
+    .cta-bar { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<section class="entry-header">
+  <div class="entry-meta-row">
+    <span class="entry-tag service">服务</span>
+    <span class="entry-date-posted">23 Apr 2026</span>
+    <span class="entry-date-posted">·</span>
+    <a class="entry-client-link" href="nuruliman.html">Nurul Iman 孤儿与贫困儿童之家</a>
+  </div>
+  <h1 class="entry-title">特殊及弱势儿童全方位照护与教育援助</h1>
+</section>
+
+<div class="entry-image">
+  <img src="index50-ngo-header.svg" alt="公益机构 · Index 50">
+</div>
+
+<div class="entry-body">
+  <div class="entry-main">
+
+    <div class="service-category-row">
+      <span class="service-category-label">类别</span>
+      <span class="service-category-value">儿童援助 · 生活照料</span>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-desc">
+        提供 24 小时食宿、医疗及生活起居照顾。资助儿童接受正规教育及宗教学习，目标是拯救他们免受虐待或遗弃。
+      </p>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-section-label">常年需求</p>
+      <ul class="needs-list">
+        <li>食物：米、食用油、干粮、新鲜食材。</li>
+        <li>生活用品：衣物、回收旧衣服、教育文具。</li>
+        <li>每月运营开销巨大，主要用于支付租金、员工薪资及数十名儿童的日常教育与水电开支。</li>
+      </ul>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-section-label">捐助方式</p>
+      <ul class="needs-list">
+        <li>探访须知：欢迎公众探访，唯需提前拨打 016-546 0071 预约时间。</li>
+        <li>银行转账</li>
+        <li>接受 PayPal及信用卡/支票捐赠</li>
+      </ul>
+    </div>
+
+    <div class="entry-section">
+      <p class="entry-section-label">单位</p>
+      <div class="organizer-block">
+        <span class="organizer-name">Nurul Iman 孤儿与贫困儿童之家</span>
+        <a class="organizer-link" href="nuruliman.html">查看资讯档案 →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <aside class="info-panel">
+
+    <div class="info-group">
+      <p class="info-label">地区</p>
+      <p class="info-value">怡保 (Ipoh)</p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">Call / WhatsApp</p>
+      <p class="info-value mono"><a href="https://wa.me/60165460071" target="_blank">016-546 0071</a></p>
+      <p class="info-note">Mr. Khairul / 行政部</p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">电话</p>
+      <p class="info-value mono"><a href="tel:052544484">05-254 4484</a></p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">地址</p>
+      <p class="info-value">LOT 1437, Jalan Bali,<br>Buntong New Village,<br>30100 Ipoh, Perak</p>
+    </div>
+
+    <div class="info-group">
+      <p class="info-label">长期服务</p>
+      <p class="info-value">是</p>
+    </div>
+
+  </aside>
+</div>
+
+<div class="cta-bar">
+  <p class="cta-text"><strong>如需捐助、物资或探访，欢迎联络。</strong><br>
+  WhatsApp：016-536 1734（Mdm Elis）<br>
+  WhatsApp：012-327 4844（Mrs. Elezabeth）<br>
+  探访请提前通过 WhatsApp 预约，确保有人接待。</p>
+  <a class="cta-btn" href="https://wa.me/60165361734" target="_blank">WhatsApp →</a>
+</div>
+
+<nav class="entry-nav">
+  <span class="nav-label">档案</span>
+  <a class="nav-link" href="index.html">Index 50 首页</a>
+  <span class="nav-sep">·</span>
+  <a class="nav-link" href="gembalabaik.html">文冬良牧孤儿院 · 资讯档案</a>
+</nav>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
