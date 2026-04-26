@@ -1,0 +1,146 @@
+---
+layout: default
+title: 服务 · Index 50
+custom_header: true
+---
+<style>
+  header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .site-title-block {}
+  .site-index-word { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
+  .site-title { font-family: var(--serif-en); font-size: 3.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; line-height: 1; display: flex; align-items: baseline; gap: 0.15em; }
+  .site-title .num-50 { color: var(--accent); }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; margin-top: 0.4rem; display: inline-block; }
+  .back-link:hover { color: var(--accent); }
+
+  .entry-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--rule); margin-top: 2rem; }
+  .entry-tab { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--ink-muted); text-decoration: none; padding: 0.6rem 1.1rem; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s; }
+  .entry-tab:hover { color: var(--ink); }
+  .entry-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .entries-header { padding: 1.5rem 0 1.25rem; display: flex; align-items: baseline; justify-content: space-between; }
+  .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .entry-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+
+  .entry-list { list-style: none; }
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-client { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.03em; }
+  .entry-state { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+
+  @media (max-width: 560px) {
+    .site-title { font-size: 2.6rem; }
+    header { flex-wrap: wrap; }
+  }
+</style>
+
+<header>
+  <div class="site-title-block">
+    <span class="site-index-word">Index</span>
+    <h1 class="site-title"><span class="num-50">50</span>&thinsp;·&thinsp;资讯整理</h1>
+  </div>
+  <a class="back-link" href="index.html">← 返回首页</a>
+</header>
+
+<nav class="entry-tabs">
+  <a class="entry-tab active" href="entries-service.html">服务</a>
+  <a class="entry-tab" href="entries-event.html">活动</a>
+  <a class="entry-tab" href="entries-content.html">内容分享</a>
+</nav>
+
+<div class="entries-header">
+  <p class="section-label">服务</p>
+  <p class="entry-count">共 5 则</p>
+</div>
+
+<ul class="entry-list">
+
+  <li>
+    <a class="entry-item" href="gembalabaik-service.html">
+      <span class="entry-index">APR<br>22</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag service">服务</span>
+          <span class="entry-client">文冬良牧孤儿院</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">弱势儿童生活照料与避难所</p>
+        <p class="entry-desc">提供24小时食宿环境，确保儿童在安全的环境下成长，并协助其完成基础学业。</p>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a class="entry-item" href="visionhome-service.html">
+      <span class="entry-index">APR<br>19</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag service">服务</span>
+          <span class="entry-client">Vision Home</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">弱势群体住宿、成长与教育照护</p>
+        <p class="entry-desc">为约30–40名儿童提供全天候食宿，关注心理健康与学业，长期接受捐助与物资支持。</p>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a class="entry-item" href="newhope-service.html">
+      <span class="entry-index">APR<br>19</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag service">服务</span>
+          <span class="entry-client">新希望儿童院</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">弱势儿童全方位成长与教育资助计划</p>
+        <p class="entry-desc">为孤儿、单亲家庭及极贫家庭儿童提供住宿、教育及生活照护，长期接受捐助与志愿者支持。</p>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a class="entry-item" href="zhongcheng-service.html">
+      <span class="entry-index">APR<br>18</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag service">服务</span>
+          <span class="entry-client">忠诚收留迟钝残障儿童中心</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">特殊人群长期居住与生活照护计划</p>
+        <p class="entry-desc">为缺乏家庭照顾的残障人士提供住宿、日常生活协助及基本能力训练，长期接受物资捐助。</p>
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a class="entry-item" href="index50-service.html">
+      <span class="entry-index">APR<br>17</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag service">服务</span>
+          <span class="entry-client">Index 50</span>
+          <span class="entry-state">全国 · 线上</span>
+        </div>
+        <p class="entry-title">Index 50 · 资讯整理平台</p>
+        <p class="entry-desc">在这里找到各地活动与服务资讯，有序存档，随时可查。平台收入的 50% 捐助公益团体。</p>
+      </div>
+    </a>
+  </li>
+
+</ul>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
