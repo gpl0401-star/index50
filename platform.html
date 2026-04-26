@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>关于 Index 50 · 资讯有序</title>
+<title>平台说明 · Index 50</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -20,7 +20,6 @@
   body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
   .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
 
-  /* ── Header ── */
   .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
   .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
   .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
@@ -28,38 +27,19 @@
   .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
   .back-link:hover { color: var(--accent); }
 
-  /* ── Page header ── */
   .page-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
   .page-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
-  .page-title { font-family: var(--serif-en); font-size: 2.8rem; font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 0.85rem; }
-  .page-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; max-width: 520px; }
-  .page-desc + .page-desc { margin-top: 0.6rem; }
+  .page-title { font-family: var(--serif-en); font-size: 2.8rem; font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; }
 
-  /* ── Content sections ── */
   .about-section { padding: 2rem 0; border-bottom: 1px solid var(--rule); }
   .about-section:last-of-type { border-bottom: none; }
   .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.1rem; }
 
-  /* ── 平台说明 block ── */
-  .about-text { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; max-width: 560px; }
-  .about-text + .about-text { margin-top: 0.75em; }
-  .about-highlight { color: var(--ink); font-weight: 400; }
-
-  /* ── 分类说明 notice block ── */
   .notice-block { background: var(--paper-mid); border: 1px solid var(--rule); border-radius: 3px; padding: 1.25rem 1.5rem; }
+  .notice-block + .notice-block { margin-top: 0.75rem; }
   .notice-block p { font-family: var(--serif-cn); font-size: 0.875rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; }
-  .notice-block p + p { margin-top: 0.6em; }
-  .notice-block .notice-key { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+  .notice-key { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
 
-  /* ── 联络方式 ── */
-  .contact-item { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem 1.5rem; border: 1px solid var(--rule); border-radius: 3px; margin-bottom: 0.75rem; background: var(--paper); flex-wrap: wrap; }
-  .contact-item:last-child { margin-bottom: 0; }
-  .contact-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.3rem; }
-  .contact-value { font-family: var(--mono); font-size: 0.88rem; color: var(--ink); }
-  .contact-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 7px 16px; border-radius: 2px; white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0; }
-  .contact-btn:hover { opacity: 0.85; }
-
-  /* ── Footer ── */
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
   .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
@@ -68,7 +48,6 @@
   @media (max-width: 560px) {
     .site-wrap { padding: 0 1.25rem; }
     .page-title { font-size: 2.1rem; }
-    .contact-item { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -80,47 +59,26 @@
       <span class="site-num">INDEX 50</span>
       <a class="site-name" href="index.html">资讯有序</a>
     </div>
-    <a class="back-link" href="index.html">← 返回首页</a>
+    <a class="back-link" href="contact.html">← 返回关于</a>
   </header>
 
-  <!-- 页面标题 -->
   <section class="page-header">
-    <p class="page-label">关于</p>
-    <h1 class="page-title">Index 50</h1>
-    <p class="page-desc">
-      收录马来西亚各类机构与单位的服务及活动资讯，有序呈现，长期存档。每一个单位在这里有独立的位置，不因社媒时间线流逝而消失。
-    </p>
-    <p class="page-desc">
-      平台收入的 <span class="about-highlight">50%</span> 捐助公益团体。
-    </p>
+    <p class="page-label">平台说明</p>
+    <h1 class="page-title">Platform</h1>
   </section>
 
-  <!-- 平台说明出口 -->
   <section class="about-section">
-    <p class="section-label">平台说明</p>
-    <p class="about-text">资讯来源、分类方式、日期说明及合作条款，详见平台说明页。</p>
-    <p class="about-text" style="margin-top:0.75em;"><a href="platform.html" style="color:var(--accent);text-decoration:none;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.06em;">查看平台说明 →</a></p>
+    <p class="section-label">州属归类</p>
+    <div class="notice-block">
+      <p>本站按<strong>机构所在地</strong>划分州属，不代表其服务受限于该州。部分机构服务全马或线上，详情请参阅各资讯页面。</p>
+    </div>
   </section>
 
-  <!-- 联络方式 -->
   <section class="about-section">
-    <p class="section-label">联络我们</p>
-
-    <div class="contact-item">
-      <div>
-        <p class="contact-label">WhatsApp</p>
-        <p class="contact-value">Index 50</p>
-      </div>
-      <a class="contact-btn" href="https://wa.me/60103800608?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E8%AF%A2%E9%97%AE%E6%9C%89%E5%85%B3%20Index%2050%E3%80%82" target="_blank">WhatsApp →</a>
+    <p class="section-label">日期说明</p>
+    <div class="notice-block">
+      <p>资讯页面所显示的发布日期，即视为该资讯的最后核实日期。如需确认最新动态，请直接联络相关机构或单位。</p>
     </div>
-
-    <div class="contact-item">
-      <div>
-        <p class="contact-label">Email</p>
-        <p class="contact-value">gpl0401@gmail.com</p>
-      </div>
-    </div>
-
   </section>
 
   <footer>
