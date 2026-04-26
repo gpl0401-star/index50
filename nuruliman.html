@@ -1,0 +1,134 @@
+---
+layout: default
+title: Nurul Iman 孤儿与贫困儿童之家 · Index 50
+back_href: category-ngo.html
+back_text: 返回公益机构
+---
+<style>
+  .profile-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .profile-top { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .profile-logo { width: 72px; height: 72px; object-fit: contain; border-radius: 3px; border: 1px solid var(--rule); flex-shrink: 0; }
+  .profile-title-block {}
+  .profile-tags { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .profile-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; background: var(--paper-mid); color: var(--ink-muted); }
+  .profile-tag.ngo { background: var(--tag-service-bg); color: var(--tag-service); }
+  .profile-name { font-family: var(--serif-cn); font-size: 1.7rem; font-weight: 400; color: var(--ink); line-height: 1.25; margin-bottom: 0.25rem; }
+  .profile-name-en { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-muted); letter-spacing: 0.03em; line-height: 1.5; }
+
+  .profile-contacts { margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; }
+  .profile-contact { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-secondary); }
+  .profile-contact a { color: var(--accent); text-decoration: none; }
+  .profile-contact a:hover { text-decoration: underline; }
+  .profile-contact-label { color: var(--ink-muted); margin-right: 0.3em; }
+
+  .profile-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; margin-bottom: 1rem; }
+
+  .profile-meta { display: flex; flex-wrap: wrap; gap: 0.3rem 2rem; }
+  .profile-meta-item { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); line-height: 1.6; }
+  .profile-meta-item span { color: var(--ink-secondary); }
+
+  .profile-notice { margin-top: 1rem; font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; border-left: 2px solid var(--rule); padding-left: 0.75rem; line-height: 1.7; }
+
+  .entries-section { padding: 1.75rem 0; }
+  .entries-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
+  .entries-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .entries-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+
+  .entry-list { list-style: none; }
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.25rem; }
+
+  .profile-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-top: 1px solid var(--paper-mid); }
+  .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-link:hover { color: var(--accent); }
+  .nav-sep { color: var(--rule); font-size: 0.75rem; }
+
+  footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+
+  @media (max-width: 560px) {
+    .profile-top { flex-direction: column; gap: 1rem; }
+    .profile-name { font-size: 1.35rem; }
+  }
+</style>
+
+<section class="profile-header">
+  <div class="profile-top">
+    <img class="profile-logo" src="nuruliman-logo.png" alt="Nurul Iman 孤儿与贫困儿童之家">
+    <div class="profile-title-block">
+      <div class="profile-tags">
+        <span class="profile-tag ngo">非营利机构</span>
+        <span class="profile-tag">霹雳州</span>
+      </div>
+      <h1 class="profile-name">Nurul Iman 孤儿与贫困儿童之家</h1>
+      <p class="profile-name-en">Pusat Jagaan Anak-Anak Yatim dan Miskin Nurul Iman · Rumah Nurul Iman</p>
+    </div>
+  </div>
+
+  <div class="profile-contacts">
+    <p class="profile-contact"><span class="profile-contact-label">WhatsApp / 手机：</span><a href="https://wa.me/60165460071">016-546 0071</a>（Mr. Khairul / 行政部）</p>
+    <p class="profile-contact"><span class="profile-contact-label">电话：</span><a href="tel:0552600071">05-526 0071</a></p>
+    <p class="profile-contact"><span class="profile-contact-label">Email：</span><a href="mailto:admin@nuruliman.org.my">admin@nuruliman.org.my</a></p>
+    <p class="profile-contact"><span class="profile-contact-label">网站：</span><a href="http://www.nuruliman.org.my" target="_blank">www.nuruliman.org.my</a></p>
+    <p class="profile-contact"><span class="profile-contact-label">TikTok：</span><a href="https://www.tiktok.com/@nurul.iman.ipoh" target="_blank">@nurul.iman.ipoh</a></p>
+  </div>
+
+  <p class="profile-desc">
+    成立于2006年，隶属于 Pertubuhan Kebajikan Kasih Nurul Iman Negeri Perak，专为孤儿及极度贫困儿童提供免费的庇护、养育与教育支持。主要院舍位于怡保曼锐（Manjoi），另设太平甘文丁（Kamunting）分院。
+  </p>
+
+  <div class="profile-meta">
+    <p class="profile-meta-item">地址：<span>Plot 359, Lorong Dato, Off Jalan Dato, Kampung Manjoi, 30020 Ipoh, Perak</span></p>
+    <p class="profile-meta-item">ROS 注册：<span>PPM-020-08-30062011</span></p>
+    <p class="profile-meta-item">JKM 注册：<span>A/PJB KK 056/2022（有效期至 2027年12月）</span></p>
+  </div>
+
+  <div class="profile-notice">
+    探访须提前 3–5 天预约，探访时间 10:00 AM – 5:00 PM。<br>
+    请着得体服装，携带食物须为清真（Halal）认证。<br>
+    欢迎企业 CSR 长期支助，详情请联络行政部。
+  </div>
+</section>
+
+<section class="entries-section">
+  <div class="entries-header">
+    <p class="entries-label">资讯档案</p>
+    <p class="entries-count">共 1 则</p>
+  </div>
+
+  <ul class="entry-list">
+    <li>
+      <a class="entry-item" href="nuruliman-service.html">
+        <span class="entry-index">APR<br>23</span>
+        <div class="entry-body">
+          <div class="entry-meta">
+            <span class="entry-tag service">服务</span>
+          </div>
+          <p class="entry-title">特殊及弱势儿童全方位照护与教育援助</p>
+          <p class="entry-desc">提供24小时食宿、医疗及生活起居照顾，资助儿童接受正规教育及宗教学习。</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <p class="source-note">以上资讯整理自公开资料，如有更新或错误，欢迎联络。</p>
+</section>
+
+<nav class="profile-nav">
+  <a class="nav-link" href="index.html">Index 50 首页</a>
+  <span class="nav-sep">·</span>
+  <a class="nav-link" href="category-ngo.html">← 返回公益机构</a>
+</nav>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>

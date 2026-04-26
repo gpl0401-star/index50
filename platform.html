@@ -39,6 +39,10 @@
   .notice-block + .notice-block { margin-top: 0.75rem; }
   .notice-block p { font-family: var(--serif-cn); font-size: 0.875rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; }
   .notice-key { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+  .condition-list { list-style: none; margin-top: 0.75rem; }
+  .condition-list li { font-family: var(--serif-cn); font-size: 0.875rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; padding-left: 0.75rem; position: relative; }
+  .condition-list li::before { content: "·"; position: absolute; left: 0; color: var(--ink-muted); }
+  .condition-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.25rem; }
 
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
   .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
@@ -79,6 +83,22 @@
     <div class="notice-block">
       <p>资讯页面所显示的发布日期，即视为该资讯的最后核实日期。如需确认最新动态，请直接联络相关机构或单位。</p>
     </div>
+  </section>
+
+  <section class="about-section">
+    <p class="section-label">公益机构免费收录</p>
+    <div class="notice-block">
+      <p>符合以下条件的公益机构，长期免费收录，不限次数。</p>
+      <ul class="condition-list">
+        <li>已在马来西亚注册（ROS、ROC 或其他政府主管机构）</li>
+        <li>服务对象为弱势群体，包括儿童、残障人士、老人、流浪动物等，不限机构宗教或种族背景</li>
+        <li>能提供基本联络资料及机构简介</li>
+        <li>免费收录范围仅限公益服务相关资讯，商业推广或非公益性质内容须另行咨询</li>
+        <li>资讯须真实，Index 50 保留拒绝或撤除不实资讯的权利</li>
+        <li>Index 50 保留最终收录决定权，无需解释原因</li>
+      </ul>
+    </div>
+    <p class="condition-note">如需申请收录，欢迎通过联络页面与我们联系。</p>
   </section>
 
   <footer>

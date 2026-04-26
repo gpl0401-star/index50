@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>收费配套 · Index 50</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #161310; --ink-secondary: #5A5045; --ink-muted: #9A8E82;
+    --paper: #F6F2EB; --paper-mid: #EDE7DC; --rule: #D4CAB8;
+    --accent: #1A5C48;
+    --tag-event: #3D2B14; --tag-event-bg: #F5E6CE;
+    --tag-service: #152840; --tag-service-bg: #D9E8F5;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif-cn: 'Noto Serif SC', serif;
+    --serif-en: 'EB Garamond', serif;
+  }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { background-color: var(--paper); color: var(--ink); font-family: var(--serif-cn); font-weight: 300; line-height: 1.8; min-height: 100vh; }
+  .site-wrap { max-width: 760px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── Site header ── */
+  .site-header { padding: 2rem 0 1.5rem; border-bottom: 1px solid var(--rule); display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .site-header-left { display: flex; align-items: baseline; gap: 0.75rem; }
+  .site-num { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 2px 6px; border-radius: 2px; }
+  .site-name { font-family: var(--serif-en); font-size: 1.1rem; font-weight: 400; color: var(--ink); text-decoration: none; }
+  .back-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+
+  /* ── Page header ── */
+  .page-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .page-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .page-title { font-family: var(--serif-en); font-size: 2.8rem; font-weight: 400; color: var(--ink); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 0.75rem; }
+  .page-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.85; max-width: 560px; }
+
+  /* ── 定价区块 ── */
+  .pricing-section { padding: 2rem 0; border-bottom: 1px solid var(--rule); }
+  .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
+
+  .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+  .pricing-card { border: 1px solid var(--rule); border-radius: 3px; padding: 1.25rem 1.5rem; background: var(--paper); }
+  .pricing-card-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .pricing-card-name { font-family: var(--serif-cn); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.4; }
+  .pricing-card-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 1rem; }
+  .pricing-card-price { font-family: var(--mono); font-size: 1.1rem; font-weight: 500; color: var(--accent); }
+  .pricing-card-unit { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); margin-left: 0.3rem; }
+
+  /* ── 优惠区块 ── */
+  .promo-block { border: 1px solid var(--accent); border-radius: 3px; padding: 1.25rem 1.5rem; background: #EEF5F2; display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; align-items: center; }
+  .promo-label { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .promo-name { font-family: var(--serif-cn); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.3rem; }
+  .promo-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.6; }
+  .promo-price-block { text-align: right; white-space: nowrap; }
+  .promo-price-original { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-muted); text-decoration: line-through; display: block; margin-bottom: 0.15rem; }
+  .promo-price-now { font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--accent); }
+  .promo-expiry { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); margin-top: 0.2rem; display: block; }
+
+  /* ── 流程说明 ── */
+  .process-section { padding: 2rem 0; border-bottom: 1px solid var(--rule); }
+  .process-list { list-style: none; counter-reset: steps; }
+  .process-item { counter-increment: steps; display: grid; grid-template-columns: 1.75rem 1fr; gap: 0 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid var(--paper-mid); }
+  .process-item:last-child { border-bottom: none; }
+  .process-num { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); padding-top: 0.25rem; }
+  .process-num::before { content: counter(steps, decimal-leading-zero); }
+  .process-text { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.7; }
+  .process-text strong { font-weight: 400; color: var(--ink); }
+
+  /* ── 联络区块 ── */
+  .contact-section { padding: 2rem 0; }
+  .contact-block { background: var(--paper-mid); border: 1px solid var(--rule); border-radius: 3px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-text { font-size: 0.875rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.7; }
+  .contact-text strong { font-weight: 400; color: var(--ink); }
+  .contact-email { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); text-decoration: none; display: block; margin-top: 0.3rem; }
+  .contact-email:hover { text-decoration: underline; }
+  .contact-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 7px 16px; border-radius: 2px; white-space: nowrap; transition: opacity 0.15s; }
+  .contact-btn:hover { opacity: 0.85; }
+
+  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
+  .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
+  .footer-back:hover { color: var(--accent); }
+
+  @media (max-width: 560px) {
+    .site-wrap { padding: 0 1.25rem; }
+    .page-title { font-size: 2.1rem; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .promo-block { grid-template-columns: 1fr; }
+    .promo-price-block { text-align: left; }
+    .contact-block { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <header class="site-header">
+    <div class="site-header-left">
+      <span class="site-num">INDEX 50</span>
+      <a class="site-name" href="index.html">资讯有序</a>
+    </div>
+    <a class="back-link" href="index.html">← 返回首页</a>
+  </header>
+
+  <section class="page-header">
+    <p class="page-label">刊登咨询</p>
+    <h1 class="page-title">在 Index 50 发布资讯</h1>
+    <p class="page-desc">
+      Index 50 协助商家与活动主办方将资讯结构化呈现，发布于本站并同步至 Facebook。每则资讯长期存档，持续可被查找。
+    </p>
+  </section>
+
+  <section class="pricing-section">
+    <p class="section-label">服务与收费</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <p class="pricing-card-label">一次性</p>
+        <p class="pricing-card-name">建立资讯档案页</p>
+        <p class="pricing-card-desc">专属页面收录你的商家或团体资讯，作为所有发布条目的根目录。</p>
+        <p class="pricing-card-price">RM 50<span class="pricing-card-unit">/ 档案页</span></p>
+      </div>
+      <div class="pricing-card">
+        <p class="pricing-card-label">每则</p>
+        <p class="pricing-card-name">资讯发布</p>
+        <p class="pricing-card-desc">含资讯整理、网站发布、Facebook 同步分享，长期存档。</p>
+        <p class="pricing-card-price">RM 25<span class="pricing-card-unit">/ 则</span></p>
+      </div>
+    </div>
+
+    <div class="promo-block">
+      <div>
+        <p class="promo-label">开张优惠 · 2026年12月31日前</p>
+        <p class="promo-name">档案页 + 首3则资讯发布</p>
+        <p class="promo-desc">建立资讯档案页，含首3则资讯发布名额，可分次使用。</p>
+      </div>
+      <div class="promo-price-block">
+        <span class="promo-price-original">RM 125</span>
+        <span class="promo-price-now">RM 80</span>
+        <span class="promo-expiry">截止 31 Dec 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <p class="section-label">刊登流程</p>
+    <ul class="process-list">
+      <li class="process-item">
+        <span class="process-num"></span>
+        <p class="process-text">联系我们，告诉我你想发布什么，活动还是服务，大概几则。手上已有的宣传资料直接发过来也行，我们来整理。</p>
+      </li>
+      <li class="process-item">
+        <span class="process-num"></span>
+        <p class="process-text">一般所需资料：名称、简介、联络方式，活动类另加日期与地点，有图片更好。</p>
+      </li>
+      <li class="process-item">
+        <span class="process-num"></span>
+        <p class="process-text">资讯确认后于两天内上线，同步发布至 Facebook。</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="contact-section">
+    <p class="section-label">联络</p>
+    <div class="contact-block">
+      <div class="contact-text">
+        <strong>有任何疑问，欢迎先询问。</strong>
+        <a class="contact-email" href="mailto:gpl0401@gmail.com">gpl0401@gmail.com</a>
+      </div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a class="contact-btn" href="https://wa.me/60103800608" target="_blank">WhatsApp →</a>
+        <a class="contact-btn" style="background:var(--ink-secondary);" href="mailto:gpl0401@gmail.com">发送电邮 →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-mark">INDEX 50 · v1</span>
+    <a class="footer-back" href="index.html">← 返回首页</a>
+  </footer>
+
+</div>
+</body>
+</html>
