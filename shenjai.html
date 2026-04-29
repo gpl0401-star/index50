@@ -1,0 +1,132 @@
+---
+layout: default
+title: 霹雳深斋校友会 · Index 50
+back_href: category-huatuan.html
+back_text: 返回华团
+---
+<style>
+  .profile-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .profile-top { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .profile-logo { width: 72px; height: 72px; object-fit: contain; border-radius: 50%; border: 1px solid var(--rule); flex-shrink: 0; }
+  .profile-title-block {}
+  .profile-tags { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; flex-wrap: wrap; }
+  .profile-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; background: var(--paper-mid); color: var(--ink-muted); }
+  .profile-tag.huatuan { background: var(--tag-service-bg); color: var(--tag-service); }
+  .profile-name { font-family: var(--serif-cn); font-size: 1.7rem; font-weight: 400; color: var(--ink); line-height: 1.25; margin-bottom: 0.25rem; }
+  .profile-name-en { font-family: var(--mono); font-size: 0.68rem; color: var(--ink-muted); letter-spacing: 0.03em; line-height: 1.5; }
+
+  .profile-contacts { margin-bottom: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; }
+  .profile-contact { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-secondary); }
+  .profile-contact a { color: var(--accent); text-decoration: none; }
+  .profile-contact a:hover { text-decoration: underline; }
+  .profile-contact-label { color: var(--ink-muted); margin-right: 0.3em; }
+
+  .profile-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; margin-bottom: 1rem; }
+
+  .profile-meta { display: flex; flex-wrap: wrap; gap: 0.3rem 2rem; }
+  .profile-meta-item { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); line-height: 1.6; }
+  .profile-meta-item span { color: var(--ink-secondary); }
+
+  .entries-section { padding: 1.75rem 0; }
+  .entries-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; }
+  .entries-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
+  .entries-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+
+  .entry-list { list-style: none; }
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.content { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.25rem; }
+
+  .profile-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-top: 1px solid var(--paper-mid); }
+  .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-link:hover { color: var(--accent); }
+  .nav-sep { color: var(--rule); font-size: 0.75rem; }
+
+  footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+
+  @media (max-width: 560px) {
+    .profile-top { flex-direction: column; gap: 1rem; }
+    .profile-name { font-size: 1.35rem; }
+  }
+</style>
+
+<section class="profile-header">
+  <div class="profile-top">
+    <img class="profile-logo" src="shenjai-logo.svg" alt="霹雳深斋校友会">
+    <div class="profile-title-block">
+      <div class="profile-tags">
+        <span class="profile-tag huatuan">华团</span>
+        <span class="profile-tag">霹雳州</span>
+      </div>
+      <h1 class="profile-name">霹雳深斋校友会</h1>
+      <p class="profile-name-en">Persatuan Murid-Murid Tua Sekolah Shen Jai Ipoh Perak</p>
+    </div>
+  </div>
+
+  <div class="profile-contacts">
+    <p class="profile-contact"><span class="profile-contact-label">WhatsApp：</span><a href="https://wa.me/60125907610">012-590 7610</a></p>
+    <p class="profile-contact"><span class="profile-contact-label">Email：</span><a href="mailto:pmtsm.shenjai@gmail.com">pmtsm.shenjai@gmail.com</a></p>
+    <p class="profile-contact"><span class="profile-contact-label">Facebook：</span><a href="https://www.facebook.com/pmts.shenjai" target="_blank">霹雳深斋校友会</a></p>
+  </div>
+
+  <p class="profile-desc">
+    成立于1976年5月9日，服务于怡保深斋中学毕业生的联谊组织。以「同根同源，共叙情谊，共创未来」为精神。
+  </p>
+  <p class="profile-desc" style="margin-bottom:0.5rem;">校友会五大宗旨：</p>
+  <ol style="font-family:var(--serif-cn);font-size:0.9rem;font-weight:300;color:var(--ink-secondary);line-height:2;margin:0 0 1rem 1.25rem;padding:0;">
+    <li>联络校友感情</li>
+    <li>促进互相精神及会员福利</li>
+    <li>共谋学艺之研究及康乐活动</li>
+    <li>协助母校发展</li>
+    <li>致力社会公益事宜</li>
+  </ol>
+  <p style="font-family:var(--serif-cn);font-size:1.05rem;font-weight:400;color:var(--ink);text-align:center;margin:1.5rem 0 0.25rem;letter-spacing:0.05em;"><span style="font-size:1.4rem;font-weight:700;color:var(--accent);">深</span>学笃行，<span style="font-size:1.4rem;font-weight:700;color:var(--accent);">斋</span>心致远</p>
+  <p style="font-family:var(--serif-cn);font-size:0.8rem;font-weight:300;color:var(--ink-muted);text-align:center;margin:0 0 1rem;letter-spacing:0.03em;">校友会永远是您的港湾！</p>
+
+  <div class="profile-meta">
+    <p class="profile-meta-item">地址：<span>20A Jalan Lapangan Siber 9, Bandar Cyber, 31350 Ipoh, Perak</span></p>
+  </div>
+</section>
+
+<section class="entries-section">
+  <div class="entries-header">
+    <p class="entries-label">资讯档案</p>
+    <p class="entries-count">共 1 则</p>
+  </div>
+
+  <ul class="entry-list">
+    <li>
+      <a class="entry-item" href="shenjai-intro.html">
+        <span class="entry-index">APR<br>29</span>
+        <div class="entry-body">
+          <div class="entry-meta">
+            <span class="entry-tag content">内容分享</span>
+          </div>
+          <p class="entry-title">霹雳深斋校友会简介</p>
+          <p class="entry-desc">成立于1976年，联络深斋中学校友，协助母校发展，致力社会公益。</p>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+  <p class="source-note">以上信息经资讯方确认，如有更新，欢迎联络告知。</p>
+</section>
+
+<nav class="profile-nav">
+  <a class="nav-link" href="index.html">Index 50 首页</a>
+  <span class="nav-sep">·</span>
+  <a class="nav-link" href="category-huatuan.html">← 返回华团</a>
+</nav>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v1</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
