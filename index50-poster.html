@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Index 50 · 品牌横幅</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+SC:wght@300;400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #131C2B; font-family: 'Noto Serif SC', serif; }
+  .banner {
+    width: 100vw; height: 100vh; background: #131C2B;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: row; align-items: center;
+    padding: 0 8vw; gap: 6vw;
+  }
+  .banner::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none;
+  }
+  .arc { position: absolute; right: -80px; bottom: -80px; width: 340px; height: 340px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); }
+  .arc2 { position: absolute; right: -130px; bottom: -130px; width: 480px; height: 480px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
+  .arc3 { position: absolute; right: -40px; bottom: -40px; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(26,92,72,0.4); }
+  .left {
+    flex-shrink: 0; display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid rgba(255,255,255,0.08); padding-right: 6vw;
+  }
+  .brand { display: flex; align-items: baseline; gap: 10px; margin-bottom: 1.2rem; }
+  .brand-word { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.22em; color: rgba(255,255,255,0.45); }
+  .brand-num { font-family: 'EB Garamond', serif; font-size: 64px; font-weight: 400; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+  .brand-dot { width: 7px; height: 7px; border-radius: 50%; background: #1A5C48; margin-left: 2px; margin-bottom: 10px; flex-shrink: 0; }
+  .tagline { font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); }
+  .right { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
+  .headline { font-family: 'Noto Serif SC', serif; font-size: clamp(18px, 2.4vw, 30px); font-weight: 400; color: rgba(255,255,255,0.92); line-height: 1.65; letter-spacing: 0.02em; }
+  .headline em { font-style: normal; color: #4CA88A; }
+  .items { display: flex; flex-direction: column; gap: 10px; }
+  .item { display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.04em; }
+  .item-dot { width: 4px; height: 4px; border-radius: 50%; background: #1A5C48; flex-shrink: 0; }
+  .contact { padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 2.5rem; align-items: flex-end; }
+  .contact-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; font-weight: 500; letter-spacing: 0.2em; color: rgba(255,255,255,0.25); margin-bottom: 5px; }
+  .contact-val { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.04em; line-height: 1.8; }
+  .domain { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; margin-left: auto; align-self: flex-end; }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="arc"></div><div class="arc2"></div><div class="arc3"></div>
+  <div class="left">
+    <div class="brand">
+      <span class="brand-word">INDEX</span>
+      <span class="brand-num">50</span>
+      <span class="brand-dot"></span>
+    </div>
+    <p class="tagline">资讯有序</p>
+  </div>
+  <div class="right">
+    <p class="headline">让你的资讯<br>被找到，被留住，<br><em>有序呈现，长期存档。</em></p>
+    <div class="items">
+      <div class="item"><span class="item-dot"></span>活动与服务资讯，有序存档</div>
+      <div class="item"><span class="item-dot"></span>机构自有页面，随时可查</div>
+      <div class="item"><span class="item-dot"></span>平台收入 50%，捐助公益</div>
+    </div>
+    <div class="contact">
+      <div>
+        <p class="contact-label">CONTACT</p>
+        <p class="contact-val">gpl0401@gmail.com</p>
+      </div>
+      <p class="domain">index50.org</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
