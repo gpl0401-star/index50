@@ -21,8 +21,18 @@ custom_header: true
   .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; }
   .entry-count { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
 
-  .empty-state { padding: 3rem 0; text-align: center; }
-  .empty-state p { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); letter-spacing: 0.06em; }
+  .entry-list { list-style: none; }
+  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
+  .entry-item:hover { background: var(--paper-mid); }
+  .entry-item:hover .entry-title { color: var(--accent); }
+  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
+  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.monthly { background: #e4eaf0; color: #2e4a5a; }
+  .entry-client { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.03em; }
+  .entry-state { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; }
+  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
+  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
 
   footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); margin-top: 1rem; display: flex; justify-content: space-between; align-items: center; }
 
@@ -35,7 +45,7 @@ custom_header: true
 <header>
   <div class="site-title-block">
     <span class="site-index-word">Index</span>
-    <h1 class="site-title"><span class="num-50">50</span>&thinsp;·&thinsp;资讯整理</h1>
+    <h1 class="site-title"><span class="num-50">50</span>&thinsp;·&thinsp;资讯有序</h1>
   </div>
   <a class="back-link" href="index.html">← 返回首页</a>
 </header>
@@ -48,12 +58,27 @@ custom_header: true
 
 <div class="entries-header">
   <p class="section-label">内容分享</p>
-  <p class="entry-count">共 0 则</p>
+  <p class="entry-count">共 1 则</p>
 </div>
 
-<div class="empty-state">
-  <p>暂无内容</p>
-</div>
+<ul class="entry-list">
+
+  <li>
+    <a class="entry-item" href="cintahaiwan-monthly2604.html">
+      <span class="entry-index">MAY<br>3</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag monthly">月季报告</span>
+          <span class="entry-client">马来西亚动物声援会</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">马来西亚动物声援会 · 2026年4月月季报告</p>
+        <p class="entry-desc">2026年4月本会工作汇报，包含巡逻、动物善终处理及社区交流等志工行动记录。</p>
+      </div>
+    </a>
+  </li>
+
+</ul>
 
 <footer>
   <span class="footer-mark">INDEX 50 · v1</span>
