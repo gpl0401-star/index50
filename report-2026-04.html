@@ -211,6 +211,12 @@ title: 季度报告 · 2026年4月 | Index 50
     color: #bbb;
   }
 
+ .entry-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-bottom: 1px solid var(--paper-mid); }
+  .nav-label { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.1em; }
+  .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-link:hover { color: var(--accent); }
+  .nav-sep { color: var(--rule); font-size: 0.75rem; }
+  
   @media (max-width: 600px) {
     .metrics {
       grid-template-columns: repeat(2, 1fr);
@@ -226,9 +232,9 @@ title: 季度报告 · 2026年4月 | Index 50
 </style>
 
 <div class="rpt-page">
-
+  <a class="back-link" href="index50.html">← 返回Index 50</a>
   <div class="rpt-header">
-     <a class="back-link" href="index50.html">← 返回Index 50</a>
+    
     <div>
       <div class="rpt-eyebrow">季度报告 · Quarterly Report</div>
       <div class="rpt-title">Index 50</div>
