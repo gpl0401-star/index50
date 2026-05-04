@@ -54,6 +54,7 @@
   .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
   .entry-tag.event { background: var(--tag-event-bg); color: var(--tag-event); }
   .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
+  .entry-tag.monthly { background: #e4eaf0; color: #2e4a5a; } 
   .entry-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
   .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
@@ -106,17 +107,16 @@
   </div>
 
   <ul class="entry-list">
-    <li>
+      <li>
       <a class="entry-item" href="report-2026-04.html">
         <span class="entry-index">MAY<br>4</span>
         <div class="entry-body">
-          <span class="entry-tag monthly">月季报告</span><span class="entry-date">4 May 2026</span></div>
+          <div class="entry-meta"><span class="entry-tag monthly">月季报告</span><span class="entry-date">4 May 2026</span></div>
           <p class="entry-title">Index 50 · 2026年4月月报</p>
           <p class="entry-desc">建档首月</p>
         </div>
       </a>
     </li>
-    <li> 
    <li>
       <a class="entry-item" href="index50-post.html">
         <span class="entry-index">APR<br>20</span>
