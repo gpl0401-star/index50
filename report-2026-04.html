@@ -1,0 +1,343 @@
+---
+layout: default
+title: 季度报告 · 2026年4月 | Index 50
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  .rpt-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    font-family: -apple-system, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    color: #1a1a1a;
+  }
+
+  /* Header */
+  .rpt-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid #d0cfc8;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .rpt-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .rpt-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #152840;
+    letter-spacing: -.01em;
+  }
+  .rpt-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #888;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* Metrics */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 3rem;
+  }
+  .metric {
+    background: #f5f4f0;
+    border-radius: 6px;
+    padding: 18px 16px;
+  }
+  .metric-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 500;
+    color: #152840;
+  }
+  .metric-lbl {
+    font-size: 12px;
+    color: #888;
+    margin-top: 5px;
+    line-height: 1.5;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    margin-bottom: 3rem;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    border-top: 1px solid #e8e7e2;
+  }
+  .tl-item:last-child {
+    border-bottom: 1px solid #e8e7e2;
+  }
+  .tl-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #aaa;
+    padding: 16px 16px 16px 0;
+    line-height: 1.6;
+  }
+  .tl-content {
+    padding: 16px 0 16px 20px;
+    border-left: 1px solid #e8e7e2;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .tl-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 8px;
+  }
+  .tag-domain  { background: #ddeeff; color: #0c447c; }
+  .tag-publish { background: #e6f2d8; color: #27500a; }
+  .tag-ngo     { background: #d5ede5; color: #0f6e56; }
+  .tag-update  { background: #eeecea; color: #5f5e5a; }
+  .tag-guild   { background: #edeefe; color: #3c3489; }
+
+  /* Outreach */
+  .outreach {
+    margin-bottom: 3rem;
+  }
+  .out-intro {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .bar-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #aaa;
+    width: 55px;
+    text-align: right;
+  }
+  .bar-bg {
+    flex: 1;
+    background: #f0efe9;
+    border-radius: 3px;
+    height: 22px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 3px;
+  }
+  .bar-total   { width: 100%; background: #9fd6c5; color: #085041; }
+  .bar-silent  { width: 73%;  background: #d3d1c7; color: #5f5e5a; }
+  .bar-success { width: 7%;   background: #c5e0a5; color: #3b6d11; min-width: 55px; }
+  .out-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 12px;
+    line-height: 1.8;
+    border-left: 2px solid #e0dfd8;
+    padding-left: 12px;
+  }
+
+  /* Next phase */
+  .next-phase {
+    background: #f5f4f0;
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .next-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: #333;
+    padding: 7px 0;
+    line-height: 1.6;
+  }
+  .next-item::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #152840;
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  .rpt-footer {
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #e8e7e2;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #bbb;
+  }
+
+  @media (max-width: 600px) {
+    .metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .rpt-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .rpt-period { text-align: left; }
+    .tl-item { grid-template-columns: 80px 1fr; }
+  }
+</style>
+
+<div class="rpt-page">
+
+  <div class="rpt-header">
+    <div>
+      <div class="rpt-eyebrow">季度报告 · Quarterly Report</div>
+      <div class="rpt-title">Index 50</div>
+    </div>
+    <div class="rpt-period">2026年4月<br>April 2026</div>
+  </div>
+
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-val">01</div>
+      <div class="metric-lbl">已收录华团机构</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">05</div>
+      <div class="metric-lbl">整理公益机构 NGO</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">15</div>
+      <div class="metric-lbl">外展接触机构数</div>
+    </div>
+    <div class="metric">
+      <div class="metric-val">30+</div>
+      <div class="metric-lbl">商家招募资讯发布</div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="section-label">时间线 · Timeline</div>
+
+    <div class="tl-item">
+      <div class="tl-date">04月18日</div>
+      <div class="tl-content">
+        购入域名 index50.org，平台正式具备独立地址。
+        <span class="tl-tag tag-domain">域名</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">04月18日</div>
+      <div class="tl-content">
+        发布平台首个服务资讯与公益机构招募活动资讯。
+        <span class="tl-tag tag-publish">首发</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">04月18–26日</div>
+      <div class="tl-content">
+        整理公开资源中 5 个 NGO 公益机构资料，完成收录并逐一通知机构负责人。
+        <span class="tl-tag tag-ngo">公益机构</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">04月20日</div>
+      <div class="tl-content">
+        发布 30 个商家招募合作活动资讯，扩大平台曝光与招募覆盖面。
+        <span class="tl-tag tag-publish">商业</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">04月30日</div>
+      <div class="tl-content">
+        首个华团机构正式加入合作收录，完成跨机构类型的首次突破。
+        <span class="tl-tag tag-guild">华团</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">全月陆续</div>
+      <div class="tl-content">
+        更新网站结构，增设州属分类、内容分享栏目，完善平台说明页面。
+        <span class="tl-tag tag-update">平台更新</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="outreach">
+    <div class="section-label">外展概况 · Outreach</div>
+    <div class="out-intro">
+      本月共接触 15 家机构（以公益机构为主），询问收录合作意愿。
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">接触</div>
+      <div class="bar-bg"><div class="bar-fill bar-total">15 家</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">无回应</div>
+      <div class="bar-bg"><div class="bar-fill bar-silent">约 11 家</div></div>
+    </div>
+    <div class="bar-row">
+      <div class="bar-label">成功收录</div>
+      <div class="bar-bg"><div class="bar-fill bar-success">1 家</div></div>
+    </div>
+    <div class="out-note">
+      大部分机构未有回应。成功收录以公开资料整理及华团主动加入为主。外展转化率低属新平台正常现象，后续可优先以已认识机构为切入点逐步建立信任基础。
+    </div>
+  </div>
+
+  <div class="section-label">下阶段方向 · Next Phase</div>
+  <div class="next-phase">
+    <div class="next-item">随机构类型与资讯数量增加，引入行业分类标签系统</div>
+    <div class="next-item">上线站内搜索功能，提升平台的可检索性与实用性</div>
+    <div class="next-item">持续扩充各州属机构收录，建立更完整的区域覆盖</div>
+  </div>
+
+  <div class="rpt-footer">
+    <span>index50.org</span>
+    <span>Report period: April 2026 · Published May 2026</span>
+  </div>
+
+</div>
