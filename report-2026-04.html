@@ -201,20 +201,27 @@ back_text: 返回 Index 50
     flex-shrink: 0;
   }
 
-    /* Footer */
+  /* Footer */
   .rpt-footer {
     margin-top: 3rem;
     padding-top: 1.25rem;
     border-top: 1px solid #e8e7e2;
     display: flex;
     justify-content: space-between;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: #bbb;
-
+    align-items: center;
+  }
   .footer-mark { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .footer-back { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; }
   .footer-back:hover { color: var(--accent); }
+
+  /* Editor note */
+  .editor-note {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    border-left: 2px solid #e0dfd8;
+    padding-left: 12px;
   }
   
  .entry-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-bottom: 1px solid var(--paper-mid); }
@@ -340,6 +347,8 @@ back_text: 返回 Index 50
     </div>
   </div>
 
+  <div class="editor-note">编注：自 v2 起，Index 50 调整收录范围，不再收录公益机构。本报告所载为 2026 年 4 月实际运营记录，保留原貌。</div>
+
   <div class="section-label">下阶段方向 · Next Phase</div>
   <div class="next-phase">
     <div class="next-item">随机构类型与资讯数量增加，引入行业分类标签系统</div>
@@ -352,12 +361,12 @@ back_text: 返回 Index 50
   <span class="nav-sep">·</span>
   <a class="nav-link" href="index50.html">Index 50</a>
   <span class="nav-sep">·</span>
-  <a class="nav-link" href="index50-post.html">返回首页 →</a>
+  <a class="nav-link" href="index.html">下一篇 →</a>
 </nav>
   
   <div class="rpt-footer">
-    <span>index50</span>
-    <span>Report period: April 2026 · Published May 2026</span>
+    <span class="footer-mark">INDEX 50 · v2</span>
+    <a class="footer-back" href="index.html">← 返回首页</a>
   </div>
   
 </div>
