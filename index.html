@@ -36,14 +36,7 @@ custom_header: true
   .cat-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .cat-link { font-family: var(--serif-en); font-size: 1.5rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; border: 1px solid var(--rule); padding: 0.6rem 1.4rem; border-radius: 3px; transition: border-color 0.15s, color 0.15s, background 0.15s; }
   .cat-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-  .cat-link-more {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  color: var(--ink-muted);
-  letter-spacing: 0.06em;
-  padding: 4px 0;
-  opacity: 0.7;
-}
+  .cat-link-more { color: var(--ink-muted); border-style: dashed; text-align: center; line-height: 1.6; cursor: default; pointer-events: none; }
   .view-all-row { padding: 1.5rem 0 2rem; border-top: 1px solid var(--paper-mid); display: flex; justify-content: flex-end; }
   .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
   .view-all-link:hover { background: var(--accent); color: var(--paper); }
@@ -191,7 +184,7 @@ custom_header: true
     <a class="cat-link" href="category-biz.html">商业机构</a>
     <a class="cat-link" href="category-huatuan.html">华团</a>
     <a class="cat-link" href="category-volunteer.html">志愿力量</a>
-    <span class="cat-link-more">更多类型陆续收录中</span>
+    <a class="cat-link cat-link-more" href="#">更多类型陆续收录中<br>敬请期待</a>
   </div>
 </nav>
 
