@@ -36,7 +36,14 @@ custom_header: true
   .cat-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .cat-link { font-family: var(--serif-en); font-size: 1.5rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; border: 1px solid var(--rule); padding: 0.6rem 1.4rem; border-radius: 3px; transition: border-color 0.15s, color 0.15s, background 0.15s; }
   .cat-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-
+  .cat-link-more {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--ink-muted);
+  letter-spacing: 0.06em;
+  padding: 4px 0;
+  opacity: 0.7;
+}
   .view-all-row { padding: 1.5rem 0 2rem; border-top: 1px solid var(--paper-mid); display: flex; justify-content: flex-end; }
   .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
   .view-all-link:hover { background: var(--accent); color: var(--paper); }
@@ -67,6 +74,21 @@ custom_header: true
   <p class="section-label">最新资讯</p>
   <ul class="entry-list">
 
+    <li>
+    <a class="entry-item" href="cintahaiwan-service-260505.html">
+      <span class="entry-index">MAY<br>5</span>
+      <div class="entry-body">
+        <div class="entry-meta">
+          <span class="entry-tag volunteer">志愿服务</span>
+          <span class="entry-client">马来西亚动物声援会</span>
+          <span class="entry-state">霹雳州</span>
+        </div>
+        <p class="entry-title">【慎入】志工队埋蛇行动 · 此次行动体现了志工队对各类生命的尊重与对社区环境的责任。</p>
+        <p class="entry-desc">本会志工队日前展开埋蛇行动,由执行队长陈文辉前往现场执行任务。</p>
+      </div>
+    </a>
+  </li>
+    
     <li>
       <a class="entry-item" href="shenjai-footprint.html">
         <span class="entry-index">MAY<br>5</span>
@@ -157,21 +179,6 @@ custom_header: true
       </a>
     </li>
 
-    <li>
-      <a class="entry-item" href="cintahaiwan-service-260413.html">
-        <span class="entry-index">MAY<br>3</span>
-        <div class="entry-body">
-          <div class="entry-meta">
-            <span class="entry-tag volunteer">志愿服务</span>
-            <span class="entry-client">马来西亚动物声援会</span>
-            <span class="entry-state">霹雳州</span>
-          </div>
-          <p class="entry-title">【慎入】志工队埋狗行动 · 无声的生命，应有的善终与对待</p>
-          <p class="entry-desc">执行队长陈文辉接获投报，前往现场对已死亡狗只进行妥善埋葬。</p>
-        </div>
-      </a>
-    </li>
-
   </ul>
   <div class="view-all-row">
     <a class="view-all-link" href="entries-service.html">查看所有资讯 →</a>
@@ -184,6 +191,7 @@ custom_header: true
     <a class="cat-link" href="category-biz.html">商业机构</a>
     <a class="cat-link" href="category-huatuan.html">华团</a>
     <a class="cat-link" href="category-volunteer.html">志愿力量</a>
+    <span class="cat-link-more">更多类型陆续收录中</span>
   </div>
 </nav>
 
