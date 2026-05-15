@@ -1,0 +1,144 @@
+---
+layout: default
+title: 生日宴会 · 刘永恒 · 马来西亚动物声援会 · Index 50
+back_href: cintahaiwan.html
+back_text: 返回马来西亚动物声援会
+---
+<style>
+  .entry-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
+  .entry-meta-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.feature { background: #f5eaf0; color: #5c1a3d; }
+  .entry-org { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-org a { color: var(--accent); text-decoration: none; }
+  .entry-org a:hover { text-decoration: underline; }
+  .entry-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-title { font-family: var(--serif-cn); font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 1.25rem; }
+
+  .photo-hero { width: 100%; margin: 1.75rem 0 4px; }
+  .photo-hero img { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 2px; cursor: pointer; transition: opacity 0.15s; display: block; }
+  .photo-hero img:hover { opacity: 0.92; }
+
+  .photo-grid { display: grid; gap: 4px; width: 100%; }
+  .photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; cursor: pointer; transition: opacity 0.15s; }
+  .photo-grid img:hover { opacity: 0.92; }
+  .photo-grid.n4 { grid-template-columns: 1fr 1fr; }
+  .photo-grid.n4 img { aspect-ratio: 4/3; }
+
+  .entry-body { padding: 1.75rem 0 2rem; display: grid; grid-template-columns: 1fr 13.5rem; gap: 0 3rem; border-bottom: 1px solid var(--rule); }
+  .entry-desc { font-family: var(--serif-cn); font-size: 0.925rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; margin-bottom: 1.25rem; }
+
+  .info-panel { border-left: 1px solid var(--rule); padding-left: 1.75rem; }
+  .info-group { margin-bottom: 1.4rem; }
+  .info-group:last-child { margin-bottom: 0; }
+  .info-label { font-family: var(--mono); font-size: 0.58rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .info-value { font-family: var(--serif-cn); font-size: 0.875rem; font-weight: 400; color: var(--ink); line-height: 1.55; }
+  .info-value.mono { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.02em; }
+  .info-value a { color: var(--accent); text-decoration: none; }
+  .info-value a:hover { text-decoration: underline; }
+
+  .cta-bar { margin: 2rem 0; padding: 1.25rem 1.5rem; background: var(--paper-mid); border-radius: 3px; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .cta-text { font-family: var(--serif-cn); font-size: 0.85rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.8; }
+  .cta-text strong { font-weight: 500; color: var(--ink); }
+  .cta-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 2px; white-space: nowrap; }
+  .cta-btn:hover { opacity: 0.85; }
+
+  .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.5rem; }
+
+  .entry-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-top: 1px solid var(--paper-mid); }
+  .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
+  .nav-link:hover { color: var(--accent); }
+  .nav-sep { color: var(--rule); font-size: 0.75rem; }
+
+  footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,16,12,0.93); z-index: 999; align-items: center; justify-content: center; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 2px; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.7rem; color: #a89e92; letter-spacing: 0.1em; cursor: pointer; }
+
+  @media (max-width: 600px) {
+    .entry-body { grid-template-columns: 1fr; }
+    .info-panel { border-left: none; border-top: 1px solid var(--rule); padding-left: 0; padding-top: 1.5rem; margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; }
+    .info-group { margin-bottom: 0; }
+  }
+</style>
+
+<section class="entry-header">
+  <div class="entry-meta-top">
+    <span class="entry-tag feature">特辑</span>
+    <span class="entry-org"><a href="cintahaiwan.html">马来西亚动物声援会</a></span>
+    <span class="entry-date">· 14 Apr 2026</span>
+  </div>
+  <h1 class="entry-title">生日宴会 · 刘永恒</h1>
+</section>
+
+<div class="photo-hero">
+  <img src="cintahaiwan-bday-260414-1.jpg" alt="生日宴会 · 刘永恒" onclick="openLightbox(this.src)">
+</div>
+<div class="photo-grid n4" style="margin-bottom: 4px;">
+  <img src="cintahaiwan-bday-260414-2.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-3.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-4.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-5.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+</div>
+<div class="photo-grid n4">
+  <img src="cintahaiwan-bday-260414-6.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-7.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-8.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+  <img src="cintahaiwan-bday-260414-9.jpg" alt="生日宴会" onclick="openLightbox(this.src)">
+</div>
+
+<div class="entry-body">
+  <div class="entry-main">
+    <p class="entry-desc">本会会员刘永恒日前举办生日宴会，多位本会成员一同出席庆祝，包括总会长陈文辉、宣传主任张庭轩、青年团团长欧文、志工队队长宇胜、志工队助理队长李智诚及3位会员。</p>
+    <p class="entry-desc">活动在温馨愉快的氛围中进行，大家齐聚一堂，共同为寿星送上祝福，并借此机会交流近况，增进彼此情谊。此次聚会不仅展现了本会成员之间的良好关系，也体现出团队的凝聚力与归属感。</p>
+    <p class="entry-desc">愿寿星刘永恒生日快乐，生活顺遂，未来一切顺心如意。本会也将继续维系这份情谊，共同成长与前行。</p>
+  </div>
+  <aside class="info-panel">
+    <div class="info-group">
+      <p class="info-label">日期</p>
+      <p class="info-value">2026年4月14日</p>
+    </div>
+    <div class="info-group">
+      <p class="info-label">出席成员</p>
+      <p class="info-value">陈文辉、张庭轩、欧文、宇胜、李智诚及会员</p>
+    </div>
+    <div class="info-group">
+      <p class="info-label">联络方式</p>
+      <p class="info-value mono"><a href="https://wa.me/60183965628">018-3965 628</a></p>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-bar">
+  <p class="cta-text"><strong>关注动物声援会，了解最新动态。</strong><br>更多记录持续更新于 Facebook。</p>
+  <a class="cta-btn" href="https://web.facebook.com/profile.php?id=100082887782559" target="_blank">Facebook →</a>
+</div>
+
+<p class="source-note">以上内容转载自动物声援会官方 Facebook，经整理发布，如有更新欢迎联络告知。</p>
+
+<nav class="entry-nav">
+  <span class="nav-sep">·</span>
+  <a class="nav-link" href="cintahaiwan.html">返回马来西亚动物声援会</a>
+</nav>
+
+<footer>
+  <span class="footer-mark">INDEX 50 · v2</span>
+  <a class="footer-back" href="index.html">← 返回首页</a>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">关闭 ✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+</script>
