@@ -11,21 +11,21 @@ back_text: 返回马来西亚动物声援会
   .entry-org { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-muted); }
   .entry-org a { color: var(--accent); text-decoration: none; }
   .entry-org a:hover { text-decoration: underline; }
-  .entry-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-date-range { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .entry-title { font-family: var(--serif-cn); font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 0.5rem; }
   .entry-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; margin-bottom: 0; }
 
   .patrol-section { padding: 2rem 0; }
-  .patrol-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .patrol-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; }
 
   .patrol-list { list-style: none; }
-  .patrol-item { display: grid; grid-template-columns: 5rem 1fr; gap: 0 1.25rem; padding: 1.25rem 0; border-bottom: 1px solid var(--paper-mid); }
-  .patrol-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); line-height: 1.6; padding-top: 0.15rem; }
-  .patrol-photo img { display: block; width: 100%; max-width: 360px; border-radius: 3px; }
-  .patrol-photos { display: flex; gap: 8px; flex-wrap: wrap; }
-  .patrol-photos img { width: calc(33.33% - 6px); max-width: 160px; border-radius: 3px; }
+  .patrol-item { padding: 1.5rem 0; border-bottom: 1px solid var(--paper-mid); }
+  .patrol-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); margin-bottom: 0.75rem; }
+  .patrol-item img { display: block; width: 100%; max-width: 480px; border-radius: 3px; }
+  .patrol-photos { display: flex; gap: 8px; }
+  .patrol-photos img { width: calc(33.33% - 6px); max-width: 200px; border-radius: 3px; }
 
-  .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.25rem; }
+  .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.5rem; }
 
   .entry-nav { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; border-top: 1px solid var(--paper-mid); }
   .nav-link { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-secondary); text-decoration: none; transition: color 0.15s; }
@@ -39,7 +39,7 @@ back_text: 返回马来西亚动物声援会
   <div class="entry-meta-top">
     <span class="entry-tag">季度记录</span>
     <span class="entry-org"><a href="cintahaiwan.html">马来西亚动物声援会</a></span>
-    <span class="entry-date">2026年4月—6月</span>
+    <span class="entry-date-range">2026年4月—6月</span>
   </div>
   <h1 class="entry-title">每周巡逻记录 · 2026年4月—6月</h1>
   <p class="entry-desc">志工们每周尽职尽责地执行巡查任务，关注动物的安全与栖息环境。每周巡逻不仅能及时发现动物需要帮助的情况，也能有效维护和改善它们的生存条件。感谢所有志工的辛勤付出，以及社会各界对本会工作的支持。</p>
@@ -50,42 +50,32 @@ back_text: 返回马来西亚动物声援会
   <ul class="patrol-list">
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>5月19日</div>
-      <div class="patrol-photo">
-        <img src="cintahaiwan-patrol-260519.jpg" alt="每周巡逻 2026年5月19日">
-      </div>
+      <p class="patrol-date">2026年5月19日</p>
+      <img src="cintahaiwan-patrol-260519.jpg" alt="每周巡逻 2026年5月19日">
     </li>
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>5月2日</div>
-      <div class="patrol-photo">
-        <img src="cintahaiwan-patrol-260502.jpg" alt="每周巡逻 2026年5月2日">
-      </div>
+      <p class="patrol-date">2026年5月2日</p>
+      <img src="cintahaiwan-patrol-260502.jpg" alt="每周巡逻 2026年5月2日">
     </li>
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>4月25日</div>
-      <div class="patrol-photo">
-        <img src="cintahaiwan-patrol-260425.jpg" alt="每周巡逻 2026年4月25日">
-      </div>
+      <p class="patrol-date">2026年4月25日</p>
+      <img src="cintahaiwan-patrol-260425.jpg" alt="每周巡逻 2026年4月25日">
     </li>
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>4月17日</div>
-      <div class="patrol-photo">
-        <img src="cintahaiwan-patrol-260417.jpg" alt="每周巡逻 2026年4月17日">
-      </div>
+      <p class="patrol-date">2026年4月17日</p>
+      <img src="cintahaiwan-patrol-260417.jpg" alt="每周巡逻 2026年4月17日">
     </li>
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>4月10日</div>
-      <div class="patrol-photo">
-        <img src="cintahaiwan-patrol-260410.jpg" alt="每周巡逻 2026年4月10日">
-      </div>
+      <p class="patrol-date">2026年4月10日</p>
+      <img src="cintahaiwan-patrol-260410.jpg" alt="每周巡逻 2026年4月10日">
     </li>
 
     <li class="patrol-item">
-      <div class="patrol-date">2026年<br>4月3日</div>
+      <p class="patrol-date">2026年4月3日</p>
       <div class="patrol-photos">
         <img src="cintahaiwan-patrol-260403-1.jpg" alt="每周巡逻 2026年4月3日">
         <img src="cintahaiwan-patrol-260403-2.jpg" alt="每周巡逻 2026年4月3日">
