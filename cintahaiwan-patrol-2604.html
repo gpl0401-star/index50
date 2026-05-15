@@ -7,23 +7,34 @@ back_text: 返回马来西亚动物声援会
 <style>
   .entry-header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); }
   .entry-meta-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; flex-wrap: wrap; }
-  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; background: var(--tag-service-bg); color: var(--tag-service); }
-  .entry-org { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-muted); }
+  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
+  .entry-tag.record { background: #e8f0f7; color: #1a3d5c; }
+  .entry-org { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .entry-org a { color: var(--accent); text-decoration: none; }
   .entry-org a:hover { text-decoration: underline; }
-  .entry-date-range { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
+  .entry-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); }
   .entry-title { font-family: var(--serif-cn); font-size: 1.5rem; font-weight: 400; color: var(--ink); line-height: 1.35; margin-bottom: 0.5rem; }
   .entry-desc { font-family: var(--serif-cn); font-size: 0.9rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.9; margin-bottom: 0; }
 
   .patrol-section { padding: 2rem 0; }
-  .patrol-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .patrol-section-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; }
 
   .patrol-list { list-style: none; }
-  .patrol-item { padding: 1.5rem 0; border-bottom: 1px solid var(--paper-mid); }
-  .patrol-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); margin-bottom: 0.75rem; }
-  .patrol-item img { display: block; width: 100%; max-width: 480px; border-radius: 3px; }
-  .patrol-photos { display: flex; gap: 8px; }
-  .patrol-photos img { width: calc(33.33% - 6px); max-width: 200px; border-radius: 3px; }
+  .patrol-item { padding: 1.75rem 0; border-bottom: 1px solid var(--paper-mid); }
+  .patrol-date { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); margin-bottom: 0.85rem; }
+
+  .photo-grid { display: grid; gap: 4px; width: 100%; }
+  .photo-grid img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; cursor: pointer; transition: opacity 0.15s; }
+  .photo-grid img:hover { opacity: 0.92; }
+  .photo-grid.n1 img { aspect-ratio: 4/3; max-width: 480px; }
+  .photo-grid.n3 { grid-template-columns: 1fr 1fr 1fr; }
+  .photo-grid.n3 img { aspect-ratio: 1/1; }
+
+  .cta-bar { margin: 2rem 0 0; padding: 1.25rem 1.5rem; background: var(--paper-mid); border-radius: 3px; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .cta-text { font-family: var(--serif-cn); font-size: 0.85rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.8; }
+  .cta-text strong { font-weight: 500; color: var(--ink); }
+  .cta-btn { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--paper); background: var(--accent); text-decoration: none; letter-spacing: 0.08em; padding: 6px 14px; border-radius: 2px; white-space: nowrap; }
+  .cta-btn:hover { opacity: 0.85; }
 
   .source-note { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.04em; margin-top: 1.5rem; }
 
@@ -33,57 +44,78 @@ back_text: 返回马来西亚动物声援会
   .nav-sep { color: var(--rule); font-size: 0.75rem; }
 
   footer { padding: 2rem 0 3rem; display: flex; justify-content: space-between; align-items: center; }
+
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,16,12,0.93); z-index: 999; align-items: center; justify-content: center; cursor: zoom-out; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 2px; }
+  .lightbox-close { position: absolute; top: 1.5rem; right: 2rem; font-family: var(--mono); font-size: 0.7rem; color: #a89e92; letter-spacing: 0.1em; cursor: pointer; }
 </style>
 
 <section class="entry-header">
   <div class="entry-meta-top">
-    <span class="entry-tag">季度记录</span>
+    <span class="entry-tag record">季度记录</span>
     <span class="entry-org"><a href="cintahaiwan.html">马来西亚动物声援会</a></span>
-    <span class="entry-date-range">2026年4月—6月</span>
+    <span class="entry-date">· 2026年4月—6月</span>
   </div>
   <h1 class="entry-title">每周巡逻记录 · 2026年4月—6月</h1>
   <p class="entry-desc">志工们每周尽职尽责地执行巡查任务，关注动物的安全与栖息环境。每周巡逻不仅能及时发现动物需要帮助的情况，也能有效维护和改善它们的生存条件。感谢所有志工的辛勤付出，以及社会各界对本会工作的支持。</p>
 </section>
 
 <section class="patrol-section">
-  <p class="patrol-label">巡逻记录</p>
+  <p class="patrol-section-label">巡逻记录</p>
   <ul class="patrol-list">
 
     <li class="patrol-item">
-      <p class="patrol-date">2026年5月19日</p>
-      <img src="cintahaiwan-patrol-260519.jpg" alt="每周巡逻 2026年5月19日">
+      <p class="patrol-date">2026年5月9日</p>
+      <div class="photo-grid n1">
+        <img src="cintahaiwan-patrol-260509.jpg" alt="每周巡逻 2026年5月9日" onclick="openLightbox(this.src)">
+      </div>
     </li>
 
     <li class="patrol-item">
       <p class="patrol-date">2026年5月2日</p>
-      <img src="cintahaiwan-patrol-260502.jpg" alt="每周巡逻 2026年5月2日">
+      <div class="photo-grid n1">
+        <img src="cintahaiwan-patrol-260502.jpg" alt="每周巡逻 2026年5月2日" onclick="openLightbox(this.src)">
+      </div>
     </li>
 
     <li class="patrol-item">
       <p class="patrol-date">2026年4月25日</p>
-      <img src="cintahaiwan-patrol-260425.jpg" alt="每周巡逻 2026年4月25日">
+      <div class="photo-grid n1">
+        <img src="cintahaiwan-patrol-260425.jpg" alt="每周巡逻 2026年4月25日" onclick="openLightbox(this.src)">
+      </div>
     </li>
 
     <li class="patrol-item">
       <p class="patrol-date">2026年4月17日</p>
-      <img src="cintahaiwan-patrol-260417.jpg" alt="每周巡逻 2026年4月17日">
+      <div class="photo-grid n1">
+        <img src="cintahaiwan-patrol-260417.jpg" alt="每周巡逻 2026年4月17日" onclick="openLightbox(this.src)">
+      </div>
     </li>
 
     <li class="patrol-item">
       <p class="patrol-date">2026年4月10日</p>
-      <img src="cintahaiwan-patrol-260410.jpg" alt="每周巡逻 2026年4月10日">
+      <div class="photo-grid n1">
+        <img src="cintahaiwan-patrol-260410.jpg" alt="每周巡逻 2026年4月10日" onclick="openLightbox(this.src)">
+      </div>
     </li>
 
     <li class="patrol-item">
       <p class="patrol-date">2026年4月3日</p>
-      <div class="patrol-photos">
-        <img src="cintahaiwan-patrol-260403-1.jpg" alt="每周巡逻 2026年4月3日">
-        <img src="cintahaiwan-patrol-260403-2.jpg" alt="每周巡逻 2026年4月3日">
-        <img src="cintahaiwan-patrol-260403-3.jpg" alt="每周巡逻 2026年4月3日">
+      <div class="photo-grid n3">
+        <img src="cintahaiwan-patrol-260403-1.jpg" alt="每周巡逻 2026年4月3日" onclick="openLightbox(this.src)">
+        <img src="cintahaiwan-patrol-260403-2.jpg" alt="每周巡逻 2026年4月3日" onclick="openLightbox(this.src)">
+        <img src="cintahaiwan-patrol-260403-3.jpg" alt="每周巡逻 2026年4月3日" onclick="openLightbox(this.src)">
       </div>
     </li>
 
   </ul>
+
+  <div class="cta-bar">
+    <p class="cta-text"><strong>关注动物声援会，了解最新志工行动。</strong><br>更多记录持续更新于 Facebook。</p>
+    <a class="cta-btn" href="https://web.facebook.com/profile.php?id=100082887782559" target="_blank">Facebook →</a>
+  </div>
+
   <p class="source-note">以上内容整理自动物声援会官方 Facebook，持续更新至2026年6月底。如有更新欢迎联络告知。</p>
 </section>
 
@@ -96,3 +128,18 @@ back_text: 返回马来西亚动物声援会
   <span class="footer-mark">INDEX 50 · v2</span>
   <a class="footer-back" href="index.html">← 返回首页</a>
 </footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">关闭 ✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+</script>
