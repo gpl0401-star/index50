@@ -7,17 +7,17 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  :root { --gold: #c9a84c; --ink: #0a0a0a; }
+  :root { --gold: #dbb94e; --ink: #0a0a0a; }
   html, body { width: 100%; height: 100%; background: var(--ink); overflow: hidden; cursor: none; }
   canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
   .cursor { position: fixed; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); mix-blend-mode: screen; }
-  .cursor-trail { position: fixed; width: 30px; height: 30px; border: 1px solid rgba(201,168,76,0.3); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.4s ease; }
-  .frame-line { position: fixed; background: rgba(201,168,76,0.15); animation: appear 5s ease forwards; opacity: 0; animation-delay: 2.5s; pointer-events: none; z-index: 5; }
+  .cursor-trail { position: fixed; width: 30px; height: 30px; border: 1px solid rgba(220,185,90,0.45); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.4s ease; }
+  .frame-line { position: fixed; background: rgba(220,185,90,0.25); animation: appear 5s ease forwards; opacity: 0; animation-delay: 2.5s; pointer-events: none; z-index: 5; }
   .fl-top    { top: 2rem; left: 15%; width: 70%; height: 1px; }
   .fl-bottom { bottom: 2rem; left: 15%; width: 70%; height: 1px; }
   .fl-left   { left: 2rem; top: 15%; width: 1px; height: 70%; }
   .fl-right  { right: 2rem; top: 15%; width: 1px; height: 70%; }
-  .corner { position: fixed; font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(201,168,76,0.6); letter-spacing: 0.2em; text-transform: uppercase; animation: appear 4s ease forwards; opacity: 0; animation-delay: 3s; pointer-events: none; z-index: 6; }
+  .corner { position: fixed; font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.82); letter-spacing: 0.2em; text-transform: uppercase; animation: appear 4s ease forwards; opacity: 0; animation-delay: 3s; pointer-events: none; z-index: 6; }
   .corner.tl { top: 2rem; left: 2.5rem; }
   .corner.tr { top: 2rem; right: 2.5rem; }
   .corner.bl { bottom: 2rem; left: 2.5rem; }
@@ -25,49 +25,73 @@
   .page { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 10; transition: opacity 1.2s ease; }
   .page.hidden { opacity: 0; pointer-events: none; }
   .center { text-align: center; position: relative; }
-  .big-char { font-family: 'Noto Serif SC', serif; font-size: clamp(120px, 20vw, 280px); font-weight: 200; color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.6); line-height: 1; animation: breathe 6s ease-in-out infinite; position: relative; }
+  .big-char { font-family: 'Noto Serif SC', serif; font-size: clamp(120px, 20vw, 280px); font-weight: 200; color: transparent; -webkit-text-stroke: 1px rgba(220,185,90,0.82); line-height: 1; animation: breathe 6s ease-in-out infinite; position: relative; }
   .big-char::before { content: attr(data-text); position: absolute; inset: 0; color: var(--gold); opacity: 0; animation: flicker 8s ease-in-out infinite; -webkit-text-stroke: 0; pointer-events: none; }
   .divline { width: 1px; height: 0; background: linear-gradient(to bottom, transparent, var(--gold), transparent); margin: 1.5rem auto; animation: grow-line 2s ease forwards; animation-delay: 0.8s; }
-  .sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 2vw, 18px); font-weight: 300; font-style: italic; color: rgba(201,168,76,0.5); letter-spacing: 0.4em; text-transform: uppercase; margin-top: 2rem; animation: rise 3s ease forwards; opacity: 0; animation-delay: 1.5s; }
-  .chinese-sub { font-family: 'Noto Serif SC', serif; font-size: clamp(11px, 1.5vw, 14px); font-weight: 300; color: rgba(201,168,76,0.35); letter-spacing: 0.6em; margin-top: 1rem; animation: rise 3s ease forwards; opacity: 0; animation-delay: 2s; }
-  .hint { position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%); font-family: 'Noto Serif SC', serif; font-size: 11px; color: rgba(201,168,76,0.3); letter-spacing: 0.5em; white-space: nowrap; opacity: 0; pointer-events: none; z-index: 11; transition: opacity 1.2s ease; }
+  .sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(13px, 2vw, 18px); font-weight: 300; font-style: italic; color: rgba(220,185,90,0.75); letter-spacing: 0.4em; text-transform: uppercase; margin-top: 2rem; animation: rise 3s ease forwards; opacity: 0; animation-delay: 1.5s; }
+  .chinese-sub { font-family: 'Noto Serif SC', serif; font-size: clamp(11px, 1.5vw, 14px); font-weight: 300; color: rgba(220,185,90,0.82); letter-spacing: 0.6em; margin-top: 1rem; animation: rise 3s ease forwards; opacity: 0; animation-delay: 2s; }
+  .hint { position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%); font-family: 'Noto Serif SC', serif; font-size: 11px; color: rgba(220,185,90,0.55); letter-spacing: 0.5em; white-space: nowrap; opacity: 0; pointer-events: none; z-index: 11; transition: opacity 1.2s ease; }
   .hint.show { animation: pulse-text 3s ease-in-out infinite; }
   .hint.hidden { opacity: 0 !important; animation: none; }
   .directory { width: min(700px, 88vw); padding: 2rem 0; overflow-y: auto; max-height: 90vh; scrollbar-width: none; }
   .directory::-webkit-scrollbar { display: none; }
-  .dir-header { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(201,168,76,0.4); letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 3rem; }
-  .entry { display: flex; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(201,168,76,0.1); cursor: pointer; transition: all 0.4s ease; align-items: flex-start; opacity: 0; transform: translateY(20px); }
-  .entry:last-child { border-bottom: 1px solid rgba(201,168,76,0.1); }
+  .dir-header { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.65); letter-spacing: 0.5em; text-transform: uppercase; margin-bottom: 3rem; }
+  .entry { display: flex; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(220,185,90,0.45); cursor: pointer; transition: all 0.4s ease; align-items: flex-start; opacity: 0; transform: translateY(20px); }
+  .entry:last-child { border-bottom: 1px solid rgba(220,185,90,0.45); }
   .entry:hover .entry-title { color: var(--gold); }
-  .entry:hover .entry-num { color: rgba(201,168,76,0.6); }
+  .entry:hover .entry-num { color: rgba(220,185,90,0.82); }
   .entry:hover .entry-arrow { opacity: 1; transform: translateX(0); }
-  .entry-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(201,168,76,0.2); letter-spacing: 0.2em; padding-top: 4px; min-width: 2rem; transition: color 0.4s ease; }
+  .entry-num { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.72); letter-spacing: 0.2em; padding-top: 4px; min-width: 2rem; transition: color 0.4s ease; }
   .entry-body { flex: 1; }
-  .entry-title { font-family: 'Noto Serif SC', serif; font-size: clamp(16px, 2.5vw, 22px); font-weight: 300; color: rgba(201,168,76,0.7); letter-spacing: 0.05em; margin-bottom: 0.8rem; transition: color 0.4s ease; line-height: 1.4; }
-  .entry-desc { font-family: 'Noto Serif SC', serif; font-size: clamp(12px, 1.5vw, 14px); font-weight: 300; color: rgba(201,168,76,0.3); letter-spacing: 0.08em; line-height: 2; }
-  .entry-arrow { font-size: 18px; color: rgba(201,168,76,0.5); opacity: 0; transform: translateX(-8px); transition: all 0.4s ease; align-self: center; }
+  .entry-title { font-family: 'Noto Serif SC', serif; font-size: clamp(16px, 2.5vw, 22px); font-weight: 300; color: rgba(220,185,90,0.9); letter-spacing: 0.05em; margin-bottom: 0.8rem; transition: color 0.4s ease; line-height: 1.4; }
+  .entry-desc { font-family: 'Noto Serif SC', serif; font-size: clamp(12px, 1.5vw, 14px); font-weight: 300; color: rgba(220,185,90,0.82); letter-spacing: 0.08em; line-height: 2; }
+  .entry-arrow { font-size: 18px; color: rgba(220,185,90,0.72); opacity: 0; transform: translateX(-8px); transition: all 0.4s ease; align-self: center; }
   .entry.visible { animation: rise-entry 0.8s ease forwards; }
   @keyframes rise-entry { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   /* PAGE 3: ARTICLE */
-  #page3 { background: #f5f0e8; overflow-y: auto; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
+  #page3 { background: var(--ink); overflow-y: auto; overflow-x: hidden; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
   #page3::-webkit-scrollbar { display: none; }
-  #page4 { background: #f5f0e8; overflow-y: auto; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
+  #page4 { background: var(--ink); overflow-y: auto; overflow-x: hidden; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
   #page4::-webkit-scrollbar { display: none; }
+  #page5 { background: var(--ink); overflow-y: auto; overflow-x: hidden; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
+  #page5::-webkit-scrollbar { display: none; }
+  #page6 { background: var(--ink); overflow-y: auto; overflow-x: hidden; display: block; scrollbar-width: none; cursor: auto; z-index: 20; }
+  #page6::-webkit-scrollbar { display: none; }
+  .series-wrap { max-width: 700px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+  .series-back { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: rgba(220,185,90,0.72); letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; margin-bottom: 3rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
+  .series-back::before { content: '←'; font-size: 14px; }
+  .series-back:hover { color: rgba(220,185,90,0.95); }
+  .series-title { font-family: 'Noto Serif SC', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 200; color: transparent; -webkit-text-stroke: 1px rgba(220,185,90,0.7); margin-bottom: 0.5rem; }
+  .series-count { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.45); letter-spacing: 0.4em; margin-bottom: 3rem; }
+  .series-desc { font-family: 'Noto Serif SC', serif; font-size: clamp(13px, 1.6vw, 15px); font-weight: 300; color: rgba(220,185,90,0.65); letter-spacing: 0.05em; line-height: 2; margin-bottom: 1.2rem; }
+  .series-entry { display: flex; gap: 2rem; padding: 2rem 0; border-top: 1px solid rgba(220,185,90,0.2); cursor: pointer; transition: all 0.4s ease; align-items: flex-start; }
+  .series-entry:last-child { border-bottom: 1px solid rgba(220,185,90,0.2); }
+  .series-entry:hover .series-entry-title { color: rgba(220,185,90,0.95); }
+  .series-entry-date { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.45); letter-spacing: 0.15em; padding-top: 5px; min-width: 4.5rem; }
+  .series-entry-body { flex: 1; }
+  .series-entry-title { font-family: 'Noto Serif SC', serif; font-size: clamp(15px, 2.2vw, 20px); font-weight: 300; color: rgba(220,185,90,0.82); letter-spacing: 0.05em; margin-bottom: 0.5rem; transition: color 0.4s; line-height: 1.4; }
+  .series-entry-desc { font-family: 'Noto Serif SC', serif; font-size: clamp(12px, 1.4vw, 13px); font-weight: 300; color: rgba(220,185,90,0.55); letter-spacing: 0.05em; line-height: 1.9; margin-bottom: 0.5rem; }
+  .series-entry-note { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.45); letter-spacing: 0.2em; }
+  .series-entry-arrow { font-size: 16px; color: rgba(220,185,90,0.5); align-self: center; transition: transform 0.3s; }
+  .series-entry:hover .series-entry-arrow { transform: translateX(4px); }
   .article-wrap { max-width: 680px; margin: 0 auto; padding: 0 2rem 6rem; }
-  .article-hero { width: 100vw; max-width: 100%; height: 60vh; object-fit: cover; object-position: center 30%; display: block; margin-left: calc(-50vw + 50%); filter: brightness(0.85); }
-  .article-meta { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: #9a8060; letter-spacing: 0.3em; text-transform: uppercase; margin-top: 3rem; margin-bottom: 0.5rem; }
-  .article-title { font-family: 'Noto Serif SC', serif; font-size: clamp(22px, 4vw, 32px); font-weight: 300; color: #1a1008; line-height: 1.4; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(42,32,24,0.15); }
-  .article-body { font-family: 'Noto Serif SC', serif; font-size: clamp(15px, 2vw, 17px); font-weight: 300; color: #2a1e0e; line-height: 2.2; letter-spacing: 0.05em; }
+  .article-hero { position: relative; left: 50%; transform: translateX(-50%); width: 100vw; max-height: 70vh; object-fit: contain; display: block; background: var(--ink); }
+  .article-meta { font-family: 'Cormorant Garamond', serif; font-size: 12px; color: rgba(220,185,90,0.72); letter-spacing: 0.3em; text-transform: uppercase; margin-top: 3rem; margin-bottom: 0.5rem; }
+  .article-title { font-family: 'Noto Serif SC', serif; font-size: clamp(22px, 4vw, 32px); font-weight: 300; color: rgba(255,255,255,0.9); line-height: 1.4; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(220,185,90,0.25); }
+  .article-body { font-family: 'Noto Serif SC', serif; font-size: clamp(15px, 2vw, 17px); font-weight: 300; color: rgba(255,255,255,0.75); line-height: 2.2; letter-spacing: 0.05em; }
   .article-body p { margin-bottom: 1.8em; }
-  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cormorant Garamond', serif; font-size: 12px; color: #9a8060; letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; margin-top: 3rem; margin-bottom: 1rem; transition: color 0.3s; }
-  .back-btn:hover { color: #2a2018; }
+  .back-btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Cormorant Garamond', serif; font-size: 12px; color: rgba(220,185,90,0.72); letter-spacing: 0.3em; text-transform: uppercase; cursor: pointer; margin-top: 3rem; margin-bottom: 1rem; transition: color 0.3s; }
+  .back-btn:hover { color: rgba(220,185,90,0.9); }
   .back-btn::before { content: '←'; font-size: 14px; }
-  .signature { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 300; color: rgba(201,168,76,0.4); letter-spacing: 0.4em; text-align: center; margin-top: 3rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
-  .signature .line { flex: 1; max-width: 80px; height: 1px; background: rgba(201,168,76,0.25); }
-  .sig-article { color: #b8976a; margin-top: 3rem; margin-bottom: 2rem; }
-  .article-topbar { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0 1rem; margin-bottom: 0; }
-  .article-author { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(60,35,10,0.65); letter-spacing: 0.2em; }
+  .signature { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 300; color: rgba(220,185,90,0.82); letter-spacing: 0.4em; text-align: center; margin-top: 3rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+  .signature .line { flex: 1; max-width: 80px; height: 1px; background: rgba(220,185,90,0.45); }
+  .sig-article { color: rgba(220,185,90,0.72); margin-top: 3rem; margin-bottom: 2rem; }
+  .article-topbar { position: sticky; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 2rem; background: rgba(10,10,10,0.96); border-bottom: 1px solid rgba(220,185,90,0.15); z-index: 50; }
+  .topbar-nav { display: flex; gap: 0; align-items: center; }
+  .topbar-sep { width: 1px; height: 12px; background: rgba(220,185,90,0.28); margin: 0 1.1rem; flex-shrink: 0; }
+  .article-author { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: rgba(220,185,90,0.45); letter-spacing: 0.25em; }
+  .topbar-nav .back-btn { margin-top: 0; margin-bottom: 0; }
 
   #page2 { background: var(--ink); }
   @keyframes breathe { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.02); opacity: 1; } }
@@ -106,6 +130,14 @@
 <div class="page hidden" id="page2">
   <div class="directory">
     <div class="dir-header">目录 · Index</div>
+    <div class="entry" id="e1">
+      <div class="entry-num">01</div>
+      <div class="entry-body">
+        <div class="entry-title">世界是一幅看不完的画</div>
+        <div class="entry-desc">桥上有一个提灯的小孩，他不管白天黑夜，守在桥上，盯着来的路上，没有人。神来到身边坐下了，小孩才发现祂。还是没有人。"此路不通吗？"小孩问完后，开心地哈哈大笑。"你觉得，世界是怎样的呢？"神说。</div>
+      </div>
+      <div class="entry-arrow">→</div>
+    </div>
     <div class="entry" id="e2">
       <div class="entry-num">02</div>
       <div class="entry-body">
@@ -149,15 +181,17 @@
   </div>
 </div>
 
-<!-- PAGE 3: ARTICLE -->
-<div class="page hidden" id="page3" style="align-items:flex-start;">
-  <div class="article-wrap">
-    <div class="article-topbar">
+<!-- PAGE 3: 解读 (盼·01) → 返回目录 -->
+<div class="page hidden" id="page3" style="display:block;">
+  <div class="article-topbar">
+    <div class="topbar-nav">
       <div class="back-btn" id="backBtn">返回目录</div>
-      <div class="article-author">吴凯稜 · KaiLing</div>
     </div>
-    
-  <div class="article-meta">251215 · 随笔</div>
+    <div class="article-author">吴凯稜 · KaiLing</div>
+  </div>
+  <img class="article-hero" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/pan-image-1" alt="">
+  <div class="article-wrap">
+    <div class="article-meta">251215 · 随笔</div>
     <div class="article-title">解读</div>
     <div class="article-body">
       <p>每次以为自己找到了答案，结果一回头，发现自己依然身在迷雾中。上帝，究竟我想要做什么呢？这大半年我依然在迷途中，从没有真正回过家吗？上帝，我究竟在寻找什么？我需要寻找吗？为什么我一直在寻找呢？明明一开始就知道没有需要找的东西。</p>
@@ -165,6 +199,7 @@
       <p>也许，我早已经得到了我曾经所求的最深的愿望——终于不再只活在"无尽的盼望"里了，我摆脱了最深的牢笼。今天，圆满结束。不会再被困在任何牢笼和枷锁中。</p>
       <p>你是谁？你选择是谁？我终于不再用定义去回答这个问题了。</p>
     </div>
+    <div class="back-btn" id="backBtnBottom">返回目录</div>
   </div>
 </div>
 
@@ -212,7 +247,7 @@ function drawCanvas() {
   const vg = ctx.createRadialGradient(W/2,H/2,H*.1,W/2,H/2,H*.85);
   vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,0.85)');
   ctx.fillStyle = vg; ctx.fillRect(0,0,W,H);
-  if (mouse.x) { const g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,180); g.addColorStop(0,'rgba(201,168,76,0.04)'); g.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); }
+  if (mouse.x) { const g=ctx.createRadialGradient(mouse.x,mouse.y,0,mouse.x,mouse.y,180); g.addColorStop(0,'rgba(220,185,90,0.04)'); g.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); }
   dots.forEach(d=>{d.update();d.draw();});
   particles = particles.filter(p=>p.life>0);
   particles.forEach(p=>{p.update();p.draw();});
@@ -226,7 +261,7 @@ setTimeout(() => {
   h.style.opacity = '0.3';
 }, 4000);
 
-// Page 1 — click anywhere to go to latest article (瓮)
+// Page 1 — click anywhere to go to latest article (缝隙里的咖啡冰)
 document.getElementById('page1').addEventListener('click', function(e) {
   goToLatest();
 });
@@ -235,10 +270,10 @@ function goToLatest() {
   document.getElementById('page1').classList.add('hidden');
   document.getElementById('hint').classList.add('hidden');
   setTimeout(() => {
-    const p4 = document.getElementById('page4');
-    p4.classList.remove('hidden');
-    p4.style.overflowY = 'auto';
-    p4.scrollTop = 0;
+    const p6 = document.getElementById('page6');
+    p6.classList.remove('hidden');
+    p6.style.overflowY = 'auto';
+    p6.scrollTop = 0;
     document.body.style.cursor = 'auto';
     cursorEl.style.display = 'none';
     trailEl.style.display = 'none';
@@ -274,14 +309,14 @@ document.getElementById('e2').addEventListener('click', () => {
   }, 900);
 });
 
-// Entry 3 → 绊 article
+// Entry 3 → 绊 series list
 document.getElementById('e3').addEventListener('click', () => {
   document.getElementById('page2').classList.add('hidden');
   setTimeout(() => {
-    const p4 = document.getElementById('page4');
-    p4.classList.remove('hidden');
-    p4.style.overflowY = 'auto';
-    p4.scrollTop = 0;
+    const p5 = document.getElementById('page5');
+    p5.classList.remove('hidden');
+    p5.style.overflowY = 'auto';
+    p5.scrollTop = 0;
     document.body.style.cursor = 'auto';
     cursorEl.style.display = 'none';
     trailEl.style.display = 'none';
@@ -289,53 +324,82 @@ document.getElementById('e3').addEventListener('click', () => {
   }, 900);
 });
 
-// Back button 2 (绊)
-document.addEventListener('click', (ev) => {
-  if (ev.target.id === 'backBtn2' || ev.target.closest('#backBtn2')) {
-    document.getElementById('page4').classList.add('hidden');
-    document.body.style.cursor = 'none';
-    cursorEl.style.display = '';
-    trailEl.style.display = '';
-    document.querySelectorAll('.corner').forEach(c => c.style.visibility = '');
-    setTimeout(() => {
-      const p2 = document.getElementById('page2');
-      p2.classList.remove('hidden');
-      document.querySelectorAll('.entry').forEach((e, i) => {
-        e.classList.remove('visible');
-        setTimeout(() => e.classList.add('visible'), i * 180);
-      });
-    }, 900);
-  }
-});
+// navigation handled by unified handler below
 
-// Back button (盼)
+// All navigation — event delegation
+function goToDir() {
+  ['page3','page4','page5','page6'].forEach(id => document.getElementById(id).classList.add('hidden'));
+  document.body.style.cursor = 'none';
+  cursorEl.style.display = ''; trailEl.style.display = '';
+  document.querySelectorAll('.corner').forEach(c => { c.style.color = ''; c.style.visibility = ''; });
+  setTimeout(() => {
+    const p2 = document.getElementById('page2');
+    p2.classList.remove('hidden');
+    document.querySelectorAll('.entry').forEach((e, i) => {
+      e.classList.remove('visible');
+      setTimeout(() => e.classList.add('visible'), i * 180);
+    });
+  }, 900);
+}
+function goToSeries5() {
+  ['page3','page4','page6'].forEach(id => document.getElementById(id).classList.add('hidden'));
+  setTimeout(() => {
+    const p5 = document.getElementById('page5');
+    p5.classList.remove('hidden'); p5.scrollTop = 0;
+    document.body.style.cursor = 'auto';
+    cursorEl.style.display = 'none'; trailEl.style.display = 'none';
+  }, 900);
+}
+function goToArticle(pageId) {
+  ['page2','page3','page4','page5','page6'].forEach(id => document.getElementById(id).classList.add('hidden'));
+  setTimeout(() => {
+    const p = document.getElementById(pageId);
+    p.classList.remove('hidden'); p.scrollTop = 0;
+    document.body.style.cursor = 'auto';
+    cursorEl.style.display = 'none'; trailEl.style.display = 'none';
+  }, 900);
+}
+
+// Fix: scroll directory from anywhere on page2 (including side margins)
+(function() {
+  const p2 = document.getElementById('page2');
+  let touchStartY = 0;
+  p2.addEventListener('wheel', function(e) {
+    const dir = p2.querySelector('.directory');
+    if (dir) { dir.scrollTop += e.deltaY; e.preventDefault(); }
+  }, { passive: false });
+  p2.addEventListener('touchstart', function(e) { touchStartY = e.touches[0].clientY; }, { passive: true });
+  p2.addEventListener('touchmove', function(e) {
+    const dir = p2.querySelector('.directory');
+    if (dir) { dir.scrollTop -= e.touches[0].clientY - touchStartY; touchStartY = e.touches[0].clientY; e.preventDefault(); }
+  }, { passive: false });
+})();
+
 document.addEventListener('click', (ev) => {
-  if (ev.target.id === 'backBtn' || ev.target.closest('#backBtn')) {
-    document.getElementById('page3').classList.add('hidden');
-    document.body.style.cursor = 'none';
-    cursorEl.style.display = '';
-    trailEl.style.display = '';
-    document.querySelectorAll('.corner').forEach(c => { c.style.color = ''; c.style.visibility = ''; });
-    setTimeout(() => {
-      const p2 = document.getElementById('page2');
-      p2.classList.remove('hidden');
-      document.querySelectorAll('.entry').forEach((e, i) => {
-        e.classList.remove('visible');
-        setTimeout(() => e.classList.add('visible'), i * 180);
-      });
-    }, 900);
-  }
+  const id = ev.target.id;
+  // 返回目录
+  if (['backBtn','backBtnBottom','backBtn2Dir','backBtn3Dir','backBtn2DirBottom','backBtn3DirBottom','seriesBack'].includes(id)) goToDir();
+  // 返回绊 series
+  if (['backBtn2','backBtn2Bottom','backBtn3','backBtn3Bottom'].includes(id)) goToSeries5();
+  // 绊 series → 缝隙里的咖啡冰
+  if (id === 'se1' || ev.target.closest?.('#se1')) goToArticle('page6');
+  // 绊 series → 瓮
+  if (id === 'se2' || ev.target.closest?.('#se2')) goToArticle('page4');
 });
 </script>
 
 <!-- PAGE 4: 绊 ARTICLE -->
-<div class="page hidden" id="page4" style="align-items:flex-start;">
-  <div class="article-wrap">
-    <div class="article-topbar">
-      <div class="back-btn" id="backBtn2">返回目录</div>
-      <div class="article-author">吴凯稜 · KaiLing</div>
+<div class="page hidden" id="page4" style="display:block;">
+  <div class="article-topbar">
+    <div class="topbar-nav">
+      <div class="back-btn" id="backBtn2">返回绊</div>
+      <span class="topbar-sep"></span>
+      <div class="back-btn" id="backBtn2Dir">返回目录</div>
     </div>
-
+    <div class="article-author">吴凯稜 · KaiLing</div>
+  </div>
+  <img class="article-hero" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/pan-image-2" alt="">
+  <div class="article-wrap">
     <div class="article-meta">260307 · 散文诗</div>
     <div class="article-title">瓮</div>
     <div class="article-body">
@@ -346,6 +410,64 @@ document.addEventListener('click', (ev) => {
       <p>不想都成了灰，还得承受五雷轰顶。</p>
       <p>不好，到时已经没有头了。</p>
     </div>
+    <div class="back-btn" id="backBtn2Bottom">返回绊</div>
+    <div class="back-btn" id="backBtn2DirBottom">返回目录</div>
+  </div>
+</div>
+<!-- PAGE 5: 绊 SERIES LIST -->
+<div class="page hidden" id="page5" style="display:block;">
+  <div class="series-wrap">
+    <div class="series-back" id="seriesBack">返回目录</div>
+    <div class="series-title">绊</div>
+    <div class="series-desc">人老说跌倒都是因为脚下的那块石头，但其实是因为他眼里的沙子。</div>
+    <div class="series-count">2 篇</div>
+    <div class="series-entry" id="se1">
+      <div class="series-entry-date">260418</div>
+      <div class="series-entry-body">
+        <div class="series-entry-title">缝隙里的咖啡冰</div>
+        <div class="series-entry-desc">人无止尽的愤怨并不是这个脸书时代的特点，它一直如此，从不放过任何一个出口，每一个缝隙，都是它发芽的机会。</div>
+        <div class="series-entry-note">星洲日报 · 周末星云</div>
+      </div>
+      <div class="series-entry-arrow">→</div>
+    </div>
+    <div class="series-entry" id="se2">
+      <div class="series-entry-date">260307</div>
+      <div class="series-entry-body">
+        <div class="series-entry-title">瓮</div>
+        <div class="series-entry-desc">听说，最近新出一个会唱歌的骨灰瓮。到时给我买一个。不过我有点担心会不会漏电，不得安眠。</div>
+        <div class="series-entry-note">散文诗</div>
+      </div>
+      <div class="series-entry-arrow">→</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: 缝隙里的咖啡冰 ARTICLE -->
+<div class="page hidden" id="page6" style="display:block;">
+  <div class="article-topbar">
+    <div class="topbar-nav">
+      <div class="back-btn" id="backBtn3">返回绊</div>
+      <span class="topbar-sep"></span>
+      <div class="back-btn" id="backBtn3Dir">返回目录</div>
+    </div>
+    <div class="article-author">吴凯稜 · KaiLing</div>
+  </div>
+  <img class="article-hero" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/pan-image-3" alt="">
+  <div class="article-wrap">
+    <div class="article-meta">260418 · 星洲日报 · 周末星云</div>
+    <div class="article-title">缝隙里的咖啡冰</div>
+    <div class="article-body">
+      <p>曾经我在一家卖中药材的门店工作，有一个工厂的大哥时常会到店子这里来各种维修，顺便谈笑人生，为了方便，他都把摩托车停放在店铺骑楼。</p>
+      <p>一天，他拎着一包咖啡奔向垃圾桶，大叫着说，他看到附近那个脑子不灵光的流浪汉在他的摩托前，弯着身子，喝了两口挂在那里的咖啡冰，没拿走，在附近继续晃悠，看样子是准备随时回来再喝点。</p>
+      <p>"难怪每次都觉得咖啡喝得特别快，原来是有人帮我喝啊！"</p>
+      <p>我们所有人哈哈大笑，他从此咖啡如影随形。</p>
+      <p>要是事情发生在"有事没事发脸书"的今时今日，配上那包咖啡的证据照，绝对是一个地方社群的热门话题。</p>
+      <p>可是，看看现在火爆话题是什么，无脑开骂，制造冲突，与人分裂，相互指责，然后说这是言论自由。但我们其实都很清楚，人无止尽的愤怨并不是这个脸书时代的特点，它一直如此，它从不放过任何一个出口，每一个缝隙，都是它发芽的机会。</p>
+      <p>既然如此，我们何不像这位大哥那样，幽默应对，没有怒骂也没有剧烈反应，一件非常恶心的事件，变成我人生中一个有趣的过往记忆，偶尔像现在这样与人津津乐道。</p>
+      <p>今天，我们不妨换一个应对方式，为这个人间的怒火与天上的火花交织的农历新年来个圆满落幕，让好心情萌芽，结出好心气，一团和气，和气生财，生财有道！</p>
+    </div>
+    <div class="back-btn" id="backBtn3Bottom">返回绊</div>
+    <div class="back-btn" id="backBtn3DirBottom">返回目录</div>
   </div>
 </div>
 </body>
