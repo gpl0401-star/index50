@@ -1,0 +1,85 @@
+---
+layout: default
+title: Index 50
+custom_header: true
+---
+<style>
+  .home-wrap { min-height: 60vh; display: flex; flex-direction: column; justify-content: space-between; padding: 4rem 0 3rem; }
+
+  .home-brand { margin-bottom: 3rem; }
+  .home-brand-index { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.22em; text-transform: uppercase; display: block; margin-bottom: 0.6rem; }
+  .home-brand-title { font-family: var(--serif-en); font-size: 5rem; font-weight: 400; color: var(--ink); letter-spacing: -0.04em; line-height: 0.95; }
+  .home-brand-title .num { color: var(--accent); }
+
+  .home-identity { max-width: 520px; margin: 2.5rem 0 3.5rem; }
+  .home-identity p { font-family: var(--serif-cn); font-size: 0.95rem; font-weight: 300; color: var(--ink-secondary); line-height: 2; }
+  .home-identity strong { font-weight: 400; color: var(--ink); }
+
+  .home-rule { border: none; border-top: 1px solid var(--rule); margin: 0 0 2rem; }
+
+  .zhuanti-label { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .zhuanti-list { list-style: none; }
+  .zhuanti-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 0.75rem 0; border-bottom: 1px solid var(--paper-mid); }
+  .zhuanti-row:last-child { border-bottom: none; }
+  .zhuanti-name { font-family: var(--serif-cn); font-size: 0.95rem; font-weight: 400; flex-shrink: 0; }
+  .zhuanti-name a { color: var(--ink); text-decoration: none; transition: color 0.15s; }
+  .zhuanti-name a:hover { color: var(--accent); }
+  .zhuanti-name.muted { color: var(--ink-muted); }
+  .zhuanti-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.06em; }
+
+  footer { padding: 2.5rem 0 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+  .footer-fb { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; display: flex; align-items: center; gap: 0.4rem; }
+  .footer-fb:hover { color: var(--accent); }
+  .footer-fb svg { width: 13px; height: 13px; fill: currentColor; opacity: 0.7; }
+  .footer-mark { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.06em; }
+
+  @media (max-width: 560px) {
+    .home-brand-title { font-size: 3.8rem; }
+    .home-wrap { padding: 2.5rem 0 2rem; }
+  }
+</style>
+
+<div class="home-wrap">
+  <div>
+    <div class="home-brand">
+      <span class="home-brand-index">Index</span>
+      <div class="home-brand-title"><span class="num">50</span></div>
+    </div>
+
+    <div class="home-identity">
+      <p>不会被主流互联网长期维护，<strong>但值得存在</strong>的现实信息。<br>
+      搜索量低，商业价值低，很少人持续整理——<br>
+      正因如此，反而成为唯一页面与现实锚点。</p>
+    </div>
+
+    <hr class="home-rule">
+
+    <p class="zhuanti-label">专题</p>
+    <ul class="zhuanti-list">
+      <li class="zhuanti-row">
+        <span class="zhuanti-name"><a href="institution.html">机构资讯</a></span>
+        <span class="zhuanti-sub">华团 · 志愿组织 · 商业机构</span>
+      </li>
+      <li class="zhuanti-row">
+        <span class="zhuanti-name muted">动物行动</span>
+        <span class="zhuanti-sub">筹备中</span>
+      </li>
+      <li class="zhuanti-row">
+        <span class="zhuanti-name muted">地方档案</span>
+        <span class="zhuanti-sub">筹备中</span>
+      </li>
+      <li class="zhuanti-row">
+        <span class="zhuanti-name muted">民间行动</span>
+        <span class="zhuanti-sub">筹备中</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <a class="footer-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Facebook
+  </a>
+  <span class="footer-mark">INDEX 50 · v3</span>
+</footer>
