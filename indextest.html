@@ -127,9 +127,15 @@ custom_header: true
   /* ── 专题 ── */
   .zhuanti { padding: 2.2rem 0 0.5rem; }
   .z-seclabel {
-    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.28em;
-    color: var(--gold); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
-    text-transform: uppercase;
+    font-family: var(--serif-cn);
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
   }
   .z-seclabel::before, .z-seclabel::after { content: ''; flex: 1; height: 1px; background: var(--gold-border); }
 
@@ -294,18 +300,6 @@ custom_header: true
           <span class="z-enter">进入专题 →</span>
         </div>
       </a>
-    </div>
-  </div>
-
-  <div class="growth">
-    <div class="w">
-      <div class="g-seclabel">最近新增</div>
-      <ul class="g-list">
-        <li class="g-item"><span class="g-date">MAY 18</span><span class="g-title">马来西亚动物声援会 · 2026年全国代表大会暨理事会改选圆满举行</span></li>
-        <li class="g-item"><span class="g-date">MAY 13</span><span class="g-title">志工队埋猫行动 · 主人相伴，志工同行，以爱送别每一个离去的生命</span></li>
-        <li class="g-item"><span class="g-date">MAY 5</span><span class="g-title">霹雳深斋校友会 · 对外足迹</span></li>
-        <li class="g-item"><span class="g-date">MAY 4</span><span class="g-title">Index 50 · 2026年4月月报 · 建档首月</span></li>
-      </ul>
     </div>
   </div>
 
