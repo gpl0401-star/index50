@@ -7,11 +7,15 @@ custom_header: true
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Cinzel:wght@400;600&display=swap');
 
   .home {
-    margin: 0 calc(-1 * var(--gutter, 1.5rem));
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
     background: #0a0f1e;
     color: #e8d5a3;
     font-family: 'Noto Serif SC', serif;
-    position: relative;
     overflow: hidden;
   }
 
@@ -104,6 +108,15 @@ custom_header: true
   }
   .frame-kicker span { margin: 0 0.8rem; color: #c8a04a; }
 
+  .frame-index {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1rem, 4vw, 1.8rem);
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    color: rgba(232,213,163,0.5);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
   .frame-num {
     font-family: 'Cinzel', serif;
     font-size: clamp(5rem, 18vw, 9rem);
@@ -227,6 +240,7 @@ custom_header: true
 
   <div class="gold-frame">
     <span class="frame-kicker"><span>◆</span> MALAYSIA · EST. 2026 <span>◆</span></span>
+    <span class="frame-index">INDEX</span>
     <span class="frame-num">50</span>
     <span class="frame-subtitle">资&ensp;讯&ensp;有&ensp;序</span>
     <span class="frame-dots">· · ·</span>
