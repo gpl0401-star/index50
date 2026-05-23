@@ -1,96 +1,285 @@
 ---
 layout: default
-title: Index 50
+title: Index 50 · 资讯有序
 custom_header: true
 ---
 <style>
-  /* 覆盖 default 容器限制，首页全宽处理 */
-  .home-page { margin: 0 calc(-1 * var(--gutter, 1.5rem)); }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700&family=Cinzel:wght@400;600&display=swap');
 
-  .home-cover {
-    padding: 5rem var(--gutter, 1.5rem) 4rem;
-    border-bottom: 1px solid var(--rule);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: end;
+  .home {
+    margin: 0 calc(-1 * var(--gutter, 1.5rem));
+    background: #0a0f1e;
+    color: #e8d5a3;
+    font-family: 'Noto Serif SC', serif;
+    position: relative;
+    overflow: hidden;
   }
 
-  .cover-left {}
-  .home-eyebrow { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--ink-muted); text-transform: uppercase; display: block; margin-bottom: 1rem; }
-  .home-num { font-family: var(--serif-en); font-size: 9rem; font-weight: 400; color: var(--accent); letter-spacing: -0.05em; line-height: 0.85; display: block; }
-  .home-wordmark { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.18em; color: var(--ink-muted); text-transform: uppercase; display: block; margin-top: 1rem; }
+  /* 星空背景 */
+  .home::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 15%, rgba(232,213,163,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 30%, rgba(232,213,163,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 60%, rgba(232,213,163,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 85% 70%, rgba(232,213,163,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 10% 80%, rgba(232,213,163,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 90%, rgba(232,213,163,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 30% 45%, rgba(232,213,163,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(232,213,163,0.35) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-  .cover-right { padding-bottom: 0.5rem; }
-  .home-tagline-placeholder { font-family: var(--serif-cn); font-size: 1.05rem; font-weight: 300; color: var(--ink-secondary); line-height: 2; }
+  /* 上方金色渐变光晕 */
+  .home::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(180,130,40,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-  .home-body { padding: 0 var(--gutter, 1.5rem); }
+  * { position: relative; z-index: 1; box-sizing: border-box; }
 
-  .zhuanti-section { padding: 3rem 0; }
-  .zhuanti-eyebrow { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 1.5rem; }
-  .zhuanti-list { list-style: none; }
-  .zhuanti-row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; padding: 1rem 0; border-bottom: 1px solid var(--paper-mid); }
-  .zhuanti-row:first-child { border-top: 1px solid var(--paper-mid); }
-  .zhuanti-name { font-family: var(--serif-cn); font-size: 1.1rem; font-weight: 400; }
-  .zhuanti-name a { color: var(--ink); text-decoration: none; }
-  .zhuanti-name a:hover { color: var(--accent); }
-  .zhuanti-name.pending { color: var(--ink-muted); font-size: 1rem; }
-  .zhuanti-meta { font-family: var(--mono); font-size: 0.6rem; color: var(--ink-muted); letter-spacing: 0.08em; text-align: right; }
+  /* ── 顶部细框 ── */
+  .top-bar {
+    border-bottom: 1px solid rgba(232,213,163,0.2);
+    padding: 1rem var(--gutter, 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-wordmark {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    color: rgba(232,213,163,0.5);
+    text-transform: uppercase;
+  }
+  .top-contact {
+    font-family: 'Cinzel', serif;
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    color: rgba(232,213,163,0.5);
+    text-decoration: none;
+    border: 1px solid rgba(232,213,163,0.25);
+    padding: 3px 10px;
+    transition: border-color .2s, color .2s;
+  }
+  .top-contact:hover { border-color: #c8a04a; color: #c8a04a; }
 
-  footer { padding: 2rem var(--gutter, 1.5rem) 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
-  .footer-fb { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; display: flex; align-items: center; gap: 0.4rem; }
-  .footer-fb:hover { color: var(--accent); }
-  .footer-fb svg { width: 13px; height: 13px; fill: currentColor; opacity: 0.7; }
-  .footer-mark { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.06em; }
+  /* ── 金框 ── */
+  .gold-frame {
+    margin: 2rem var(--gutter, 1.5rem);
+    border: 1px solid rgba(232,213,163,0.25);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+  }
+  .gold-frame::before, .gold-frame::after {
+    content: '◆';
+    position: absolute;
+    color: #c8a04a;
+    font-size: 0.6rem;
+    top: -0.5em;
+  }
+  .gold-frame::before { left: 1.5rem; }
+  .gold-frame::after { right: 1.5rem; }
 
-  @media (max-width: 640px) {
-    .home-cover { grid-template-columns: 1fr; gap: 2rem; padding: 3rem var(--gutter, 1.5rem) 2.5rem; }
-    .home-num { font-size: 6rem; }
-    .cover-right { padding-bottom: 0; }
+  .frame-kicker {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: rgba(232,213,163,0.5);
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+  .frame-kicker span { margin: 0 0.8rem; color: #c8a04a; }
+
+  .frame-num {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 600;
+    background: linear-gradient(160deg, #f0d060 0%, #c8862a 50%, #e8b84a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 0.9;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .frame-subtitle {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-weight: 300;
+    color: #e8d5a3;
+    letter-spacing: 0.3em;
+    display: block;
+    margin-bottom: 2rem;
+  }
+  .frame-dots { color: #c8a04a; letter-spacing: 0.5rem; font-size: 0.5rem; display: block; margin-bottom: 2rem; }
+
+  .frame-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(232,213,163,0.6);
+    line-height: 2;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  /* ── 专题 ── */
+  .zhuanti-wrap {
+    padding: 0 var(--gutter, 1.5rem) 3rem;
+  }
+  .z-head {
+    border-top: 1px solid rgba(232,213,163,0.15);
+    border-bottom: 1px solid rgba(232,213,163,0.15);
+    padding: 0.9rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .z-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: #c8a04a;
+    text-transform: uppercase;
+  }
+  .z-count { font-family: 'Cinzel', serif; font-size: 0.55rem; color: rgba(232,213,163,0.35); letter-spacing: 0.15em; }
+
+  .z-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(232,213,163,0.1);
+    border: 1px solid rgba(232,213,163,0.1);
+  }
+  .z-card {
+    background: #0a0f1e;
+    padding: 1.8rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    transition: background .2s;
+    min-height: 160px;
+  }
+  .z-card:hover { background: rgba(200,160,74,0.07); }
+  .z-card:hover .z-name { color: #f0d060; }
+  .z-card.off { opacity: 0.35; pointer-events: none; }
+
+  .z-num { font-family: 'Cinzel', serif; font-size: 0.55rem; color: rgba(232,213,163,0.3); letter-spacing: 0.15em; }
+  .z-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #e8d5a3;
+    transition: color .2s;
+    flex: 1;
+  }
+  .z-desc { font-size: 0.75rem; font-weight: 300; color: rgba(232,213,163,0.45); line-height: 1.8; }
+  .z-foot { display: flex; justify-content: space-between; align-items: center; padding-top: 0.5rem; border-top: 1px solid rgba(232,213,163,0.08); }
+  .z-tag { font-family: 'Cinzel', serif; font-size: 0.5rem; letter-spacing: 0.15em; color: #c8a04a; }
+  .z-arrow { font-size: 0.7rem; color: rgba(232,213,163,0.3); }
+  .z-card:hover .z-arrow { color: #c8a04a; }
+
+  /* ── footer ── */
+  .home-footer {
+    border-top: 1px solid rgba(232,213,163,0.15);
+    padding: 1.5rem var(--gutter, 1.5rem) 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .f-note { font-size: 0.72rem; font-weight: 300; color: rgba(232,213,163,0.35); line-height: 1.7; }
+  .f-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
+  .f-fb { font-family: 'Cinzel', serif; font-size: 0.55rem; color: rgba(232,213,163,0.35); text-decoration: none; letter-spacing: 0.15em; display: flex; align-items: center; gap: 0.4rem; transition: color .15s; }
+  .f-fb:hover { color: #c8a04a; }
+  .f-fb svg { width: 11px; height: 11px; fill: currentColor; }
+  .f-mark { font-family: 'Cinzel', serif; font-size: 0.52rem; color: rgba(232,213,163,0.25); letter-spacing: 0.15em; }
+
+  @media (max-width: 560px) {
+    .z-grid { grid-template-columns: 1fr; }
+    .gold-frame { margin: 1.5rem var(--gutter, 1.5rem); padding: 2rem 1.2rem; }
+    .home-footer { flex-direction: column; align-items: flex-start; }
   }
 </style>
 
-<div class="home-page">
-  <div class="home-cover">
-    <div class="cover-left">
-      <span class="home-eyebrow">Index</span>
-      <span class="home-num">50</span>
-      <span class="home-wordmark">Est. 2026</span>
+<div class="home">
+
+  <div class="top-bar">
+    <span class="top-wordmark">Index 50 · 资讯有序</span>
+    <a class="top-contact" href="contact.html">联络我们</a>
+  </div>
+
+  <div class="gold-frame">
+    <span class="frame-kicker"><span>◆</span> MALAYSIA · EST. 2026 <span>◆</span></span>
+    <span class="frame-num">50</span>
+    <span class="frame-subtitle">资&ensp;讯&ensp;有&ensp;序</span>
+    <span class="frame-dots">· · ·</span>
+    <p class="frame-desc"><!-- 待填入 --></p>
+  </div>
+
+  <div class="zhuanti-wrap">
+    <div class="z-head">
+      <span class="z-label">专题</span>
+      <span class="z-count">Est. 2026</span>
     </div>
-    <div class="cover-right">
-      <p class="home-tagline-placeholder"><!-- 待填 --></p>
+    <div class="z-grid">
+
+      <a class="z-card" href="institution.html">
+        <span class="z-num">01</span>
+        <span class="z-name">机构资讯</span>
+        <span class="z-desc"><!-- 待填 --></span>
+        <div class="z-foot"><span class="z-tag">进行中</span><span class="z-arrow">→</span></div>
+      </a>
+
+      <a class="z-card" href="category-volunteer.html">
+        <span class="z-num">02</span>
+        <span class="z-name">动物行动</span>
+        <span class="z-desc"><!-- 待填 --></span>
+        <div class="z-foot"><span class="z-tag">进行中</span><span class="z-arrow">→</span></div>
+      </a>
+
+      <a class="z-card" href="category-huatuan.html">
+        <span class="z-num">03</span>
+        <span class="z-name">地方档案</span>
+        <span class="z-desc"><!-- 待填 --></span>
+        <div class="z-foot"><span class="z-tag">进行中</span><span class="z-arrow">→</span></div>
+      </a>
+
+      <a class="z-card off">
+        <span class="z-num">04</span>
+        <span class="z-name">民间行动</span>
+        <span class="z-desc"><!-- 待填 --></span>
+        <div class="z-foot"><span class="z-tag">筹备中</span></div>
+      </a>
+
     </div>
   </div>
 
-  <div class="home-body">
-    <section class="zhuanti-section">
-      <p class="zhuanti-eyebrow">专题</p>
-      <ul class="zhuanti-list">
-        <li class="zhuanti-row">
-          <span class="zhuanti-name"><a href="institution.html">机构资讯</a></span>
-          <span class="zhuanti-meta">华团 · 志愿组织 · 商业机构</span>
-        </li>
-        <li class="zhuanti-row">
-          <span class="zhuanti-name pending">动物行动</span>
-          <span class="zhuanti-meta">筹备中</span>
-        </li>
-        <li class="zhuanti-row">
-          <span class="zhuanti-name pending">地方档案</span>
-          <span class="zhuanti-meta">筹备中</span>
-        </li>
-        <li class="zhuanti-row">
-          <span class="zhuanti-name pending">民间行动</span>
-          <span class="zhuanti-meta">筹备中</span>
-        </li>
-      </ul>
-    </section>
+  <div class="home-footer">
+    <p class="f-note">网页收益 50% 捐助浪浪与残障支援等公益用途。</p>
+    <div class="f-right">
+      <a class="f-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <span class="f-mark">INDEX 50 · V3</span>
+    </div>
   </div>
 
-  <footer>
-    <a class="footer-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-    <span class="footer-mark">INDEX 50 · v3</span>
-  </footer>
 </div>
