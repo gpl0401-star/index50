@@ -139,54 +139,144 @@ custom_header: true
   }
   .z-seclabel::before, .z-seclabel::after { content: ''; flex: 1; height: 1px; background: var(--gold-border); }
 
-  .z-band {
-    border-left: 2px solid rgba(220,185,90,0.3);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    padding: 1.6rem 1.4rem;
-    margin-bottom: 0.6rem;
+  /* 卡片网格 */
+  .z-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1.5rem;
-    align-items: start;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--gold-border);
+    margin-bottom: 0.6rem;
+  }
+
+  .z-card {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: inherit;
-    transition: background .15s, border-left-color .15s;
+    transition: background .18s;
+    position: relative;
   }
-  .z-band:hover { background: rgba(220,185,90,0.04); border-left-color: var(--gold); }
-  .z-band:hover .z-name { color: var(--gold); }
+  .z-card:hover { background: rgba(220,185,90,0.04); }
+  .z-card:hover .z-name { color: var(--gold); }
+  .z-card:hover .z-enter-btn { border-color: var(--gold); color: var(--gold); }
 
+  /* 占位图 */
+  .z-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0e0e0e;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .z-img-num {
+    position: absolute;
+    right: 0.8rem; bottom: -0.2rem;
+    font-family: var(--serif-en);
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-weight: 400;
+    color: rgba(220,185,90,0.07);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+  .z-img-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(220,185,90,0.25), transparent);
+  }
+  /* 进行中：金色左竖线 */
+  .z-card.active .z-img::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  /* 预告：虚线右上角标 */
+  .z-card.preview .z-img {
+    background: #0c0c0c;
+  }
+  .z-card.preview .z-img-num { color: rgba(220,185,90,0.04); }
+
+  /* 状态徽标 */
+  .z-badge {
+    position: absolute;
+    top: 0.6rem; left: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.45rem;
+    letter-spacing: 0.16em;
+    padding: 2px 7px;
+    text-transform: uppercase;
+  }
+  .z-badge.active  { border: 1px solid rgba(220,185,90,0.4); color: rgba(220,185,90,0.7); }
+  .z-badge.preview { border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.25); }
+
+  /* 卡片内容 */
+  .z-body {
+    padding: 1rem 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.55rem;
+  }
   .z-name {
-    font-family: var(--serif-cn); font-size: clamp(1rem, 2.5vw, 1.15rem);
-    font-weight: 400; color: rgba(255,255,255,0.88);
-    display: block; margin-bottom: 0.4rem; transition: color .15s;
+    font-family: var(--serif-cn);
+    font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.88);
+    transition: color .15s;
+    line-height: 1.5;
   }
   .z-intro {
     font-family: var(--serif-cn);
-    font-size: clamp(0.82rem, 1.8vw, 0.9rem);
+    font-size: clamp(0.75rem, 1.6vw, 0.82rem);
     font-weight: 300;
-    color: rgba(255,255,255,0.48);
-    line-height: 2;
-    display: block;
-    margin-bottom: 0.9rem;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.9;
+    flex: 1;
   }
-  .z-recent { list-style: none; }
-  .z-recent li {
-    font-family: var(--serif-cn); font-size: clamp(0.78rem, 1.8vw, 0.85rem);
-    font-weight: 300; color: rgba(255,255,255,0.42);
-    padding: 0.22rem 0; display: flex; gap: 0.5rem; align-items: baseline;
+  .z-enter-btn {
+    align-self: flex-start;
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 4px 10px;
+    text-transform: uppercase;
+    transition: color .15s, border-color .15s;
   }
-  .z-recent li::before { content: '·'; color: rgba(220,185,90,0.5); flex-shrink: 0; }
+  .z-card.preview .z-enter-btn {
+    color: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.07);
+    cursor: default;
+  }
 
-  .z-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.7rem; }
-  .z-status {
-    font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.18em;
-    padding: 3px 8px; border: 1px solid rgba(220,185,90,0.35); color: rgba(220,185,90,0.65);
+  /* 预告分隔线 */
+  .z-seclabel-preview {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.28em;
+    color: rgba(220,185,90,0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
   }
-  .z-enter {
-    font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.12em;
-    color: rgba(255,255,255,0.2); transition: color .15s;
+  .z-seclabel-preview::before, .z-seclabel-preview::after {
+    content: ''; flex: 1; height: 1px; background: rgba(220,185,90,0.08);
   }
-  .z-band:hover .z-enter { color: var(--gold); }
+
+  @media (max-width: 560px) {
+    .z-grid { grid-template-columns: 1fr; }
+    .z-img-num { font-size: 3.5rem; }
+  }
 
   /* ── 动态 ── */
   .growth { padding: 1.8rem 0 3rem; }
@@ -220,8 +310,8 @@ custom_header: true
   .f-mark { font-family: var(--mono); font-size: 0.5rem; color: rgba(220,185,90,0.15); letter-spacing: 0.18em; }
 
   @media (max-width: 560px) {
-    .z-band { grid-template-columns: 1fr; gap: 0.8rem; }
-    .z-right { flex-direction: row; justify-content: space-between; }
+    .z-grid { grid-template-columns: 1fr; }
+    .z-img-num { font-size: 3.5rem; }
     .hero-frame { padding: 2.5rem 1rem; }
     .hero-frame::before { background: var(--bg); }
     .hero-frame::after { background: var(--bg); }
@@ -257,68 +347,131 @@ custom_header: true
 
   <div class="zhuanti">
     <div class="w">
+
       <div class="z-seclabel">正在进行的专题</div>
 
-      <a class="z-band" href="about.html">
-        <div>
-          <span class="z-name">资讯结构</span>
-          <span class="z-intro">Index 50 是什么，资讯有序是什么意思。这里整理的不是热点，不是新闻，而是那些搜索量低、商业价值低、却在现实中真实存在、值得被长期保存的信息。一旦建立，持续存在。</span>
-          <ul class="z-recent">
-            <li>Index 50 的整理原则</li>
-            <li>什么样的内容会被收录</li>
-          </ul>
-        </div>
-        <div class="z-right">
-          <span class="z-status">进行中</span>
-          <span class="z-enter">进入专题 →</span>
-        </div>
-      </a>
+      <div class="z-grid">
 
-      <a class="z-band" href="institution.html">
-        <div>
-          <span class="z-name">机构资讯</span>
-          <span class="z-intro">华团、志愿组织、商业机构的动态与活动，在这里持续建档。宣传资讯发完即被刷走，这里留存下来，按时间排列，随时可查。</span>
-          <ul class="z-recent">
-            <li>马来西亚动物声援会 · 五年制改选圆满举行</li>
-            <li>霹雳深斋校友会 · 对外足迹汇整</li>
-            <li>Index 50 · 2026年4月月报</li>
-          </ul>
-        </div>
-        <div class="z-right">
-          <span class="z-status">进行中</span>
-          <span class="z-enter">进入专题 →</span>
-        </div>
-      </a>
+        <!-- 1 资讯结构 -->
+        <a class="z-card active" href="about.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <span class="z-img-num">01</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">资讯结构</span>
+            <span class="z-intro">Index 50 是什么，资讯有序是什么意思。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
 
-      <a class="z-band" href="category-volunteer.html">
-        <div>
-          <span class="z-name">动物行动</span>
-          <span class="z-intro">马来西亚民间动物公益组织的长期行动记录。志工出动、救援轨迹、每一次行动——不因为没有媒体在场而消失，在这里一一留存。</span>
-          <ul class="z-recent">
-            <li>志工队埋猫行动 · 主人相伴，志工同行</li>
-            <li>志工队埋狗行动 · 每个生命值得被温柔以待</li>
-          </ul>
-        </div>
-        <div class="z-right">
-          <span class="z-status">进行中</span>
-          <span class="z-enter">进入专题 →</span>
-        </div>
-      </a>
+        <!-- 2 机构资讯存档 -->
+        <a class="z-card active" href="institution.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <span class="z-img-num">02</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">机构资讯存档</span>
+            <span class="z-intro">收集与整理各个地方组织、民间团体和华团的最新动态、活动公告以及历史资料，方便大家一站式查阅他们的相关资讯。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
 
-      <a class="z-band" href="category-huatuan.html">
-        <div>
-          <span class="z-name">地方档案</span>
-          <span class="z-intro">校友会、地方华团的历史足迹与组织介绍。散落于各媒体的相关报道与记录，汇整于此，按时间排列，持续更新。</span>
-          <ul class="z-recent">
-            <li>霹雳深斋校友会 · 凝聚与传承</li>
-            <li>霹雳深斋校友会 · 对外足迹</li>
-          </ul>
+        <!-- 3 马来西亚动物声援会 -->
+        <a class="z-card active" href="category-volunteer.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <span class="z-img-num">03</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">马来西亚动物声援会</span>
+            <span class="z-intro">巡逻日志、民间善终现场（埋猫/狗/蛇记录）、季度月报与志工真实行动轨迹。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+
+        <!-- 4 霹雳深斋校友会 -->
+        <a class="z-card active" href="category-huatuan.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <span class="z-img-num">04</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">霹雳深斋校友会</span>
+            <span class="z-intro">散落于地方媒体的报道碎片、校友网络时间线、对外活动足迹与华团历史痕迹。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+
+      </div><!-- /z-grid active -->
+
+      <div class="z-seclabel-preview">专题预告</div>
+
+      <div class="z-grid">
+
+        <!-- 5 AI的幻觉美学 -->
+        <div class="z-card preview">
+          <div class="z-img">
+            <span class="z-badge preview">即将开放</span>
+            <span class="z-img-num">05</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">AI 的幻觉美学</span>
+            <span class="z-intro">AI 废话文学：为什么它总是给你那些看起来正确，却偏离轨道的回答？</span>
+            <span class="z-enter-btn">即将开放</span>
+          </div>
         </div>
-        <div class="z-right">
-          <span class="z-status">进行中</span>
-          <span class="z-enter">进入专题 →</span>
+
+        <!-- 6 电话亭 -->
+        <div class="z-card preview">
+          <div class="z-img">
+            <span class="z-badge preview">即将开放</span>
+            <span class="z-img-num">06</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">电话亭</span>
+            <span class="z-intro">——</span>
+            <span class="z-enter-btn">即将开放</span>
+          </div>
         </div>
-      </a>
+
+        <!-- 7 流俗地 -->
+        <div class="z-card preview">
+          <div class="z-img">
+            <span class="z-badge preview">即将开放</span>
+            <span class="z-img-num">07</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">《流俗地》</span>
+            <span class="z-intro">——</span>
+            <span class="z-enter-btn">即将开放</span>
+          </div>
+        </div>
+
+        <!-- 8 最小阻力之路 -->
+        <div class="z-card preview">
+          <div class="z-img">
+            <span class="z-badge preview">即将开放</span>
+            <span class="z-img-num">08</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">《最小阻力之路》</span>
+            <span class="z-intro">——</span>
+            <span class="z-enter-btn">即将开放</span>
+          </div>
+        </div>
+
+      </div><!-- /z-grid preview -->
+
     </div>
   </div>
 
