@@ -83,7 +83,7 @@ custom_header: true
   .hero-kicker span { color: var(--gold); margin: 0 0.5rem; }
   .hero-index {
     font-family: var(--serif-en); font-size: clamp(1rem, 3vw, 1.4rem);
-    letter-spacing: 0.6em; color: rgba(220,185,90,0.3); display: block; margin-bottom: 0.1rem;
+    letter-spacing: 0.6em; color: rgba(220,185,90,0.60); display: block; margin-bottom: 0.1rem;
   }
   .hero-num {
     font-family: var(--serif-en);
@@ -103,7 +103,7 @@ custom_header: true
   .hero-intro {
     font-family: var(--serif-cn);
     font-size: clamp(0.9rem, 2vw, 1rem);
-    font-weight: 300; color: rgba(255,255,255,0.5);
+    font-weight: 300; color: rgba(255,255,255,0.72);
     line-height: 2.1; max-width: 400px; margin: 0 auto;
   }
   .hero-strip {
@@ -114,12 +114,12 @@ custom_header: true
   .hero-strip-item {
     text-align: center; padding: 0 0.5rem;
     font-family: var(--mono); font-size: 0.52rem;
-    letter-spacing: 0.14em; color: rgba(220,185,90,0.3);
+    letter-spacing: 0.14em; color: rgba(220,185,90,0.65);
     text-transform: uppercase;
   }
   .hero-strip-item + .hero-strip-item { border-left: 1px solid var(--gold-border); }
   .hero-strip-val {
-    display: block; font-size: 0.7rem; color: rgba(220,185,90,0.6);
+    display: block; font-size: 0.7rem; color: rgba(220,185,90,0.88);
     margin-top: 0.25rem; font-family: var(--serif-cn);
     font-weight: 300; letter-spacing: 0.05em; text-transform: none;
   }
@@ -177,7 +177,7 @@ custom_header: true
   .z-card--hero .z-img-num {
     font-family: var(--serif-en);
     font-size: clamp(6rem, 14vw, 10rem);
-    color: rgba(220,185,90,0.06);
+    color: rgba(220,185,90,0.18);
     position: absolute;
     right: 1rem; bottom: -0.3rem;
     line-height: 1;
@@ -259,10 +259,7 @@ custom_header: true
     transition: filter .2s;
   }
   .z-img img.logo {
-    object-fit: contain;
-    padding: 14% 10%;
-    box-sizing: border-box;
-    background: #0d0d0d;
+    object-fit: cover;
   }
   .z-card:hover .z-img img { filter: grayscale(0%) brightness(1); }
 
@@ -272,7 +269,7 @@ custom_header: true
     font-family: var(--serif-en);
     font-size: clamp(3.5rem, 8vw, 5.5rem);
     font-weight: 400;
-    color: rgba(220,185,90,0.07);
+    color: rgba(220,185,90,0.18);
     line-height: 1;
     user-select: none;
     pointer-events: none;
@@ -394,20 +391,28 @@ custom_header: true
     font-family: var(--serif-en);
     font-size: 0.6rem;
     letter-spacing: 0.3em;
-    color: rgba(220,185,90,0.2);
+    color: rgba(220,185,90,0.65);
   }
   .z-preview-title {
     font-family: var(--serif-cn);
     font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-    font-weight: 300;
-    color: rgba(255,255,255,0.45);
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
     line-height: 1.7;
+  }
+  .z-preview-desc {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.7rem, 1.4vw, 0.76rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.85;
+    flex: 1;
   }
   .z-preview-tag {
     font-family: var(--mono);
     font-size: 0.42rem;
     letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.22);
+    color: rgba(220,185,90,0.45);
     text-transform: uppercase;
     margin-top: auto;
     padding-top: 0.6rem;
@@ -581,21 +586,25 @@ custom_header: true
         <div class="z-preview-item">
           <span class="z-preview-num">05</span>
           <span class="z-preview-title">AI 的幻觉美学</span>
+          <span class="z-preview-desc">AI 废话文学：为什么它总是给你那些看起来正确，却偏离轨道的回答？</span>
           <span class="z-preview-tag">即将开放</span>
         </div>
         <div class="z-preview-item">
           <span class="z-preview-num">06</span>
           <span class="z-preview-title">电话亭</span>
+          <span class="z-preview-desc">那些拨不出去、也接不到的电话，以及守在机旁等待的人。</span>
           <span class="z-preview-tag">即将开放</span>
         </div>
         <div class="z-preview-item">
           <span class="z-preview-num">07</span>
           <span class="z-preview-title">《流俗地》</span>
+          <span class="z-preview-desc">黎紫书的怡保，一座城市里普通人一生的重量与流逝。</span>
           <span class="z-preview-tag">即将开放</span>
         </div>
         <div class="z-preview-item">
           <span class="z-preview-num">08</span>
           <span class="z-preview-title">《最小阻力之路》</span>
+          <span class="z-preview-desc">Robert Fritz 的创作结构理论：你的生活形态，由你看不见的张力决定。</span>
           <span class="z-preview-tag">即将开放</span>
         </div>
       </div><!-- /z-preview-block -->
