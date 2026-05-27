@@ -139,10 +139,90 @@ custom_header: true
   }
   .z-seclabel::before, .z-seclabel::after { content: ''; flex: 1; height: 1px; background: var(--gold-border); }
 
-  /* 卡片网格 */
+  /* ── 主主专题（第一层，全宽） ── */
+  .z-hero-wrapper {
+    border: 1px solid var(--gold-border);
+    margin-bottom: 1px;
+    background: linear-gradient(180deg, rgba(220,185,90,0.04) 0%, transparent 50%);
+  }
+  .z-card--hero {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+    transition: background .18s;
+    position: relative;
+    min-height: 220px;
+  }
+  .z-card--hero:hover { background: rgba(220,185,90,0.04); }
+  .z-card--hero:hover .z-name { color: var(--gold); }
+  .z-card--hero:hover .z-enter-btn { border-color: var(--gold); color: var(--gold); }
+
+  .z-card--hero .z-img {
+    width: 52%;
+    aspect-ratio: unset;
+    min-height: 220px;
+    background: #0c0c0c;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .z-card--hero .z-img::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  .z-card--hero .z-img-num {
+    font-family: var(--serif-en);
+    font-size: clamp(6rem, 14vw, 10rem);
+    color: rgba(220,185,90,0.06);
+    position: absolute;
+    right: 1rem; bottom: -0.3rem;
+    line-height: 1;
+    user-select: none;
+  }
+  .z-card--hero .z-body {
+    padding: 2rem 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    flex: 1;
+  }
+  .z-card--hero .z-name {
+    font-family: var(--serif-cn);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    transition: color .15s;
+  }
+  .z-card--hero .z-intro {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.82rem, 1.8vw, 0.92rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.42);
+    line-height: 2;
+  }
+  .z-card--hero .z-enter-btn {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    color: rgba(220,185,90,0.5);
+    border: 1px solid rgba(220,185,90,0.3);
+    padding: 5px 14px;
+    text-transform: uppercase;
+    transition: color .15s, border-color .15s;
+  }
+
+  /* ── 第二层网格（三栏） ── */
   .z-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1px;
     background: var(--gold-border);
     margin-bottom: 0.6rem;
@@ -170,6 +250,18 @@ custom_header: true
     overflow: hidden;
     flex-shrink: 0;
   }
+  /* 实际图片 */
+  .z-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 18% 15%;
+    box-sizing: border-box;
+    filter: grayscale(20%) brightness(0.9);
+    transition: filter .2s;
+  }
+  .z-card:hover .z-img img { filter: grayscale(0%) brightness(1); }
+
   .z-img-num {
     position: absolute;
     right: 0.8rem; bottom: -0.2rem;
@@ -195,11 +287,6 @@ custom_header: true
     width: 2px; height: 100%;
     background: linear-gradient(180deg, var(--gold), transparent);
   }
-  /* 预告：虚线右上角标 */
-  .z-card.preview .z-img {
-    background: #0c0c0c;
-  }
-  .z-card.preview .z-img-num { color: rgba(220,185,90,0.04); }
 
   /* 状态徽标 */
   .z-badge {
@@ -210,9 +297,9 @@ custom_header: true
     letter-spacing: 0.16em;
     padding: 2px 7px;
     text-transform: uppercase;
+    z-index: 2;
   }
   .z-badge.active  { border: 1px solid rgba(220,185,90,0.4); color: rgba(220,185,90,0.7); }
-  .z-badge.preview { border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.25); }
 
   /* 卡片内容 */
   .z-body {
@@ -224,7 +311,7 @@ custom_header: true
   }
   .z-name {
     font-family: var(--serif-cn);
-    font-size: clamp(0.95rem, 2.2vw, 1.05rem);
+    font-size: clamp(0.88rem, 2vw, 1rem);
     font-weight: 400;
     color: rgba(255,255,255,0.88);
     transition: color .15s;
@@ -232,9 +319,9 @@ custom_header: true
   }
   .z-intro {
     font-family: var(--serif-cn);
-    font-size: clamp(0.75rem, 1.6vw, 0.82rem);
+    font-size: clamp(0.72rem, 1.5vw, 0.78rem);
     font-weight: 300;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.38);
     line-height: 1.9;
     flex: 1;
   }
@@ -250,13 +337,8 @@ custom_header: true
     text-transform: uppercase;
     transition: color .15s, border-color .15s;
   }
-  .z-card.preview .z-enter-btn {
-    color: rgba(255,255,255,0.15);
-    border-color: rgba(255,255,255,0.07);
-    cursor: default;
-  }
 
-  /* 预告分隔线 */
+  /* ── 预告分隔线 ── */
   .z-seclabel-preview {
     font-family: var(--mono);
     font-size: 0.55rem;
@@ -273,9 +355,82 @@ custom_header: true
     content: ''; flex: 1; height: 1px; background: rgba(220,185,90,0.08);
   }
 
-  @media (max-width: 560px) {
+  /* ── 预告块（5-8合并） ── */
+  .z-preview-block {
+    border: 1px solid rgba(220,185,90,0.1);
+    background: #080808;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    padding: 2.2rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .z-preview-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(220,185,90,0.03) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(220,185,90,0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .z-preview-item {
+    padding: 0 1.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .z-preview-item + .z-preview-item {
+    border-left: 1px solid rgba(220,185,90,0.08);
+  }
+  .z-preview-num {
+    font-family: var(--serif-en);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: rgba(220,185,90,0.2);
+  }
+  .z-preview-title {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.28);
+    line-height: 1.7;
+  }
+  .z-preview-tag {
+    font-family: var(--mono);
+    font-size: 0.42rem;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.14);
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 0.6rem;
+  }
+  .z-preview-coming {
+    position: absolute;
+    right: 0; top: 0;
+    font-family: var(--mono);
+    font-size: clamp(4rem, 10vw, 7rem);
+    color: rgba(220,185,90,0.025);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.04em;
+  }
+
+  @media (max-width: 680px) {
+    .z-card--hero { flex-direction: column; }
+    .z-card--hero .z-img { width: 100%; min-height: 160px; }
     .z-grid { grid-template-columns: 1fr; }
+    .z-preview-block { grid-template-columns: repeat(2, 1fr); }
+    .z-preview-item:nth-child(3) { border-left: none; border-top: 1px solid rgba(220,185,90,0.08); }
+    .z-preview-item:nth-child(2), .z-preview-item:nth-child(4) { border-top: none; }
+    .z-preview-item { padding: 0.8rem 0.8rem; }
     .z-img-num { font-size: 3.5rem; }
+    .hero-frame { padding: 2.5rem 1rem; }
+    .hero-frame::before { background: var(--bg); }
+    .hero-frame::after { background: var(--bg); }
   }
 
   /* ── 动态 ── */
@@ -337,7 +492,7 @@ custom_header: true
         <span class="hero-sep">· · ·</span>
         <p class="hero-intro">持续整理那些不会被主流互联网长期维护，但值得存在的现实信息。</p>
         <div class="hero-strip">
-          <div class="hero-strip-item">专题<span class="hero-strip-val">3 进行中</span></div>
+          <div class="hero-strip-item">专题<span class="hero-strip-val">4 进行中</span></div>
           <div class="hero-strip-item">性质<span class="hero-strip-val">长期归档</span></div>
           <div class="hero-strip-item">公益<span class="hero-strip-val">收益 50% 捐助</span></div>
         </div>
@@ -350,10 +505,9 @@ custom_header: true
 
       <div class="z-seclabel">正在进行的专题</div>
 
-      <div class="z-grid">
-
-        <!-- 1 资讯结构 -->
-        <a class="z-card active" href="about.html">
+      <!-- ▌层级一：主主专题 01 ── 全宽横排 -->
+      <div class="z-hero-wrapper">
+        <a class="z-card--hero" href="about.html">
           <div class="z-img">
             <span class="z-badge active">进行中</span>
             <span class="z-img-num">01</span>
@@ -365,6 +519,10 @@ custom_header: true
             <span class="z-enter-btn">进入专题 →</span>
           </div>
         </a>
+      </div>
+
+      <!-- ▌层级二：02 / 03 / 04 ── 三栏 -->
+      <div class="z-grid">
 
         <!-- 2 机构资讯存档 -->
         <a class="z-card active" href="institution.html">
@@ -375,102 +533,68 @@ custom_header: true
           </div>
           <div class="z-body">
             <span class="z-name">机构资讯存档</span>
-            <span class="z-intro">收集与整理各个地方组织、民间团体和华团的最新动态、活动公告以及历史资料，方便大家一站式查阅他们的相关资讯。</span>
+            <span class="z-intro">地方组织、民间团体与华团的动态、公告及历史资料，一站式查阅。</span>
             <span class="z-enter-btn">进入专题 →</span>
           </div>
         </a>
 
         <!-- 3 马来西亚动物声援会 -->
-        <a class="z-card active" href="cintahaiwan.html">
-          <div class="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto,f_auto/cintahaiwan-logo.jpg">
+        <a class="z-card active" href="category-volunteer.html">
+          <div class="z-img">
             <span class="z-badge active">进行中</span>
-            <span class="z-img-num">03</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1778835982/cintahaiwan-logo.jpg" alt="马来西亚动物声援会" loading="lazy">
             <span class="z-img-line"></span>
           </div>
           <div class="z-body">
             <span class="z-name">马来西亚动物声援会</span>
-            <span class="z-intro">巡逻日志、民间善终现场（埋猫/狗/蛇记录）、季度月报与志工真实行动轨迹。</span>
+            <span class="z-intro">巡逻日志、善终现场记录、季度月报与志工行动轨迹。</span>
             <span class="z-enter-btn">进入专题 →</span>
           </div>
         </a>
 
         <!-- 4 霹雳深斋校友会 -->
-        <a class="z-card active" href="shenjai.html">
-          <div class="shenjai-logo.jpeg">
+        <a class="z-card active" href="category-huatuan.html">
+          <div class="z-img">
             <span class="z-badge active">进行中</span>
-            <span class="z-img-num">04</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779871076/shenjai-logo_3.jpg" alt="霹雳深斋校友会" loading="lazy">
             <span class="z-img-line"></span>
           </div>
           <div class="z-body">
             <span class="z-name">霹雳深斋校友会</span>
-            <span class="z-intro">散落于地方媒体的报道碎片、校友网络时间线、对外活动足迹与华团历史痕迹。</span>
+            <span class="z-intro">媒体报道碎片、校友网络时间线、对外活动足迹与华团历史痕迹。</span>
             <span class="z-enter-btn">进入专题 →</span>
           </div>
         </a>
 
-      </div><!-- /z-grid active -->
+      </div><!-- /z-grid tier2 -->
 
+      <!-- ▌预告 -->
       <div class="z-seclabel-preview">专题预告</div>
 
-      <div class="z-grid">
-
-        <!-- 5 AI的幻觉美学 -->
-        <div class="z-card preview">
-          <div class="z-img">
-            <span class="z-badge preview">即将开放</span>
-            <span class="z-img-num">05</span>
-            <span class="z-img-line"></span>
-          </div>
-          <div class="z-body">
-            <span class="z-name">AI 的幻觉美学</span>
-            <span class="z-intro">AI 废话文学：为什么它总是给你那些看起来正确，却偏离轨道的回答？</span>
-            <span class="z-enter-btn">即将开放</span>
-          </div>
+      <!-- 05–08 合并预告块 -->
+      <div class="z-preview-block">
+        <span class="z-preview-coming">SOON</span>
+        <div class="z-preview-item">
+          <span class="z-preview-num">05</span>
+          <span class="z-preview-title">AI 的幻觉美学</span>
+          <span class="z-preview-tag">即将开放</span>
         </div>
-
-        <!-- 6 电话亭 -->
-        <div class="z-card preview">
-          <div class="z-img">
-            <span class="z-badge preview">即将开放</span>
-            <span class="z-img-num">06</span>
-            <span class="z-img-line"></span>
-          </div>
-          <div class="z-body">
-            <span class="z-name">电话亭</span>
-            <span class="z-intro">——</span>
-            <span class="z-enter-btn">即将开放</span>
-          </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">06</span>
+          <span class="z-preview-title">电话亭</span>
+          <span class="z-preview-tag">即将开放</span>
         </div>
-
-        <!-- 7 流俗地 -->
-        <div class="z-card preview">
-          <div class="z-img">
-            <span class="z-badge preview">即将开放</span>
-            <span class="z-img-num">07</span>
-            <span class="z-img-line"></span>
-          </div>
-          <div class="z-body">
-            <span class="z-name">《流俗地》</span>
-            <span class="z-intro">——</span>
-            <span class="z-enter-btn">即将开放</span>
-          </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">07</span>
+          <span class="z-preview-title">《流俗地》</span>
+          <span class="z-preview-tag">即将开放</span>
         </div>
-
-        <!-- 8 最小阻力之路 -->
-        <div class="z-card preview">
-          <div class="z-img">
-            <span class="z-badge preview">即将开放</span>
-            <span class="z-img-num">08</span>
-            <span class="z-img-line"></span>
-          </div>
-          <div class="z-body">
-            <span class="z-name">《最小阻力之路》</span>
-            <span class="z-intro">——</span>
-            <span class="z-enter-btn">即将开放</span>
-          </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">08</span>
+          <span class="z-preview-title">《最小阻力之路》</span>
+          <span class="z-preview-tag">即将开放</span>
         </div>
-
-      </div><!-- /z-grid preview -->
+      </div><!-- /z-preview-block -->
 
     </div>
   </div>
