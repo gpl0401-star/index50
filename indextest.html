@@ -204,7 +204,7 @@ custom_header: true
     font-family: var(--serif-cn);
     font-size: clamp(0.82rem, 1.8vw, 0.92rem);
     font-weight: 300;
-    color: rgba(255,255,255,0.42);
+    color: rgba(255,255,255,0.65);
     line-height: 2;
   }
   .z-card--hero .z-enter-btn {
@@ -250,15 +250,19 @@ custom_header: true
     overflow: hidden;
     flex-shrink: 0;
   }
-  /* 实际图片 */
+  /* 实际图片 — 照片用 cover，logo 加 class="logo" 用 contain + 少量 padding */
   .z-img img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    padding: 18% 15%;
-    box-sizing: border-box;
-    filter: grayscale(20%) brightness(0.9);
+    object-fit: cover;
+    filter: grayscale(15%) brightness(0.88);
     transition: filter .2s;
+  }
+  .z-img img.logo {
+    object-fit: contain;
+    padding: 14% 10%;
+    box-sizing: border-box;
+    background: #0d0d0d;
   }
   .z-card:hover .z-img img { filter: grayscale(0%) brightness(1); }
 
@@ -313,15 +317,15 @@ custom_header: true
     font-family: var(--serif-cn);
     font-size: clamp(0.88rem, 2vw, 1rem);
     font-weight: 400;
-    color: rgba(255,255,255,0.88);
+    color: rgba(255,255,255,0.92);
     transition: color .15s;
     line-height: 1.5;
   }
   .z-intro {
     font-family: var(--serif-cn);
-    font-size: clamp(0.72rem, 1.5vw, 0.78rem);
+    font-size: clamp(0.75rem, 1.6vw, 0.82rem);
     font-weight: 300;
-    color: rgba(255,255,255,0.38);
+    color: rgba(255,255,255,0.62);
     line-height: 1.9;
     flex: 1;
   }
@@ -331,8 +335,8 @@ custom_header: true
     font-family: var(--mono);
     font-size: 0.5rem;
     letter-spacing: 0.16em;
-    color: rgba(255,255,255,0.25);
-    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.42);
+    border: 1px solid rgba(255,255,255,0.18);
     padding: 4px 10px;
     text-transform: uppercase;
     transition: color .15s, border-color .15s;
@@ -396,14 +400,14 @@ custom_header: true
     font-family: var(--serif-cn);
     font-size: clamp(0.8rem, 1.8vw, 0.9rem);
     font-weight: 300;
-    color: rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.45);
     line-height: 1.7;
   }
   .z-preview-tag {
     font-family: var(--mono);
     font-size: 0.42rem;
     letter-spacing: 0.18em;
-    color: rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.22);
     text-transform: uppercase;
     margin-top: auto;
     padding-top: 0.6rem;
@@ -542,7 +546,7 @@ custom_header: true
         <a class="z-card active" href="category-volunteer.html">
           <div class="z-img">
             <span class="z-badge active">进行中</span>
-            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1778835982/cintahaiwan-logo.jpg" alt="马来西亚动物声援会" loading="lazy">
+            <img class="logo" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1778835982/cintahaiwan-logo.jpg" alt="马来西亚动物声援会" loading="lazy">
             <span class="z-img-line"></span>
           </div>
           <div class="z-body">
