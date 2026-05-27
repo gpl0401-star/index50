@@ -50,6 +50,30 @@ custom_header: true
   }
   .topbar-back:hover { color: var(--gold); border-color: var(--gold); }
 
+  /* ── 专题封面图 ── */
+  .zt-cover {
+    width: 100%;
+    max-height: 340px;
+    overflow: hidden;
+    position: relative;
+  }
+  .zt-cover img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: brightness(0.72);
+  }
+  .zt-cover::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 65%;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+  }
+
   /* ── 专题头部 ── */
   .zt-header {
     padding: 3.5rem 0 2.8rem;
@@ -202,6 +226,30 @@ custom_header: true
   }
   .zt-article.pending .zt-article-date::before { content: '筹备中'; }
 
+  /* ── 文章占位说明 ── */
+  .zt-index-placeholder {
+    padding: 2.8rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  .zt-index-placeholder-icon {
+    font-size: 0.6rem;
+    color: rgba(220,185,90,0.3);
+    letter-spacing: 0.3em;
+  }
+  .zt-index-placeholder p {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.82rem, 1.8vw, 0.9rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.38);
+    line-height: 2;
+    max-width: 440px;
+    margin: 0;
+  }
+
   /* ── Footer ── */
   .foot { border-top: 1px solid var(--gold-border); padding: 1.4rem 0 2.8rem; }
   .foot .w { display: flex; justify-content: space-between; align-items: center; }
@@ -233,13 +281,18 @@ custom_header: true
     </div>
   </div>
 
+  <!-- 封面图 -->
+  <div class="zt-cover">
+    <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779898964/zxjg00.png" alt="资讯结构" loading="eager">
+  </div>
+
   <!-- 专题头部 -->
-  <div class="zt-header">
+  <div class="zt-header" style="border-top: none; padding-top: 1.8rem;">
     <div class="w">
       <div>
         <span class="zt-num">专题 · 01</span>
-        <h1 class="zt-title">资讯结构</h1>
-        <p class="zt-desc">一则资讯，在什么条件下才算是有结构的？结构为什么重要，又为什么大多数现实资讯会在时间里失去它。</p>
+        <h1 class="zt-title">何谓资讯有序，为什么我们需要它？</h1>
+        <p class="zt-desc">主流互联网擅长制造洪流，也擅长制造遗忘。而我们用信息架构来对抗遗忘。</p>
       </div>
       <div class="zt-stats">
         <div class="zt-stat">性质<span>概念专题</span></div>
@@ -290,56 +343,14 @@ custom_header: true
     <div class="w">
       <div class="zt-index-head">
         <span class="zt-index-label">文章</span>
-        <span class="zt-index-count">3 篇 · 持续增加</span>
+        <span class="zt-index-count">即将收录</span>
       </div>
 
-      <ul class="zt-article-list">
-
-        <li class="zt-article">
-          <a href="#">
-            <span class="zt-article-num">001</span>
-            <div class="zt-article-body">
-              <span class="zt-article-title">资讯本身不会消失，但它的可用性会</span>
-              <span class="zt-article-desc">从一家关门的茶室说起——什么叫做资讯失去结构。</span>
-            </div>
-            <span class="zt-article-date">2026.05</span>
-          </a>
-        </li>
-
-        <li class="zt-article">
-          <a href="#">
-            <span class="zt-article-num">002</span>
-            <div class="zt-article-body">
-              <span class="zt-article-title">三个条件，缺一不可</span>
-              <span class="zt-article-desc">可找到、可辨认、可延续：一则资讯要有结构，需要同时满足这三件事。</span>
-            </div>
-            <span class="zt-article-date">2026.05</span>
-          </a>
-        </li>
-
-        <li class="zt-article">
-          <a href="#">
-            <span class="zt-article-num">003</span>
-            <div class="zt-article-body">
-              <span class="zt-article-title">主流互联网为什么不维护这类资讯</span>
-              <span class="zt-article-desc">没有流量就没有维护动力——这不是平台的错，是它的本质。</span>
-            </div>
-            <span class="zt-article-date">2026.05</span>
-          </a>
-        </li>
-
-        <li class="zt-article pending">
-          <a href="#">
-            <span class="zt-article-num">004</span>
-            <div class="zt-article-body">
-              <span class="zt-article-title">结构是一种对现实负责的姿态</span>
-              <span class="zt-article-desc">当有人决定把一件事放在可以被找到的地方，这个动作本身意味着什么。</span>
-            </div>
-            <span class="zt-article-date"></span>
-          </a>
-        </li>
-
-      </ul>
+      <div class="zt-index-placeholder">
+        <span class="zt-index-placeholder-icon">◆</span>
+        <p>本专题的文章正在整理中，将陆续在此收录。</p>
+        <p>内容方向包括：资讯失去结构的具体场景、什么条件构成有效的资讯结构，以及这一问题在现实里意味着什么。</p>
+      </div>
     </div>
   </div>
 
