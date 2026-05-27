@@ -4,212 +4,679 @@ title: Index 50 · 资讯有序
 custom_header: true
 ---
 <style>
-  header { padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--rule); display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
-  .site-title-block { margin-bottom: 0; }
-  .site-index-word { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.2em; text-transform: uppercase; display: block; margin-bottom: 0.2rem; }
-  .site-title { font-family: var(--serif-en); font-size: 3.6rem; font-weight: 400; color: var(--ink); letter-spacing: -0.03em; line-height: 1; display: flex; align-items: baseline; gap: 0.15em; }
-  .site-title .num-50 { color: var(--accent); }
-  .site-tagline { font-family: var(--serif-cn); font-size: 0.8rem; font-weight: 300; color: var(--ink-muted); margin-top: 0.55rem; letter-spacing: 0.06em; border-left: 2px solid var(--accent); padding-left: 0.7rem; line-height: 1.6; }
-  .inquiry-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 4px 10px; border-radius: 2px; white-space: nowrap; margin-top: 0.4rem; flex-shrink: 0; transition: background 0.15s, color 0.15s; }
-  .inquiry-link:hover { background: var(--accent); color: var(--paper); }
+  :root {
+    --gold: #dbb94e;
+    --gold-dim: rgba(220,185,90,0.55);
+    --gold-muted: rgba(220,185,90,0.3);
+    --gold-border: rgba(220,185,90,0.25);
+    --bg: #0a0a0a;
+    --text: rgba(255,255,255,0.82);
+    --text-dim: rgba(255,255,255,0.5);
+  }
 
-  .section-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.25rem; }
-  .latest-section { padding: 2.5rem 0 2rem; }
-  .entry-list { list-style: none; }
-  .entry-item { display: grid; grid-template-columns: 2.2rem 1fr; gap: 0 1.1rem; padding: 1rem 0.5rem; border-bottom: 1px solid var(--paper-mid); text-decoration: none; color: inherit; cursor: pointer; transition: background 0.15s; border-radius: 3px; margin: 0 -0.5rem; }
-  .entry-item:hover { background: var(--paper-mid); }
-  .entry-item:hover .entry-title { color: var(--accent); }
-  .entry-index { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); padding-top: 0.3rem; line-height: 1.4; text-align: center; }
-  .entry-meta { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.2rem; flex-wrap: wrap; }
-  .entry-tag { font-family: var(--mono); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 1px 6px; border-radius: 2px; display: inline-block; }
-  .entry-tag.event { background: var(--tag-event-bg); color: var(--tag-event); }
-  .entry-tag.service { background: var(--tag-service-bg); color: var(--tag-service); }
-  .entry-tag.volunteer { background: #e6f2ee; color: #1a5c48; }
-  .entry-tag.monthly { background: #e4eaf0; color: #2e4a5a; }
-  .entry-client { font-family: var(--mono); font-size: 0.62rem; color: var(--accent); letter-spacing: 0.03em; }
-  .entry-state { font-family: var(--mono); font-size: 0.62rem; color: var(--ink-muted); letter-spacing: 0.03em; }
-  .entry-title { font-family: var(--serif-cn); font-size: 0.975rem; font-weight: 400; color: var(--ink); line-height: 1.5; margin-bottom: 0.2rem; transition: color 0.15s; }
-  .entry-desc { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  body { background: #0a0a0a !important; color: var(--text) !important; }
 
-  .cat-nav { padding: 2.5rem 0 2rem; border-top: 1px solid var(--rule); }
-  .cat-nav-label { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; color: var(--ink-muted); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.1rem; }
-  .cat-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .cat-link { font-family: var(--serif-en); font-size: 1.5rem; font-weight: 400; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; border: 1px solid var(--rule); padding: 0.6rem 1.4rem; border-radius: 3px; transition: border-color 0.15s, color 0.15s, background 0.15s; }
-  .cat-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
-  .cat-link-more { color: var(--ink-muted); border-style: dashed; text-align: center; line-height: 1.6; cursor: default; pointer-events: none; }
-  .view-all-row { padding: 1.5rem 0 2rem; border-top: 1px solid var(--paper-mid); display: flex; justify-content: flex-end; }
-  .view-all-link { font-family: var(--mono); font-size: 0.65rem; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.08em; border: 1px solid var(--accent); padding: 5px 12px; border-radius: 2px; transition: background 0.15s, color 0.15s; }
-  .view-all-link:hover { background: var(--accent); color: var(--paper); }
+  .home {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif-cn);
+    overflow-x: hidden;
+  }
 
-  footer { padding: 2rem 0 3rem; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; }
-  .about-text { font-size: 0.825rem; font-weight: 300; color: var(--ink-secondary); max-width: 480px; line-height: 1.7; }
-  .footer-fb { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.06em; transition: color 0.15s; display: flex; align-items: center; gap: 0.4rem; }
-  .footer-fb:hover { color: var(--accent); }
-  .footer-fb svg { width: 13px; height: 13px; fill: currentColor; opacity: 0.7; }
+  #starCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .home > * { position: relative; z-index: 1; }
+
+  .w { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── 顶栏 ── */
+  .topbar {
+    border-bottom: 1px solid var(--gold-border);
+    padding: 1.1rem 0;
+  }
+  .topbar .w { display: flex; justify-content: space-between; align-items: center; }
+  .topbar-brand {
+    font-family: var(--mono);
+    font-size: 0.65rem; letter-spacing: 0.22em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+  .topbar-contact {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+    color: var(--gold-muted); text-decoration: none;
+    border: 1px solid var(--gold-border); padding: 4px 12px;
+    transition: all .2s;
+  }
+  .topbar-contact:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ── 主视觉框 ── */
+  .hero { padding: 2.5rem 0; }
+  .hero-frame {
+    border: 1px solid var(--gold-border);
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(180deg, rgba(220,185,90,0.05) 0%, transparent 60%);
+  }
+  .hero-frame::before {
+    content: '◆'; position: absolute; top: -0.6em; left: 1.5rem;
+    color: var(--gold); font-size: 0.65rem; background: var(--bg); padding: 0 0.3rem;
+  }
+  .hero-frame::after {
+    content: '◆'; position: absolute; top: -0.6em; right: 1.5rem;
+    color: var(--gold); font-size: 0.65rem; background: var(--bg); padding: 0 0.3rem;
+  }
+  .hero-kicker {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.28em;
+    color: var(--gold-muted); display: block; margin-bottom: 1.5rem;
+  }
+  .hero-kicker span { color: var(--gold); margin: 0 0.5rem; }
+  .hero-index {
+    font-family: var(--serif-en); font-size: clamp(1rem, 3vw, 1.4rem);
+    letter-spacing: 0.6em; color: rgba(220,185,90,0.60); display: block; margin-bottom: 0.1rem;
+  }
+  .hero-num {
+    font-family: var(--serif-en);
+    font-size: clamp(5.5rem, 18vw, 9rem);
+    font-weight: 400;
+    background: linear-gradient(155deg, #f4e070 0%, #c8751a 52%, #eab84a 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    line-height: 0.87; display: block; margin-bottom: 0.8rem;
+  }
+  .hero-tagline {
+    font-family: var(--serif-cn);
+    font-size: clamp(1.1rem, 3.2vw, 1.6rem);
+    font-weight: 300; color: rgba(255,255,255,0.88);
+    letter-spacing: 0.32em; display: block; margin-bottom: 2rem;
+  }
+  .hero-sep { display: block; font-size: 0.45rem; letter-spacing: 0.7rem; color: var(--gold); margin-bottom: 2rem; }
+  .hero-intro {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 300; color: rgba(255,255,255,0.72);
+    line-height: 2.1; max-width: 400px; margin: 0 auto;
+  }
+  .hero-strip {
+    margin-top: 2.2rem; padding-top: 1.2rem;
+    border-top: 1px solid var(--gold-border);
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+  }
+  .hero-strip-item {
+    text-align: center; padding: 0 0.5rem;
+    font-family: var(--mono); font-size: 0.52rem;
+    letter-spacing: 0.14em; color: rgba(220,185,90,0.65);
+    text-transform: uppercase;
+  }
+  .hero-strip-item + .hero-strip-item { border-left: 1px solid var(--gold-border); }
+  .hero-strip-val {
+    display: block; font-size: 0.7rem; color: rgba(220,185,90,0.88);
+    margin-top: 0.25rem; font-family: var(--serif-cn);
+    font-weight: 300; letter-spacing: 0.05em; text-transform: none;
+  }
+
+  /* ── 专题 ── */
+  .zhuanti { padding: 2.2rem 0 0.5rem; }
+  .z-seclabel {
+    font-family: var(--serif-cn);
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+  }
+  .z-seclabel::before, .z-seclabel::after { content: ''; flex: 1; height: 1px; background: var(--gold-border); }
+
+  /* ── 主主专题（第一层，全宽） ── */
+  .z-hero-wrapper {
+    border: 1px solid var(--gold-border);
+    margin-bottom: 1px;
+    background: linear-gradient(180deg, rgba(220,185,90,0.04) 0%, transparent 50%);
+  }
+  .z-card--hero {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: inherit;
+    transition: background .18s;
+    position: relative;
+    min-height: 220px;
+  }
+  .z-card--hero:hover { background: rgba(220,185,90,0.04); }
+  .z-card--hero:hover .z-name { color: var(--gold); }
+  .z-card--hero:hover .z-enter-btn { border-color: var(--gold); color: var(--gold); }
+
+  .z-card--hero .z-img {
+    width: 52%;
+    aspect-ratio: unset;
+    min-height: 220px;
+    background: #0c0c0c;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .z-card--hero .z-img::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+  .z-card--hero .z-img-num {
+    font-family: var(--serif-en);
+    font-size: clamp(6rem, 14vw, 10rem);
+    color: rgba(220,185,90,0.18);
+    position: absolute;
+    right: 1rem; bottom: -0.3rem;
+    line-height: 1;
+    user-select: none;
+  }
+  .z-card--hero .z-body {
+    padding: 2rem 2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.8rem;
+    flex: 1;
+  }
+  .z-card--hero .z-name {
+    font-family: var(--serif-cn);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    transition: color .15s;
+  }
+  .z-card--hero .z-intro {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.82rem, 1.8vw, 0.92rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    line-height: 2;
+  }
+  .z-card--hero .z-enter-btn {
+    align-self: flex-start;
+    font-family: var(--mono);
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    color: rgba(220,185,90,0.5);
+    border: 1px solid rgba(220,185,90,0.3);
+    padding: 5px 14px;
+    text-transform: uppercase;
+    transition: color .15s, border-color .15s;
+  }
+
+  /* ── 第二层网格（三栏） ── */
+  .z-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gold-border);
+    margin-bottom: 0.6rem;
+  }
+
+  .z-card {
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: background .18s;
+    position: relative;
+  }
+  .z-card:hover { background: rgba(220,185,90,0.04); }
+  .z-card:hover .z-name { color: var(--gold); }
+  .z-card:hover .z-enter-btn { border-color: var(--gold); color: var(--gold); }
+
+  /* 占位图 */
+  .z-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0e0e0e;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  /* 实际图片 — 照片用 cover，logo 加 class="logo" 用 contain + 少量 padding */
+  .z-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) brightness(0.88);
+    transition: filter .2s;
+  }
+  .z-img img.logo {
+    object-fit: contain;
+    padding: 12%;
+    background: transparent;
+  }
+  /* 镂空背景：让星空透出来 */
+  .z-img--reveal {
+    background: transparent !important;
+  }
+  .z-card:hover .z-img img { filter: grayscale(0%) brightness(1); }
+
+  .z-img-num {
+    position: absolute;
+    right: 0.8rem; bottom: -0.2rem;
+    font-family: var(--serif-en);
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-weight: 400;
+    color: rgba(220,185,90,0.18);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+  .z-img-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(220,185,90,0.25), transparent);
+  }
+  /* 进行中：金色左竖线 */
+  .z-card.active .z-img::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 2px; height: 100%;
+    background: linear-gradient(180deg, var(--gold), transparent);
+  }
+
+  /* 状态徽标 */
+  .z-badge {
+    position: absolute;
+    top: 0.6rem; left: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.45rem;
+    letter-spacing: 0.16em;
+    padding: 2px 7px;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+  .z-badge.active  { border: 1px solid rgba(220,185,90,0.4); color: rgba(220,185,90,0.7); }
+
+  /* 卡片内容 */
+  .z-body {
+    padding: 1rem 1rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.55rem;
+  }
+  .z-name {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.88rem, 2vw, 1rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.92);
+    transition: color .15s;
+    line-height: 1.5;
+  }
+  .z-intro {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.75rem, 1.6vw, 0.82rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.9;
+    flex: 1;
+  }
+  .z-enter-btn {
+    align-self: flex-start;
+    margin-top: 0.4rem;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    color: rgba(255,255,255,0.42);
+    border: 1px solid rgba(255,255,255,0.18);
+    padding: 4px 10px;
+    text-transform: uppercase;
+    transition: color .15s, border-color .15s;
+  }
+
+  /* ── 预告分隔线 ── */
+  .z-seclabel-preview {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.28em;
+    color: rgba(220,185,90,0.3);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+  }
+  .z-seclabel-preview::before, .z-seclabel-preview::after {
+    content: ''; flex: 1; height: 1px; background: rgba(220,185,90,0.08);
+  }
+
+  /* ── 预告块（5-8合并） ── */
+  .z-preview-block {
+    border: 1px solid rgba(220,185,90,0.1);
+    background: #080808;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.6rem;
+    padding: 2.2rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .z-preview-block::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(220,185,90,0.03) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(220,185,90,0.02) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .z-preview-item {
+    padding: 0 1.2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .z-preview-item + .z-preview-item {
+    border-left: 1px solid rgba(220,185,90,0.08);
+  }
+  .z-preview-num {
+    font-family: var(--serif-en);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    color: rgba(220,185,90,0.65);
+  }
+  .z-preview-title {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.7;
+  }
+  .z-preview-desc {
+    font-family: var(--serif-cn);
+    font-size: clamp(0.7rem, 1.4vw, 0.76rem);
+    font-weight: 300;
+    color: rgba(255,255,255,0.52);
+    line-height: 1.85;
+    flex: 1;
+  }
+  .z-preview-tag {
+    font-family: var(--mono);
+    font-size: 0.42rem;
+    letter-spacing: 0.18em;
+    color: rgba(220,185,90,0.45);
+    text-transform: uppercase;
+    margin-top: auto;
+    padding-top: 0.6rem;
+  }
+  .z-preview-coming {
+    position: absolute;
+    right: 0; top: 0;
+    font-family: var(--mono);
+    font-size: clamp(4rem, 10vw, 7rem);
+    color: rgba(220,185,90,0.025);
+    line-height: 1;
+    user-select: none;
+    letter-spacing: -0.04em;
+  }
+
+  @media (max-width: 680px) {
+    .z-card--hero { flex-direction: column; }
+    .z-card--hero .z-img { width: 100%; min-height: 160px; }
+    .z-grid { grid-template-columns: 1fr; }
+    .z-preview-block { grid-template-columns: repeat(2, 1fr); }
+    .z-preview-item:nth-child(3) { border-left: none; border-top: 1px solid rgba(220,185,90,0.08); }
+    .z-preview-item:nth-child(2), .z-preview-item:nth-child(4) { border-top: none; }
+    .z-preview-item { padding: 0.8rem 0.8rem; }
+    .z-img-num { font-size: 3.5rem; }
+    .hero-frame { padding: 2.5rem 1rem; }
+    .hero-frame::before { background: var(--bg); }
+    .hero-frame::after { background: var(--bg); }
+  }
+
+  /* ── 动态 ── */
+  .growth { padding: 1.8rem 0 3rem; }
+  .g-seclabel {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.28em;
+    color: rgba(220,185,90,0.4); display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .g-seclabel::before, .g-seclabel::after { content: ''; flex: 1; height: 1px; background: rgba(220,185,90,0.1); }
+  .g-list { list-style: none; }
+  .g-item {
+    display: flex; gap: 1.2rem; align-items: baseline;
+    padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .g-date { font-family: var(--mono); font-size: 0.52rem; color: rgba(220,185,90,0.25); flex-shrink: 0; width: 4rem; }
+  .g-title { font-family: var(--serif-cn); font-size: clamp(0.78rem, 1.8vw, 0.85rem); font-weight: 300; color: rgba(255,255,255,0.38); line-height: 1.6; }
+
+  /* ── Footer ── */
+  .foot {
+    border-top: 1px solid var(--gold-border);
+    padding: 1.4rem 0 2.8rem;
+  }
+  .foot .w { display: flex; justify-content: space-between; align-items: center; }
+  .f-fb {
+    font-family: var(--mono); font-size: 0.55rem; color: rgba(220,185,90,0.25);
+    text-decoration: none; letter-spacing: 0.15em;
+    display: flex; align-items: center; gap: 0.4rem; transition: color .15s;
+  }
+  .f-fb:hover { color: var(--gold); }
+  .f-fb svg { width: 12px; height: 12px; fill: currentColor; }
+  .f-mark { font-family: var(--mono); font-size: 0.5rem; color: rgba(220,185,90,0.15); letter-spacing: 0.18em; }
 
   @media (max-width: 560px) {
-    footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
-    .site-title { font-size: 2.6rem; }
-    header { flex-wrap: wrap; }
+    .z-grid { grid-template-columns: 1fr; }
+    .z-img-num { font-size: 3.5rem; }
+    .hero-frame { padding: 2.5rem 1rem; }
+    .hero-frame::before { background: var(--bg); }
+    .hero-frame::after { background: var(--bg); }
   }
 </style>
 
-<header>
-  <div class="site-title-block">
-    <span class="site-index-word">Index</span>
-    <h1 class="site-title"><span class="num-50">50</span>&thinsp;·&thinsp;资讯有序</h1>
-    <p class="site-tagline">你的资讯，有序可查。<br>网页收益 50% 捐助浪浪与残障支援等。</p>
-  </div>
-  <a class="inquiry-link" href="contact.html">联络我们</a>
-</header>
+<div class="home">
 
-<section class="latest-section">
-  <p class="section-label">最新资讯</p>
-  <ul class="entry-list">
-
-<li>
-  <a class="entry-item" href="cintahaiwan-event-260517.html">
-    <span class="entry-index">MAY<br>18</span>
-    <div class="entry-body">
-      <div class="entry-meta">
-        <span class="entry-tag event">活动</span>
-        <span class="entry-client">马来西亚动物声援会</span>
-        <span class="entry-state">霹雳州</span>
-      </div>
-      <p class="entry-title">2026年全国代表大会暨理事会改选圆满举行 · 正式迈入「五年制」新时代</p>
-      <p class="entry-desc">本会顺利完成新届中央理事会改选，首次采用「五年制」任期制度，陈文辉连任总会长。</p>
+  <div class="topbar">
+    <div class="w">
+      <span class="topbar-brand">Index 50 · 资讯有序</span>
+      <a class="topbar-contact" href="contact.html">联络我们</a>
     </div>
-  </a>
-</li>
-    
-    <li>
-    <a class="entry-item" href="cintahaiwan-service-260512.html">
-      <span class="entry-index">MAY<br>13</span>
-      <div class="entry-body">
-        <div class="entry-meta">
-          <span class="entry-tag volunteer">志愿服务</span>
-          <span class="entry-client">马来西亚动物声援会</span>
-          <span class="entry-state">霹雳州</span>
-        </div>
-        <p class="entry-title">【慎入】志工队埋猫行动 · 主人相伴，志工同行，以爱送别每一个离去的生命</p>
-        <p class="entry-desc">本会志工队日前展开埋猫行动,由执行队长陈文辉与猫只主人一同执行任务。</p>
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <a class="entry-item" href="cintahaiwan-service-260510.html">
-      <span class="entry-index">MAY<br>13</span>
-      <div class="entry-body">
-        <div class="entry-meta">
-          <span class="entry-tag volunteer">志愿服务</span>
-          <span class="entry-client">马来西亚动物声援会</span>
-          <span class="entry-state">霹雳州</span>
-        </div>
-        <p class="entry-title">【慎入】志工队埋狗行动 · 每一个离去的生命，都值得被温柔以待</p>
-        <p class="entry-desc">本会志工队展开埋狗行动,由副队长潘家凯与执行队长陈文辉共同前往现场执行任务。</p>
-      </div>
-    </a>
-  </li>
-
-    <li>
-    <a class="entry-item" href="cintahaiwan-service-260509.html">
-      <span class="entry-index">MAY<br>13</span>
-      <div class="entry-body">
-        <div class="entry-meta">
-          <span class="entry-tag volunteer">志愿服务</span>
-          <span class="entry-client">马来西亚动物声援会</span>
-          <span class="entry-state">霹雳州</span>
-        </div>
-        <p class="entry-title">【慎入】志工队埋猫行动 · 志工队联手出动，以实际行动守护社区环境与动物尊严</p>
-        <p class="entry-desc">本会志工队日前展开埋猫行动,由副队长潘家凯与执行队长陈文辉共同前往现场执行任务。</p>
-      </div>
-    </a>
-  </li>
-
-    <li>
-    <a class="entry-item" href="cintahaiwan-service-260505.html">
-      <span class="entry-index">MAY<br>5</span>
-      <div class="entry-body">
-        <div class="entry-meta">
-          <span class="entry-tag volunteer">志愿服务</span>
-          <span class="entry-client">马来西亚动物声援会</span>
-          <span class="entry-state">霹雳州</span>
-        </div>
-        <p class="entry-title">【慎入】志工队埋蛇行动 · 此次行动体现了志工队对各类生命的尊重与对社区环境的责任。</p>
-        <p class="entry-desc">本会志工队日前展开埋蛇行动,由执行队长陈文辉前往现场执行任务。</p>
-      </div>
-    </a>
-  </li>
-    
-    <li>
-      <a class="entry-item" href="shenjai-footprint.html">
-        <span class="entry-index">MAY<br>5</span>
-        <div class="entry-body">
-          <div class="entry-meta">
-            <span class="entry-tag monthly">内容分享</span>
-            <span class="entry-client">霹雳深斋校友会</span>
-            <span class="entry-state">霹雳州</span>
-          </div>
-          <p class="entry-title">霹雳深斋校友会·对外足迹</p>
-          <p class="entry-desc">散落于各媒体的相关报道，汇整于此，按时间排列，持续更新。</p>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="entry-item" href="shenjai-intro.html">
-        <span class="entry-index">MAY<br>5</span>
-        <div class="entry-body">
-          <div class="entry-meta">
-            <span class="entry-tag monthly">内容分享</span>
-            <span class="entry-client">霹雳深斋校友会</span>
-            <span class="entry-state">霹雳州</span>
-          </div>
-          <p class="entry-title">凝聚与传承：霹雳深斋校友会的角色</p>
-          <p class="entry-desc">霹雳深斋校友会，是由怡保深斋中学校友组成的组织，会所设于霹雳怡保。</p>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="entry-item" href="report-2026-04.html">
-        <span class="entry-index">MAY<br>4</span>
-        <div class="entry-body">
-          <div class="entry-meta">
-            <span class="entry-tag monthly">月季报告</span>
-            <span class="entry-client">Index 50</span>
-            <span class="entry-state">霹雳州</span>
-          </div>
-          <p class="entry-title">Index 50 · 2026年4月月报</p>
-          <p class="entry-desc">建档首月</p>
-        </div>
-      </a>
-    </li>
-
-  </ul>
-  <div class="view-all-row">
-    <a class="view-all-link" href="entries-service.html">查看所有资讯 →</a>
   </div>
-</section>
 
-<nav class="cat-nav">
-  <p class="cat-nav-label">机构分类</p>
-  <div class="cat-links">
-    <a class="cat-link" href="category-biz.html">商业机构</a>
-    <a class="cat-link" href="category-huatuan.html">华团</a>
-    <a class="cat-link" href="category-volunteer.html">志愿力量</a>
-    <a class="cat-link cat-link-more" href="#">更多类型陆续收录中<br>敬请期待</a>
+  <div class="hero">
+    <div class="w">
+      <div class="hero-frame">
+        <span class="hero-kicker"><span>◆</span> Malaysia · Est. 2026 <span>◆</span></span>
+        <span class="hero-index">INDEX</span>
+        <span class="hero-num">50</span>
+        <span class="hero-tagline">资&ensp;讯&ensp;有&ensp;序</span>
+        <span class="hero-sep">· · ·</span>
+        <p class="hero-intro">持续整理那些不会被主流互联网长期维护，但值得存在的现实信息。</p>
+        <div class="hero-strip">
+          <div class="hero-strip-item">专题<span class="hero-strip-val">4 进行中</span></div>
+          <div class="hero-strip-item">性质<span class="hero-strip-val">长期归档</span></div>
+          <div class="hero-strip-item">公益<span class="hero-strip-val">收益 50% 捐助</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-</nav>
 
-<footer>
-  <p class="about-text">宣传资讯发完就被刷掉？这里的资讯有序存档，随时可查。</p>
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.6rem;flex-shrink:0;white-space:nowrap;">
-    <a class="footer-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      Facebook
-    </a>
-    <span class="footer-mark">INDEX 50 · v2</span>
+  <div class="zhuanti">
+    <div class="w">
+
+      <div class="z-seclabel">正在进行的专题</div>
+
+      <!-- ▌层级一：主主专题 01 ── 全宽横排 -->
+      <div class="z-hero-wrapper">
+        <a class="z-card--hero" href="information-structure.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779898964/zxjg00.png" alt="何谓资讯有序" loading="lazy">
+            <span class="z-img-num">01</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">何谓资讯有序，而且，为什么我们需要它？</span>
+            <span class="z-intro">主流互联网擅长制造洪流，也擅长制造遗忘。而我们用信息架构来对抗遗忘。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- ▌层级二：02 / 03 / 04 ── 三栏 -->
+      <div class="z-grid">
+
+        <!-- 2 机构资讯存档 -->
+        <a class="z-card active" href="category-huatuan.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779899866/jgztzy00.png" alt="机构资讯存档" loading="lazy">
+            <span class="z-img-num">02</span>
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">机构资讯存档</span>
+            <span class="z-intro">地方组织、民间团体与华团的动态、公告及历史资料，一站式查阅。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+
+        <!-- 3 马来西亚动物声援会 -->
+        <a class="z-card active" href="cintahaiwan.html">
+          <div class="z-img z-img--reveal">
+            <span class="z-badge active">进行中</span>
+            <img class="logo" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1778835982/cintahaiwan-logo.jpg" alt="马来西亚动物声援会" loading="lazy">
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">马来西亚动物声援会</span>
+            <span class="z-intro">巡逻日志、善终现场记录、季度月报与志工行动轨迹。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+
+        <!-- 4 霹雳深斋校友会 -->
+        <a class="z-card active" href="shenjai.html">
+          <div class="z-img">
+            <span class="z-badge active">进行中</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779871076/shenjai-logo_3.jpg" alt="霹雳深斋校友会" loading="lazy">
+            <span class="z-img-line"></span>
+          </div>
+          <div class="z-body">
+            <span class="z-name">霹雳深斋校友会</span>
+            <span class="z-intro">媒体报道集、校友网络时间线、对外活动足迹与华团历史痕迹。</span>
+            <span class="z-enter-btn">进入专题 →</span>
+          </div>
+        </a>
+
+      </div><!-- /z-grid tier2 -->
+
+      <!-- ▌预告 -->
+      <div class="z-seclabel-preview">专题预告</div>
+
+      <!-- 05–08 合并预告块 -->
+      <div class="z-preview-block">
+        <span class="z-preview-coming">SOON</span>
+        <div class="z-preview-item">
+          <span class="z-preview-num">05</span>
+          <span class="z-preview-title">AI 的幻觉美学</span>
+          <span class="z-preview-desc">AI 废话文学：为什么它总是给你那些看起来正确，却偏离轨道的回答？</span>
+          <span class="z-preview-tag">即将开放</span>
+        </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">06</span>
+          <span class="z-preview-title">电话亭魅影</span>
+          <span class="z-preview-desc">影视里的电话亭、杀人事件现场、以及悬疑片为什么反复回到这个地方。</span>
+          <span class="z-preview-tag">即将开放</span>
+        </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">07</span>
+          <span class="z-preview-title">以地之名</span>
+          <span class="z-preview-desc">它曾是主角。最终，它退化成了一个布景板，一个气氛工具，仅此而已。</span>
+          <span class="z-preview-tag">即将开放</span>
+        </div>
+        <div class="z-preview-item">
+          <span class="z-preview-num">08</span>
+          <span class="z-preview-title">阅读现场：《最小阻力之路》</span>
+          <span class="z-preview-desc">Robert Fritz 的创作结构理论：你的生活形态，由你看不见的张力决定。</span>
+          <span class="z-preview-tag">即将开放</span>
+        </div>
+      </div><!-- /z-preview-block -->
+
+    </div>
   </div>
-</footer>
+
+  <div class="foot">
+    <div class="w">
+      <a class="f-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <span class="f-mark">INDEX 50 · V3 · 2026</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.id = 'starCanvas';
+  document.body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  var W, H;
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = [];
+    var count = Math.floor((W * H) / 6000);
+    for (var i = 0; i < count; i++) {
+      stars.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.2 + 0.2,
+        a: Math.random() * 0.7 + 0.15,
+        speed: Math.random() * 0.004 + 0.001,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+  }
+
+  function draw(t) {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      var alpha = s.a * (0.6 + 0.4 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  initStars();
+  window.addEventListener('resize', function(){ resize(); initStars(); });
+  requestAnimationFrame(draw);
+})();
+</script>

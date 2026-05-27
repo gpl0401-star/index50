@@ -1,0 +1,388 @@
+---
+layout: default
+title: 资讯结构 · 专题 · Index 50
+custom_header: true
+---
+<style>
+  :root {
+    --gold: #dbb94e;
+    --gold-dim: rgba(220,185,90,0.55);
+    --gold-muted: rgba(220,185,90,0.3);
+    --gold-border: rgba(220,185,90,0.25);
+    --bg: #0a0a0a;
+    --text: rgba(255,255,255,0.82);
+  }
+
+  body { background: #0a0a0a !important; color: var(--text) !important; }
+
+  .zt-page {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif-cn);
+    overflow-x: hidden;
+  }
+
+  #starCanvas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0; pointer-events: none;
+  }
+  .zt-page > * { position: relative; z-index: 1; }
+
+  .w  { max-width: 820px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ── 顶栏 ── */
+  .topbar { border-bottom: 1px solid var(--gold-border); padding: 1.1rem 0; }
+  .topbar .w { display: flex; justify-content: space-between; align-items: center; }
+  .topbar-brand {
+    font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em;
+    color: var(--gold-dim); text-transform: uppercase; text-decoration: none;
+  }
+  .topbar-brand:hover { color: var(--gold); }
+  .topbar-back {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+    color: var(--gold-muted); text-decoration: none;
+    border: 1px solid var(--gold-border); padding: 4px 12px; transition: all .2s;
+  }
+  .topbar-back:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ── 专题头部 ── */
+  .zt-header {
+    padding: 3.5rem 0 2.8rem;
+    border-bottom: 1px solid var(--gold-border);
+    background: linear-gradient(180deg, rgba(220,185,90,0.04) 0%, transparent 80%);
+  }
+  .zt-header .w { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: end; }
+  .zt-num {
+    font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.4em;
+    color: rgba(220,185,90,0.55); display: block; margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  .zt-title {
+    font-family: var(--serif-cn); font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 300; color: rgba(255,255,255,0.95);
+    letter-spacing: 0.15em; line-height: 1.2; margin-bottom: 1.2rem;
+  }
+  .zt-desc {
+    font-family: var(--serif-cn); font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    font-weight: 300; color: rgba(255,255,255,0.58);
+    line-height: 2; max-width: 520px;
+  }
+  .zt-stats {
+    display: flex; flex-direction: column; gap: 1rem;
+    align-items: flex-end; text-align: right;
+    flex-shrink: 0;
+  }
+  .zt-stat {
+    font-family: var(--mono); font-size: 0.48rem;
+    letter-spacing: 0.2em; color: rgba(220,185,90,0.4);
+    text-transform: uppercase;
+  }
+  .zt-stat span {
+    display: block; font-family: var(--serif-cn);
+    font-size: 0.82rem; color: rgba(255,255,255,0.65);
+    letter-spacing: 0.05em; text-transform: none; margin-top: 0.2rem;
+  }
+
+  /* ── 关于本专题 ── */
+  .zt-about {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(220,185,90,0.1);
+  }
+  .zt-about-inner {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0 3rem;
+    align-items: start;
+  }
+  .zt-about-label {
+    font-family: var(--mono); font-size: 0.52rem;
+    letter-spacing: 0.28em; color: rgba(220,185,90,0.45);
+    text-transform: uppercase; padding-top: 0.2rem;
+  }
+  .zt-about-text {
+    font-family: var(--serif-cn); font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    font-weight: 300; color: rgba(255,255,255,0.65);
+    line-height: 2.1;
+  }
+  .zt-about-text p { margin-bottom: 1.2em; }
+  .zt-about-text p:last-child { margin-bottom: 0; }
+
+  /* ── 核心概念小结 ── */
+  .zt-concepts {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(220,185,90,0.1);
+  }
+  .zt-concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(220,185,90,0.1);
+    margin-top: 1.5rem;
+  }
+  .zt-concept-item {
+    background: var(--bg);
+    padding: 1.4rem 1.2rem;
+  }
+  .zt-concept-term {
+    font-family: var(--serif-cn); font-size: 0.95rem; font-weight: 400;
+    color: var(--gold); letter-spacing: 0.1em;
+    display: block; margin-bottom: 0.6rem;
+  }
+  .zt-concept-desc {
+    font-family: var(--serif-cn); font-size: clamp(0.75rem, 1.5vw, 0.82rem);
+    font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.9;
+  }
+
+  /* ── 文章索引 ── */
+  .zt-index { padding: 2.5rem 0 4rem; }
+  .zt-index-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(220,185,90,0.15);
+  }
+  .zt-index-label {
+    font-family: var(--mono); font-size: 0.52rem;
+    letter-spacing: 0.3em; color: rgba(220,185,90,0.55);
+    text-transform: uppercase;
+  }
+  .zt-index-count {
+    font-family: var(--mono); font-size: 0.48rem;
+    letter-spacing: 0.15em; color: rgba(255,255,255,0.25);
+  }
+
+  .zt-article-list { list-style: none; }
+
+  .zt-article {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .zt-article a {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr auto;
+    gap: 0 1.4rem;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    text-decoration: none; color: inherit;
+    transition: background .15s;
+  }
+  .zt-article a:hover { background: rgba(220,185,90,0.03); }
+  .zt-article a:hover .zt-article-title { color: var(--gold); }
+
+  .zt-article-num {
+    font-family: var(--mono); font-size: 0.5rem;
+    letter-spacing: 0.2em; color: rgba(220,185,90,0.45);
+    flex-shrink: 0;
+  }
+  .zt-article-body { min-width: 0; }
+  .zt-article-title {
+    font-family: var(--serif-cn); font-size: clamp(0.88rem, 2vw, 1rem);
+    font-weight: 400; color: rgba(255,255,255,0.88);
+    line-height: 1.5; transition: color .15s;
+    display: block; margin-bottom: 0.3rem;
+  }
+  .zt-article-desc {
+    font-family: var(--serif-cn); font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+    font-weight: 300; color: rgba(255,255,255,0.42); line-height: 1.8;
+    display: block;
+  }
+  .zt-article-date {
+    font-family: var(--mono); font-size: 0.45rem;
+    letter-spacing: 0.1em; color: rgba(255,255,255,0.22);
+    flex-shrink: 0; white-space: nowrap;
+  }
+
+  /* 占位文章（未发布）*/
+  .zt-article.pending a {
+    pointer-events: none; opacity: 0.35;
+  }
+  .zt-article.pending .zt-article-date::before { content: '筹备中'; }
+
+  /* ── Footer ── */
+  .foot { border-top: 1px solid var(--gold-border); padding: 1.4rem 0 2.8rem; }
+  .foot .w { display: flex; justify-content: space-between; align-items: center; }
+  .f-fb {
+    font-family: var(--mono); font-size: 0.55rem; color: rgba(220,185,90,0.4);
+    text-decoration: none; letter-spacing: 0.15em;
+    display: flex; align-items: center; gap: 0.4rem; transition: color .15s;
+  }
+  .f-fb:hover { color: var(--gold); }
+  .f-fb svg { width: 12px; height: 12px; fill: currentColor; }
+  .f-mark { font-family: var(--mono); font-size: 0.5rem; color: rgba(220,185,90,0.2); letter-spacing: 0.18em; }
+
+  @media (max-width: 600px) {
+    .zt-header .w { grid-template-columns: 1fr; }
+    .zt-stats { flex-direction: row; align-items: flex-start; text-align: left; }
+    .zt-about-inner { grid-template-columns: 1fr; gap: 0.8rem; }
+    .zt-concepts-grid { grid-template-columns: 1fr; }
+    .zt-article a { grid-template-columns: 3.5rem 1fr; }
+    .zt-article-date { display: none; }
+  }
+</style>
+
+<div class="zt-page">
+
+  <div class="topbar">
+    <div class="w">
+      <a class="topbar-brand" href="/">Index 50 · 资讯有序</a>
+      <a class="topbar-back" href="/">← 返回主页</a>
+    </div>
+  </div>
+
+  <!-- 专题头部 -->
+  <div class="zt-header">
+    <div class="w">
+      <div>
+        <span class="zt-num">专题 · 01</span>
+        <h1 class="zt-title">资讯结构</h1>
+        <p class="zt-desc">一则资讯，在什么条件下才算是有结构的？结构为什么重要，又为什么大多数现实资讯会在时间里失去它。</p>
+      </div>
+      <div class="zt-stats">
+        <div class="zt-stat">性质<span>概念专题</span></div>
+        <div class="zt-stat">状态<span>进行中</span></div>
+        <div class="zt-stat">建立<span>2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 关于本专题 -->
+  <div class="zt-about">
+    <div class="w">
+      <div class="zt-about-inner">
+        <span class="zt-about-label">关于本专题</span>
+        <div class="zt-about-text">
+          <p>资讯结构，不是格式，也不是技术问题。它是一个选择——选择哪些现实值得被有序保存，并且以一种在时间里还能被找到、被辨认、被延续使用的方式留下来。</p>
+          <p>大多数在互联网上流通的资讯，不满足这三件事中的任何一件。它们大量存在，却大量地无效。这个专题持续探讨资讯结构的意义、条件，以及它在实践层面意味着什么。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心概念 -->
+  <div class="zt-concepts">
+    <div class="w">
+      <div class="zt-about-inner">
+        <span class="zt-about-label">核心概念</span>
+        <div class="zt-concepts-grid">
+          <div class="zt-concept-item">
+            <span class="zt-concept-term">可找到</span>
+            <span class="zt-concept-desc">存在于一个可以被进入的位置，不依赖某个人还在或某段关系还维持。</span>
+          </div>
+          <div class="zt-concept-item">
+            <span class="zt-concept-term">可辨认</span>
+            <span class="zt-concept-desc">有足够的脉络，让读到它的人能判断来源、时间、性质与可信度。</span>
+          </div>
+          <div class="zt-concept-item">
+            <span class="zt-concept-term">可延续</span>
+            <span class="zt-concept-desc">不依赖某个平台还开、某个人还活跃，就能继续存在并被使用。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 文章索引 -->
+  <div class="zt-index">
+    <div class="w">
+      <div class="zt-index-head">
+        <span class="zt-index-label">文章</span>
+        <span class="zt-index-count">3 篇 · 持续增加</span>
+      </div>
+
+      <ul class="zt-article-list">
+
+        <li class="zt-article">
+          <a href="#">
+            <span class="zt-article-num">001</span>
+            <div class="zt-article-body">
+              <span class="zt-article-title">资讯本身不会消失，但它的可用性会</span>
+              <span class="zt-article-desc">从一家关门的茶室说起——什么叫做资讯失去结构。</span>
+            </div>
+            <span class="zt-article-date">2026.05</span>
+          </a>
+        </li>
+
+        <li class="zt-article">
+          <a href="#">
+            <span class="zt-article-num">002</span>
+            <div class="zt-article-body">
+              <span class="zt-article-title">三个条件，缺一不可</span>
+              <span class="zt-article-desc">可找到、可辨认、可延续：一则资讯要有结构，需要同时满足这三件事。</span>
+            </div>
+            <span class="zt-article-date">2026.05</span>
+          </a>
+        </li>
+
+        <li class="zt-article">
+          <a href="#">
+            <span class="zt-article-num">003</span>
+            <div class="zt-article-body">
+              <span class="zt-article-title">主流互联网为什么不维护这类资讯</span>
+              <span class="zt-article-desc">没有流量就没有维护动力——这不是平台的错，是它的本质。</span>
+            </div>
+            <span class="zt-article-date">2026.05</span>
+          </a>
+        </li>
+
+        <li class="zt-article pending">
+          <a href="#">
+            <span class="zt-article-num">004</span>
+            <div class="zt-article-body">
+              <span class="zt-article-title">结构是一种对现实负责的姿态</span>
+              <span class="zt-article-desc">当有人决定把一件事放在可以被找到的地方，这个动作本身意味着什么。</span>
+            </div>
+            <span class="zt-article-date"></span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="w">
+      <a class="f-fb" href="https://www.facebook.com/profile.php?id=61572096582084" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <span class="f-mark">INDEX 50 · V3 · 2026</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var canvas = document.createElement('canvas');
+  canvas.id = 'starCanvas';
+  document.body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  var W, H;
+  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function initStars() {
+    stars = [];
+    var count = Math.floor((W * H) / 6000);
+    for (var i = 0; i < count; i++) {
+      stars.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*1.2+0.2,
+        a: Math.random()*0.7+0.15, speed: Math.random()*0.004+0.001, phase: Math.random()*Math.PI*2 });
+    }
+  }
+  function draw(t) {
+    ctx.clearRect(0,0,W,H);
+    for (var i=0;i<stars.length;i++) {
+      var s=stars[i], alpha=s.a*(0.6+0.4*Math.sin(t*s.speed+s.phase));
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(255,255,255,'+alpha+')'; ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); initStars();
+  window.addEventListener('resize',function(){resize();initStars();});
+  requestAnimationFrame(draw);
+})();
+</script>
