@@ -259,7 +259,13 @@ custom_header: true
     transition: filter .2s;
   }
   .z-img img.logo {
-    object-fit: cover;
+    object-fit: contain;
+    padding: 12%;
+    background: transparent;
+  }
+  /* 镂空背景：让星空透出来 */
+  .z-img--reveal {
+    background: transparent !important;
   }
   .z-card:hover .z-img img { filter: grayscale(0%) brightness(1); }
 
@@ -519,6 +525,7 @@ custom_header: true
         <a class="z-card--hero" href="information-structure.html">
           <div class="z-img">
             <span class="z-badge active">进行中</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779898964/zxjg00.png" alt="何谓资讯有序" loading="lazy">
             <span class="z-img-num">01</span>
             <span class="z-img-line"></span>
           </div>
@@ -537,6 +544,7 @@ custom_header: true
         <a class="z-card active" href="category-huatuan.html">
           <div class="z-img">
             <span class="z-badge active">进行中</span>
+            <img src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1779899866/jgztzy00.png" alt="机构资讯存档" loading="lazy">
             <span class="z-img-num">02</span>
             <span class="z-img-line"></span>
           </div>
@@ -549,7 +557,7 @@ custom_header: true
 
         <!-- 3 马来西亚动物声援会 -->
         <a class="z-card active" href="cintahaiwan.html">
-          <div class="z-img">
+          <div class="z-img z-img--reveal">
             <span class="z-badge active">进行中</span>
             <img class="logo" src="https://res.cloudinary.com/dzeytbg43/image/upload/q_auto/f_auto/v1778835982/cintahaiwan-logo.jpg" alt="马来西亚动物声援会" loading="lazy">
             <span class="z-img-line"></span>
